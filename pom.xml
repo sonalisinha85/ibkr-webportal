@@ -92,6 +92,9 @@
                         <configuration>
                             <testFailureIgnore>true</testFailureIgnore>
                             <suiteXmlFiles>target/surefire-reports/testng-failed.xml</suiteXmlFiles>
+                            <systemPropertyVariables>
+                                <RERUN>true</RERUN>
+                            </systemPropertyVariables>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -137,6 +140,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20200518</version>
         </dependency>
     </dependencies>
 
