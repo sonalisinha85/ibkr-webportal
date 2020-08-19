@@ -10,6 +10,7 @@ public class Login extends WebOperation {
 
     private String userName;
     private String password;
+
     public Login withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -22,31 +23,31 @@ public class Login extends WebOperation {
         return this;
     }
 
-    private WebElement textUserName(){
+    private WebElement textUserName() {
         return elementPresent(By.id("user_name"));
     }
 
-    private WebElement textPassword(){
+    private WebElement textPassword() {
         return elementPresent(By.id("password"));
     }
 
-    private WebElement buttonLogin(){
+    private WebElement buttonLogin() {
         return elementClickable(By.id("submitForm"));
     }
 
-    public Login withUserName(String userName){
+    public Login withUserName(String userName) {
 
         this.userName = userName;
         return this;
     }
 
-    public Login withPassword(String password){
+    public Login withPassword(String password) {
 
         this.password = password;
         return this;
     }
 
-    public Login login(){
+    public Login login() {
 
         reporter.createChild("Validate Login");
         textUserName().sendKeys(userName);

@@ -10,8 +10,6 @@ import java.util.List;
 
 public class EventModal extends Dashboard {
 
-    enum Action {Create, Yes, No, Cancel, Close}
-
     public EventModal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -48,7 +46,7 @@ public class EventModal extends Dashboard {
         return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
-    public EventModal addEvent(){
+    public EventModal addEvent() {
 
         buttonAddEvent().click();
         sleep(1000);
@@ -64,21 +62,21 @@ public class EventModal extends Dashboard {
         inputName().sendKeys(name);
         inputContact().sendKeys("test");
         sleep(500);
-        random(radioButtonsContact(),1).get(0).click();
+        random(radioButtonsContact(), 1).get(0).click();
         buttonAction(Action.Create).click();
         sleep(1000);
 
         reporter.assertChild(softly.assertThat(labelEventName(name).isDisplayed())
-                                .as(name + " Event is added in Calendar")
-                                .isEqualTo(true),
+                        .as(name + " Event is added in Calendar")
+                        .isEqualTo(true),
                 name + " Event is added in Calendar");
 
         return this;
     }
 
-    public EventModal editEvent(){
+    public EventModal editEvent() {
 
-        random(buttonEditEvent(),1).get(0).click();
+        random(buttonEditEvent(), 1).get(0).click();
         sleep(1000);
 
         reporter.createChild("Edit Event Validation")
@@ -100,4 +98,6 @@ public class EventModal extends Dashboard {
 
         return this;
     }
+
+    private enum Action {Create, Yes, No, Cancel, Close}
 }

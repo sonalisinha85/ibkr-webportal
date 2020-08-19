@@ -8,8 +8,6 @@ import reporter.TestReporter;
 
 public class AccountSettings extends Portal {
 
-    enum Configuration {White_Branding}
-
     public AccountSettings withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -27,10 +25,10 @@ public class AccountSettings extends Portal {
     }
 
     private WebElement buttonConfigure(Configuration configuration) {
-        return elementPresent(By.xpath("//strong[contains(text(),'" + configuration.toString().replaceAll("_"," ") + "')]/ancestor::p//i[@data-original-title='Configure']"));
+        return elementPresent(By.xpath("//strong[contains(text(),'" + configuration.toString().replaceAll("_", " ") + "')]/ancestor::p//i[@data-original-title='Configure']"));
     }
 
-    public AccountSettings configureWhiteBranding(){
+    public AccountSettings configureWhiteBranding() {
 
         menu(Menu.Settings).click();
         subMenu(SubMenu.Account_Settings).click();
@@ -52,4 +50,6 @@ public class AccountSettings extends Portal {
 
         return this;
     }
+
+    enum Configuration {White_Branding}
 }

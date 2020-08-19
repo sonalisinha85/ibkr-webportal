@@ -13,8 +13,6 @@ import java.util.List;
 
 public class DocumentModal extends Dashboard {
 
-    enum Action {Cancel, Upload}
-
     public DocumentModal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -76,7 +74,7 @@ public class DocumentModal extends Dashboard {
                         "Upload Document Label is present");
 
         inputContactName().sendKeys("test");
-        random(radioButtonsContact(),1).get(0).click();
+        random(radioButtonsContact(), 1).get(0).click();
         buttonUploadFile().click();
         sleep(1000);
         String filePath = Arrays.asList(this.getClass()
@@ -84,7 +82,7 @@ public class DocumentModal extends Dashboard {
                 .split("webportal")).get(0) + "webportal";
 
         new Robo()
-                .selectFile(filePath.substring(1),"Test.png");
+                .selectFile(filePath.substring(1), "Test.png");
         sleep(1000);
 
         buttonAction(Action.Upload).click();
@@ -94,4 +92,6 @@ public class DocumentModal extends Dashboard {
 
         return this;
     }
+
+    private enum Action {Cancel, Upload}
 }

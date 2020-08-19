@@ -10,8 +10,6 @@ import java.util.List;
 
 public class WorkflowModal extends Dashboard {
 
-    enum Action {Create, Save, Cancel}
-
     public WorkflowModal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -72,8 +70,8 @@ public class WorkflowModal extends Dashboard {
         sleep(1000);
         reporter.createChild("Add Workflow")
                 .assertChild(softly.assertThat(labelWorkflow("Add Workflow").isDisplayed())
-                        .as("Add Workflow Label is displayed")
-                        .isEqualTo(true),
+                                .as("Add Workflow Label is displayed")
+                                .isEqualTo(true),
                         "Add Workflow Label is displayed");
 
         inputAssociatedContact().sendKeys("test");
@@ -87,12 +85,12 @@ public class WorkflowModal extends Dashboard {
 
     public WorkflowModal editWorkflow() {
 
-        random(buttonsEditWorkflow(),1).get(0).click();
+        random(buttonsEditWorkflow(), 1).get(0).click();
         sleep(1000);
         reporter.createChild("Edit Workflow")
                 .assertChild(softly.assertThat(labelWorkflow("Edit Workflow").isDisplayed())
-                        .as("Edit Workflow Label is displayed")
-                        .isEqualTo(true),
+                                .as("Edit Workflow Label is displayed")
+                                .isEqualTo(true),
                         "Edit Workflow Label is displayed");
 
         inputDetails().clear();
@@ -105,7 +103,7 @@ public class WorkflowModal extends Dashboard {
 
     public WorkflowModal deleteWorkflow() {
 
-        random(buttonsDeleteWorkflow(),1).get(0).click();
+        random(buttonsDeleteWorkflow(), 1).get(0).click();
         sleep(500);
         reporter.createChild("Delete Workflow")
                 .childInfo("Workflow Deleted");
@@ -122,9 +120,11 @@ public class WorkflowModal extends Dashboard {
 
         reporter.createChild("View More Workflows")
                 .assertChild(softly.assertThat(listWorkflow().size())
-                        .as("More Workflows are displayed")
-                        .isGreaterThanOrEqualTo(size),
+                                .as("More Workflows are displayed")
+                                .isGreaterThanOrEqualTo(size),
                         "More Workflows are displayed");
         return this;
     }
+
+    private enum Action {Create, Save, Cancel}
 }

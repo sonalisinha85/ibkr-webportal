@@ -13,9 +13,7 @@ import java.util.List;
 
 public class StatementAuditModal extends Employee {
 
-    enum Action {View_Log, Review, Cancel, Yes, No}
-
-    List<String> listReviewStatus = new ArrayList(
+    private List<String> listReviewStatus = new ArrayList(
             Arrays.asList("Pending Review",
                     "Reviewed",
                     "Not Applicable"));
@@ -33,7 +31,6 @@ public class StatementAuditModal extends Employee {
     }
 
     private String panelReviewStatus(String reviewStatus) {
-
         return "//a[text()='" + reviewStatus + "']";
     }
 
@@ -109,7 +106,7 @@ public class StatementAuditModal extends Employee {
             sleep(500);
 
             int entryCount = 0;
-            if(isNotDisplayed(noReviewEntries(reviewStatus)))
+            if (isNotDisplayed(noReviewEntries(reviewStatus)))
                 entryCount = listReviewEntries(reviewStatus).size();
 
             reporter.assertChild(softly.assertThat(entryCount)
@@ -141,11 +138,13 @@ public class StatementAuditModal extends Employee {
         buttonAction(Action.Review).click();
         buttonAction(Action.Yes).click();
 
-        while(buttonOk().isDisplayed())
+        while (buttonOk().isDisplayed())
             buttonOk().click();
         sleep(1000);
         reporter.createChild("Review");
 
         return this;
     }
+
+    private enum Action {View_Log, Review, Cancel, Yes, No}
 }

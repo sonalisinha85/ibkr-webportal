@@ -23,35 +23,35 @@ public class Employee extends Portal {
         return this;
     }
 
-    protected List<WebElement> buttonsEmployeeDetails(){
+    private List<WebElement> buttonsEmployeeDetails() {
         return elementsPresent(By.xpath("//i[@data-original-title='Employee Details']"));
     }
 
-    protected WebElement buttonsStatementAudit(){
+    protected WebElement buttonsStatementAudit() {
         return elementPresent(By.xpath("//i[@data-original-title='Statement Audit']"));
     }
 
-    protected List<WebElement> buttonsEmployeeDelink(){
+    private List<WebElement> buttonsEmployeeDelink() {
         return elementsPresent(By.xpath("//i[@data-original-title='Delink']"));
     }
 
-    protected WebElement buttonAddComment(){
+    protected WebElement buttonAddComment() {
         return elementPresent(By.xpath("//section[div[span[text()='Comments']]]//i[@data-original-title='Add']"));
     }
 
-    private List<WebElement> listAccountNumber(){
+    private List<WebElement> listAccountNumber() {
         return elementsPresent(By.xpath("//td[contains(@ng-show,'acctNumber')]"));
     }
 
-    protected WebElement inputSearch(){
+    private WebElement inputSearch() {
         return elementPresent(By.xpath("//input[@name='filter_employeeSearchText']"));
     }
 
-    protected WebElement buttonCancelSearch(){
+    private WebElement buttonCancelSearch() {
         return elementPresent(By.xpath("//span[contains(@class,'input-group-addon')]/i[@class='fa fa-times']"));
     }
 
-    public Employee validateEmployeeViewAndAddComment(){
+    public Employee validateEmployeeViewAndAddComment() {
 
         sleep(1000);
         List<WebElement> accountNumbers = listAccountNumber();
@@ -63,12 +63,12 @@ public class Employee extends Portal {
 
         reporter.createChild("Search Employee")
                 .assertChild(softly.assertThat(listAccountNumber().size())
-                        .as("Employee List size")
-                        .isLessThanOrEqualTo(accountNumbers.size()),
+                                .as("Employee List size")
+                                .isLessThanOrEqualTo(accountNumbers.size()),
                         "Employee List size")
                 .assertChild(softly.assertThat(listAccountNumber().get(0).getText())
-                        .as("Correct Account Number is Listed in search result")
-                        .isEqualTo(accountNumber),
+                                .as("Correct Account Number is Listed in search result")
+                                .isEqualTo(accountNumber),
                         "Correct Account Number is Listed in search result");
 
         buttonCancelSearch().click();
@@ -84,7 +84,7 @@ public class Employee extends Portal {
         return this;
     }
 
-    public Employee validateStatementViewLog(){
+    public Employee validateStatementViewLog() {
 
         sleep(1000);
         buttonsStatementAudit().click();

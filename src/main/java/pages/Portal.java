@@ -9,7 +9,10 @@ import pages.menu.AccountSettings;
 import pages.menu.PortfolioAnalyst;
 import pages.menu.TransactionStatusAndHistory;
 import pages.menu.reports.OtherReports;
-import pages.tabs.*;
+import pages.tabs.Calendar;
+import pages.tabs.Dashboard;
+import pages.tabs.FeeAdmin;
+import pages.tabs.Groups;
 import pages.tabs.contacts.Contacts;
 import pages.tabs.tools.DataQueries;
 import pages.tabs.tools.RiskScores;
@@ -18,12 +21,9 @@ import reporter.TestReporter;
 public class Portal extends WebOperation {
 
     private String portalName;
-    protected enum Tabs {Dashboard,Contacts,Fee_Administration,Tools,Groups,Transaction_History,Calendar,Email};
-    protected enum Menu {Home,Trading,PortfolioAnalyst,Settings,Transfer_And_Pay};
-    protected enum SubMenu {Account_Settings,Transaction_Status_And_History};
 
     public Portal withPortalName(PortalName portalName) {
-        this.portalName = portalName.toString().replaceAll("_"," ");
+        this.portalName = portalName.toString().replaceAll("_", " ");
 
 //        if(this.portalName.contains("Broker")){
 //
@@ -34,10 +34,14 @@ public class Portal extends WebOperation {
         return this;
     }
 
+    ;
+
     public Portal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
     }
+
+    ;
 
     public Employee withEmployee() {
 
@@ -45,6 +49,8 @@ public class Portal extends WebOperation {
                 .withDriver(driver)
                 .withReporter(reporter);
     }
+
+    ;
 
     public Contacts withContacts() {
 
@@ -123,13 +129,6 @@ public class Portal extends WebOperation {
                 .withReporter(reporter);
     }
 
-    public ClientPortal withClientPortal() {
-
-        return new ClientPortal()
-                .withDriver(driver)
-                .withReporter(reporter);
-    }
-
     //    Method used to set instance of Reporter
     public Portal withReporter(TestReporter reporter) {
         super.reporter = reporter;
@@ -137,62 +136,69 @@ public class Portal extends WebOperation {
         return this;
     }
 
-    private WebElement labelPortal(){
+    private WebElement labelPortal() {
 
         return elementPresent(By.xpath("//h3[contains(text(),'" + portalName + "')]"));
     }
 
-    protected WebElement buttonNewAm(){
+    protected WebElement buttonNewAm() {
 
         switchFrame("footer");
         return elementPresent(By.xpath("//li[a[text()='New AM']]"));
     }
 
-    private WebElement buttonUserOption(){
+    private WebElement buttonUserOption() {
 
         return elementPresent(By.xpath("//user-options//span[@class='fa fa-angle-down']"));
     }
 
-    private WebElement buttonLogout(){
+    private WebElement buttonLogout() {
 
         return elementPresent(By.xpath("//i[contains(@class,'fa-sign-out')]"));
     }
 
-    protected WebElement tabs(Tabs tabs){
+    protected WebElement tabs(Tabs tabs) {
         return elementPresent(By.xpath("//a[@data-toggle='tab' and contains(text(),'"
-                + tabs.toString().replaceAll("_"," ") + "')]"));
+                + tabs.toString().replaceAll("_", " ") + "')]"));
     }
 
-    protected WebElement menu(Menu menu){
+    protected WebElement menu(Menu menu) {
         return elementPresent(By.xpath("//i[@data-original-title='"
-                + menu.toString().replaceAll("_"," ").replaceAll("And","&") + "']"));
+                + menu.toString().replaceAll("_", " ").replaceAll("And", "&") + "']"));
     }
 
-    protected WebElement menu(String menu){
+    protected WebElement menu(String menu) {
         return elementPresent(By.xpath("//i[@data-original-title='"
                 + menu + "']"));
     }
 
-    protected WebElement subMenu(SubMenu subMenu){
+    protected WebElement subMenu(SubMenu subMenu) {
         return elementPresent(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
-                "/a[contains(text(),'" + subMenu.toString().replaceAll("_"," ").replaceAll("And","&") + "')]"));
+                "/a[contains(text(),'" + subMenu.toString().replaceAll("_", " ").replaceAll("And", "&") + "')]"));
     }
 
-    public Portal validateLogin(){
+    public Portal validateLogin() {
 
         reporter.assertChild(softly.assertThat(labelPortal().isDisplayed())
                         .as("Successfully Logged Into " + portalName)
                         .isEqualTo(true),
-                        "Successfully Logged Into " + portalName);
+                "Successfully Logged Into " + portalName);
         return this;
     }
 
-    public Portal logout(){
+    public Portal logout() {
 
+        sleep(1000);
         buttonUserOption().click();
         sleep(200);
         buttonLogout().click();
         sleep(500);
         return this;
     }
+
+    protected enum Tabs {Dashboard, Contacts, Fee_Administration, Tools, Groups, Transaction_History, Calendar, Email}
+
+    protected enum Menu {Home, Trading, PortfolioAnalyst, Settings, Transfer_And_Pay}
+
+    protected enum SubMenu {Account_Settings, Transaction_Status_And_History}
 }

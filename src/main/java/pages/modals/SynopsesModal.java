@@ -8,8 +8,6 @@ import reporter.TestReporter;
 
 public class SynopsesModal extends PortfolioAnalyst {
 
-    enum Action {Save,Cancel,Edit,Yes,No,Close}
-
     public SynopsesModal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -42,7 +40,7 @@ public class SynopsesModal extends PortfolioAnalyst {
         return elementPresent(By.xpath("//textarea[@name='text']"));
     }
 
-    private WebElement buttonAction(Action action){
+    private WebElement buttonAction(Action action) {
         return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
@@ -50,7 +48,7 @@ public class SynopsesModal extends PortfolioAnalyst {
         return elementPresent(By.xpath("//span[contains(.,'" + name + "')]"));
     }
 
-    public SynopsesModal createSynopses(){
+    public SynopsesModal createSynopses() {
 
         buttonCreateSynopses().click();
         sleep(1000);
@@ -68,16 +66,16 @@ public class SynopsesModal extends PortfolioAnalyst {
         sleep(1000);
 
         reporter.assertChild(softly.assertThat(labelSynopsesName(name).isDisplayed())
-                                .as(name + " Synopses is created")
-                                .isEqualTo(true),
+                        .as(name + " Synopses is created")
+                        .isEqualTo(true),
                 name + " Synopses is created");
 
         return this;
     }
 
-    public SynopsesModal editSynopses(){
+    public SynopsesModal editSynopses() {
 
-        random(buttonsViewSynopses(),1).get(0).click();
+        random(buttonsViewSynopses(), 1).get(0).click();
         sleep(1000);
 
         buttonAction(Action.Edit).click();
@@ -90,16 +88,16 @@ public class SynopsesModal extends PortfolioAnalyst {
 
         reporter.createChild("Delete Synopses Validation")
                 .assertChild(softly.assertThat(labelSynopsesName(name).isDisplayed())
-                        .as(name + " Synopses is updated")
-                        .isEqualTo(true),
-                name + " Synopses is updated");
+                                .as(name + " Synopses is updated")
+                                .isEqualTo(true),
+                        name + " Synopses is updated");
 
         return this;
     }
 
-    public SynopsesModal deleteSynopses(){
+    public SynopsesModal deleteSynopses() {
 
-        random(buttonsDeleteSynopses(),1).get(0).click();
+        random(buttonsDeleteSynopses(), 1).get(0).click();
         sleep(1000);
 
         reporter.createChild("Delete Synopses Validation")
@@ -111,7 +109,7 @@ public class SynopsesModal extends PortfolioAnalyst {
         buttonAction(Action.No).click();
         sleep(1000);
 
-        random(buttonsDeleteSynopses(),1).get(0).click();
+        random(buttonsDeleteSynopses(), 1).get(0).click();
         sleep(1000);
         buttonAction(Action.Yes).click();
         sleep(1000);
@@ -126,4 +124,6 @@ public class SynopsesModal extends PortfolioAnalyst {
 
         return this;
     }
+
+    private enum Action {Save, Cancel, Edit, Yes, No, Close}
 }

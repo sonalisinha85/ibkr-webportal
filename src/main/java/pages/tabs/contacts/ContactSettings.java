@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ContactSettings extends Contacts {
 
-    List<String> columnsSettings = new ArrayList(
+    private List<String> columnsSettings = new ArrayList(
             Arrays.asList(
                     "Title",
                     "Contact",
@@ -34,11 +34,11 @@ public class ContactSettings extends Contacts {
         return this;
     }
 
-    protected List<WebElement> buttonsColumns() {
+    private List<WebElement> buttonsColumns() {
         return elementsPresent(By.xpath("//p[contains(@ng-repeat,'columnName')]/a"));
     }
 
-    protected WebElement buttonReset() {
+    private WebElement buttonReset() {
         return elementPresent(By.xpath("//p/a[text()='Reset']"));
     }
 
@@ -58,7 +58,7 @@ public class ContactSettings extends Contacts {
                     .as("Column is listed in Settings Menu")
                     .isIn(columnsSettings), colName + "is listed in Settings Menu");
 
-            if(!colName.equals("Accounts")){
+            if (!colName.equals("Accounts")) {
 
                 column.click();
                 sleep(500);

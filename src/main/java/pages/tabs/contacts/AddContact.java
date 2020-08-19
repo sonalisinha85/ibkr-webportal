@@ -18,47 +18,47 @@ public class AddContact extends Contacts {
         return this;
     }
 
-    protected WebElement labelAddContacts(){
+    private WebElement labelAddContacts() {
         return elementPresent(By.xpath("//h4[text()='Configure Contact Profile for Primary Account Holder']"));
     }
 
-    protected WebElement dropDownSalutation(){
+    private WebElement dropDownSalutation() {
         return elementPresent(By.xpath("//am-select[contains(@ng-model,'salutation')]/select"));
     }
 
-    protected WebElement inputFirstName(){
+    private WebElement inputFirstName() {
         return elementPresent(By.xpath("//input[@name='firstName']"));
     }
 
-    protected WebElement inputLastName(){
+    private WebElement inputLastName() {
         return elementPresent(By.xpath("//input[@name='lastName']"));
     }
 
-    protected WebElement inputPhoneNumber1(){
+    private WebElement inputPhoneNumber1() {
         return elementPresent(By.xpath("//input[@name='phoneNumber1']"));
     }
 
-    protected WebElement dropDownCountry(){
+    private WebElement dropDownCountry() {
         return elementPresent(By.xpath("//select[@name='country']"));
     }
 
-    protected WebElement buttonContinue(){
+    private WebElement buttonContinue() {
         return elementPresent(By.xpath("//div[@class='panel-btn-right']//am-button[@btn-text='Continue']"));
     }
 
-    protected WebElement labelReviewContactProfile(){
+    private WebElement labelReviewContactProfile() {
         return elementPresent(By.xpath("//h4[text()='Review Contact Profile']"));
     }
 
-    protected WebElement buttonOk(){
+    private WebElement buttonOk() {
         return elementPresent(By.xpath("//am-button[@btn-text='Ok']"));
     }
 
-    protected WebElement labelContactAdded(String label){
+    private WebElement labelContactAdded(String label) {
         return elementPresent(By.xpath("//h3[contains(text(),'" + label + "')]"));
     }
 
-    public AddContact addAndReviwContactForm(){
+    public AddContact addAndReviwContactForm() {
 
         reporter.createChild("Add Contacts")
                 .assertChild(softly.assertThat(labelAddContacts().isDisplayed())
@@ -69,11 +69,11 @@ public class AddContact extends Contacts {
         String firstName = "Regression";
         String lastName = "Test";
 
-        changeDropdown(dropDownSalutation(),"Mr.");
+        changeDropdown(dropDownSalutation(), "Mr.");
         inputFirstName().sendKeys(firstName);
         inputLastName().sendKeys(lastName);
         inputPhoneNumber1().sendKeys("2019770987");
-        changeDropdown(dropDownCountry(),"United States");
+        changeDropdown(dropDownCountry(), "United States");
         buttonContinue().click();
         sleep(500);
 
@@ -84,7 +84,7 @@ public class AddContact extends Contacts {
 
         buttonOk().click();
 
-        reporter.assertChild(softly.assertThat(labelContactAdded("Contact " + firstName + " " + lastName + " added." ).isDisplayed())
+        reporter.assertChild(softly.assertThat(labelContactAdded("Contact " + firstName + " " + lastName + " added.").isDisplayed())
                         .as("Contact added label is displayed")
                         .isEqualTo(true),
                 "Contact added label is displayed");

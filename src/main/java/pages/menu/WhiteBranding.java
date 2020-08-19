@@ -11,8 +11,6 @@ import java.util.Arrays;
 
 public class WhiteBranding extends AccountSettings {
 
-    enum Heading {Trader_Workstation}
-
     public WhiteBranding withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -38,10 +36,10 @@ public class WhiteBranding extends AccountSettings {
     }
 
     private WebElement buttonConfigure(Heading heading) {
-        return elementPresent(By.xpath("//section[div[span[text()='" + heading.toString().replaceAll("_"," ") + "']]]//i[@data-original-title='Configure']"));
+        return elementPresent(By.xpath("//section[div[span[text()='" + heading.toString().replaceAll("_", " ") + "']]]//i[@data-original-title='Configure']"));
     }
 
-    public WhiteBranding validateWhiteBranding(){
+    public WhiteBranding validateWhiteBranding() {
 
         reporter.createChild("White Branding Validation")
                 .assertChild(softly.assertThat(labelWhiteBranding().isDisplayed())
@@ -68,4 +66,6 @@ public class WhiteBranding extends AccountSettings {
 
         return this;
     }
+
+    enum Heading {Trader_Workstation}
 }

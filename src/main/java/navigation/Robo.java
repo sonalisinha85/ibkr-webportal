@@ -9,9 +9,9 @@ public class Robo {
 
     private Robot robot;
 
-    private Robot robot(){
+    private Robot robot() {
 
-        if(robot==null){
+        if (robot == null) {
             try {
                 robot = new Robot();
             } catch (AWTException e) {
@@ -21,7 +21,7 @@ public class Robo {
         return robot;
     }
 
-    public Robo copyPaste(String s){
+    public Robo copyPaste(String s) {
 
         sleep(500);
         StringSelection stringSelection = new StringSelection(s);
@@ -35,7 +35,7 @@ public class Robo {
         return this;
     }
 
-    public Robo selectFile(String path, String fileName){
+    public Robo selectFile(String path, String fileName) {
 
         copyPaste(fileName);
         robot().keyPress(KeyEvent.VK_CONTROL);
@@ -56,7 +56,7 @@ public class Robo {
         return this;
     }
 
-    public Robo type(String s){
+    public Robo type(String s) {
 
         byte[] bytes = s.getBytes();
 

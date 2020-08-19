@@ -48,7 +48,7 @@ public class TransactionStatusAndHistory extends Portal {
         return elementPresent(By.xpath("//div[@ng-if and @class='table-responsive']/table"));
     }
 
-    public TransactionStatusAndHistory validateTransactionHistory(){
+    public TransactionStatusAndHistory validateTransactionHistory() {
 
         menu(Menu.Transfer_And_Pay).click();
         sleep(500);
@@ -69,9 +69,9 @@ public class TransactionStatusAndHistory extends Portal {
         sleep(2000);
 
         reporter.assertChild(softly.assertThat(tableTransactionHistory().isDisplayed())
-                                .as("Transaction History is displayed")
-                                .isEqualTo(true),
-                        "Transaction History Label is displayed");
+                        .as("Transaction History is displayed")
+                        .isEqualTo(true),
+                "Transaction History Label is displayed");
         return this;
     }
 

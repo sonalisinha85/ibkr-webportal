@@ -10,8 +10,6 @@ import java.util.List;
 
 public class NotesModal extends Dashboard {
 
-    enum Action {Create, Yes, No, Cancel, Close}
-
     public NotesModal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -95,7 +93,7 @@ public class NotesModal extends Dashboard {
 
     public NotesModal editNotes() {
 
-        random(buttonsEditNotes(),1).get(0).click();
+        random(buttonsEditNotes(), 1).get(0).click();
         sleep(1000);
         reporter.createChild("Edit Notes")
                 .assertChild(softly.assertThat(labelNotes("Edit Note").isDisplayed())
@@ -113,7 +111,7 @@ public class NotesModal extends Dashboard {
 
     public NotesModal deleteNotes() {
 
-        random(buttonsDeleteNotes(),1).get(0).click();
+        random(buttonsDeleteNotes(), 1).get(0).click();
         sleep(500);
         reporter.createChild("Delete Notes")
                 .assertChild(softly.assertThat(labelNotes("Delete Note").isDisplayed())
@@ -149,4 +147,6 @@ public class NotesModal extends Dashboard {
                         "More Notes are displayed");
         return this;
     }
+
+    private enum Action {Create, Yes, No, Cancel, Close}
 }

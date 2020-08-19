@@ -4,9 +4,9 @@ import java.io.File;
 
 public class FileUtil {
 
-    public File getLatestFilefromDir(){
+    public File getLatestFilefromDir() {
 
-        File dir = new File("C:\\Users\\" + System.getProperty("user.name") + "\\Downloads" );
+        File dir = new File("C:\\Users\\" + System.getProperty("user.name") + "\\Downloads");
         File[] files = dir.listFiles();
         if (files == null || files.length == 0) {
             return null;

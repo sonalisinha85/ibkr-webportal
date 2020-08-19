@@ -22,15 +22,15 @@ public class Contacts extends Portal {
         return this;
     }
 
-    protected List<WebElement> buttonsViewContact() {
+    private List<WebElement> buttonsViewContact() {
         return elementsPresent(By.xpath("//section[@class='panel']//i[contains(@class,'fa-info-circle')]"));
     }
 
-    protected WebElement buttonAddContact() {
+    private WebElement buttonAddContact() {
         return elementPresent(By.xpath("//section[@class='panel']//i[@data-original-title='Add Contact']"));
     }
 
-    protected WebElement buttonAddContactByManualInput() {
+    private WebElement buttonAddContactByManualInput() {
         return elementPresent(By.xpath("//a[text()='Contact by Manual Input']"));
     }
 
@@ -50,7 +50,7 @@ public class Contacts extends Portal {
         return elementsPresent(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[1]"));
     }
 
-    protected List<WebElement> listColumnAccountNumber() {
+    private List<WebElement> listColumnAccountNumber() {
         return elementsPresent(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[2]"));
     }
 
@@ -58,11 +58,11 @@ public class Contacts extends Portal {
         return elementsPresent(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[3]"));
     }
 
-    protected WebElement inputSearchContact() {
+    private WebElement inputSearchContact() {
         return elementPresent(By.xpath("//input[@name='filter_contactSearchText']"));
     }
 
-    protected WebElement buttonClearSearch() {
+    private WebElement buttonClearSearch() {
         return elementPresent(By.xpath("//span[@class='input-group-addon']/i[@class='fa fa-times']"));
     }
 

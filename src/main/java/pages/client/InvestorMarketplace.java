@@ -3,7 +3,6 @@ package pages.client;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.ClientPortal;
 import reporter.TestReporter;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class InvestorMarketplace extends ClientPortal {
 
-    List<String> services = new ArrayList(
+    private List<String> services = new ArrayList(
             Arrays.asList(
                     "Business Development",
                     "Administration",
@@ -32,23 +31,23 @@ public class InvestorMarketplace extends ClientPortal {
         return this;
     }
 
-    protected WebElement labelFindServices() {
+    private WebElement labelFindServices() {
         return elementPresent(By.xpath("//h3[contains(.,'Find Services')]"));
     }
 
-    protected List<WebElement> labelServices() {
+    private List<WebElement> labelServices() {
         return elementsPresent(By.xpath("//div[@ng-repeat]/h6"));
     }
 
-    protected WebElement buttonService(String serviceName) {
+    private WebElement buttonService(String serviceName) {
         return elementPresent(By.xpath("//a[contains(.,'" + serviceName + "')]"));
     }
 
-    protected WebElement labelService(String serviceName) {
+    private WebElement labelService(String serviceName) {
         return elementPresent(By.xpath("//h3[contains(.,'" + serviceName + "')]"));
     }
 
-    protected List<WebElement> cardsProviders() {
+    private List<WebElement> cardsProviders() {
         return elementsPresent(By.xpath("//div[@class='provider']"));
     }
 

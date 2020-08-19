@@ -3,13 +3,10 @@ package pages.modals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.menu.AccountSettings;
 import pages.menu.WhiteBranding;
 import reporter.TestReporter;
 
 public class TraderWorkstation extends WhiteBranding {
-
-    enum Action {Save,Close}
 
     public TraderWorkstation withDriver(WebDriver driver) {
         super.driver = driver;
@@ -31,7 +28,7 @@ public class TraderWorkstation extends WhiteBranding {
         return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
-    public TraderWorkstation validateTraderWorkstation(){
+    public TraderWorkstation validateTraderWorkstation() {
 
         reporter.createChild("Trader Workstation Validation")
                 .assertChild(softly.assertThat(labelTraderWorkstation().isDisplayed())
@@ -44,4 +41,6 @@ public class TraderWorkstation extends WhiteBranding {
 
         return this;
     }
+
+    private enum Action {Save, Close}
 }

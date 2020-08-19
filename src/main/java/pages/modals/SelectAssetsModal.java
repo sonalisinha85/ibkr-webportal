@@ -31,18 +31,17 @@ public class SelectAssetsModal extends DataQueries {
     }
 
     private WebElement buttonSelect() {
-
         return elementPresent(By.xpath("//am-button[@btn-type='primary' and @btn-text='Select']"));
     }
 
-    public SelectAssetsModal selectAssets(){
+    public SelectAssetsModal selectAssets() {
 
         reporter.assertChild(softly.assertThat(labelSelectAssets().isDisplayed())
                         .as("Select Assets Label is displayed")
                         .isEqualTo(true),
                 "Select Assets Label is displayed");
 
-        random(checkBoxesSymbol(),1).get(0).click();
+        random(checkBoxesSymbol(), 1).get(0).click();
         buttonSelect().click();
         sleep(1000);
 

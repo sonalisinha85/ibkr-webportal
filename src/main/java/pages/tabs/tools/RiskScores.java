@@ -12,9 +12,7 @@ import java.util.List;
 
 public class RiskScores extends Portal {
 
-    enum Action {Continue, Select}
-
-    List<String> tabsQuestionnaire = new ArrayList(
+    private List<String> tabsQuestionnaire = new ArrayList(
             Arrays.asList(
                     "Score Calculation",
                     "View Scores",
@@ -22,9 +20,8 @@ public class RiskScores extends Portal {
                     "Need",
                     "Tolerance",
                     "Capacity"
-                    ));
-
-    List<String> questionKeys = new ArrayList(
+            ));
+    private List<String> questionKeys = new ArrayList(
             Arrays.asList(
                     "estimated annual income",
                     "highest earning years",
@@ -140,20 +137,20 @@ public class RiskScores extends Portal {
                                 .isEqualTo(true),
                         "Disclosures are displayed");
 
-        tabsQuestionnaire().forEach(tab->
+        tabsQuestionnaire().forEach(tab ->
                 reporter.assertChild(softly.assertThat(tab.getText())
                         .as(tab.getText() + " Tab is present")
                         .isIn(tabsQuestionnaire), tab.getText() + " Tab is present"));
 
         //        Navigate to different tabs
-        tabsQuestionnaire.forEach(tab->tabQuestionnaire(tab).click());
+        tabsQuestionnaire.forEach(tab -> tabQuestionnaire(tab).click());
         buttonAction("preview").click();
         sleep(3000);
 
         switchToDefaultContext();
         switchTab();
 
-        questionKeys.forEach(key->random(questions(key),1).get(0).click());
+        questionKeys.forEach(key -> random(questions(key), 1).get(0).click());
         buttonAction("Submit").click();
         sleep(1000);
 
@@ -167,4 +164,6 @@ public class RiskScores extends Portal {
 
         return this;
     }
+
+    private enum Action {Continue, Select}
 }

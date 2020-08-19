@@ -1,14 +1,14 @@
-<suite name="IBKR_Web_Portal" parallel="classes" thread-count="3">
+<suite name="IBKR_Web_Portal" parallel="classes" thread-count="4">
     <listeners>
         <listener class-name="listener.TestListener"/>
         <listener class-name="listener.AnnotationTransformer"/>
     </listeners>
     <test name="IBKR_Web_Portal_Test">
-            <classes>
-                <class name="advisorportal.AdvisorPortalTest"/>
-                <class name="brokerportal.BrokerPortalTest"/>
-                <class name="complianceportal.CompliancePortalTest"/>
-                <class name="clientportal.ClientPortalTest"/>
-            </classes>
+        <classes>
+            <class name="advisorportal.AdvisorPortalTest"/>
+            <class name="brokerportal.BrokerPortalTest"/>
+            <class name="complianceportal.CompliancePortalTest"/>
+            <class name="clientportal.ClientPortalTest"/>
+        </classes>
     </test>
 </suite>

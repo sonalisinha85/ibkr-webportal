@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import enums.TestAuthor;
 import enums.TestCategory;
 import org.assertj.core.api.SoftAssertions;
 
@@ -14,14 +16,15 @@ import java.util.Map;
 
 public class TestReporter {
 
-    private ExtentHtmlReporter extent;
+    static Map<Integer, ExtentTest> testMap = new HashMap();
+    static Map<Integer, ExtentTest> childMap = new HashMap();
     private static ExtentReports report;
+    private ExtentHtmlReporter extent;
+    private ExtentSparkReporter spark;
     private ExtentTest test;
     private ExtentTest child;
     private SoftAssertions softly;
     private int counter;
-    static Map<Integer, ExtentTest> testMap = new HashMap();
-    static Map<Integer, ExtentTest> childMap = new HashMap();
 
     //    Test Reporter constructor to create reporter
     public TestReporter() {
@@ -29,32 +32,59 @@ public class TestReporter {
         extent = new ExtentHtmlReporter("target/TestExecutionReport " + getCurrentTime() + ".html");
         extent.config().setDocumentTitle("IBKR Web Portal Test Execution Report");
         extent.config().setReportName("IBKR Web Portal Test Execution Report");
+//        spark = new ExtentSparkReporter("target/TestExecutionReport.html");
+//        spark.config().setDocumentTitle("IBKR Web Portal Test Execution Report");
+//        spark.config().setReportName("IBKR Web Portal Test Execution Report");
         report = new ExtentReports();
         report.attachReporter(extent);
+
+//        JsonFormatter json = new JsonFormatter("target/extent.json");
+//        try {
+//            report.createDomainFromJsonArchive("target/extent.json");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        report.attachReporter(json, spark);
     }
 
-    public static ExtentReports report(){
+    public static ExtentReports report() {
 
-        if(report==null)
+        if (report == null)
             new TestReporter();
 
         return report;
+    }
+
+    public static synchronized ExtentTest getTest() {
+
+        if (childMap.get((int) (long) (Thread.currentThread().getId())) != null)
+            return childMap.get((int) (long) (Thread.currentThread().getId()));
+        else
+            return testMap.get((int) (long) (Thread.currentThread().getId()));
+    }
+
+    public static synchronized void remove() {
+
+        report().removeTest(testMap.get((int) (long) (Thread.currentThread().getId())));
     }
 
     //    Method to create test in the report
     public TestReporter createTest(String name) {
 
         test = report().createTest(name);
-        counter = 0;
+        testMap.put((int) (Thread.currentThread().getId()), test);
         return this;
     }
 
-    //    Method to create test in the report
-    public TestReporter createTest(String name, TestCategory category) {
+    public TestReporter withCategory(TestCategory category) {
 
-        test = report().createTest(name);
         test.assignCategory(category.toString());
-        testMap.put((int) (Thread.currentThread().getId()), test);
+        return this;
+    }
+
+    public TestReporter withAuthor(TestAuthor author) {
+
+        test.assignAuthor(author.toString());
         return this;
     }
 
@@ -73,14 +103,13 @@ public class TestReporter {
     }
 
     //Method to assert the test
-    public TestReporter assertTest (Object obj, String description) {
+    public TestReporter assertTest(Object obj, String description) {
 
-        if(softly.errorsCollected().size()!=0 && softly.errorsCollected().size()!=counter){
+        if (softly.errorsCollected().size() != 0 && softly.errorsCollected().size() != counter) {
 
             test.log(Status.FAIL, softly.errorsCollected().get(counter).getMessage());
             counter++;
-        }
-        else
+        } else
             test.log(Status.PASS, description);
 
         return this;
@@ -89,11 +118,10 @@ public class TestReporter {
     // Method to assert child node
     public TestReporter assertChild(Object obj, String description) {
 
-        if(softly.errorsCollected().size()!=0 && softly.errorsCollected().size()!=counter){
+        if (softly.errorsCollected().size() != 0 && softly.errorsCollected().size() != counter) {
             child.log(Status.FAIL, softly.errorsCollected().get(counter).getMessage());
             counter++;
-        }
-        else
+        } else
             child.log(Status.PASS, description);
 
         return this;
@@ -116,7 +144,7 @@ public class TestReporter {
     // Method to log test info
     public TestReporter testError(String description) {
 
-        if(child==null)
+        if (child == null)
             test.log(Status.FAIL, description);
         else
             child.log(Status.FAIL, description);
@@ -130,19 +158,6 @@ public class TestReporter {
 
         report.flush();
         return this;
-    }
-
-    public static synchronized ExtentTest getTest() {
-
-        if(childMap.get((int) (long) (Thread.currentThread().getId()))!=null)
-            return childMap.get((int) (long) (Thread.currentThread().getId()));
-        else
-            return testMap.get((int) (long) (Thread.currentThread().getId()));
-    }
-
-    public static synchronized void remove() {
-
-        report().removeTest(testMap.get((int) (long) (Thread.currentThread().getId())));
     }
 
     public SoftAssertions softly() {

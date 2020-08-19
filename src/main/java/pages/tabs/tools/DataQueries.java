@@ -12,9 +12,6 @@ import java.util.List;
 
 public class DataQueries extends Portal {
 
-    enum ReportType {Performance,Symbol,Transaction_Count}
-    enum Action {Run_Report,Reset,Continue,Select}
-
     public DataQueries withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -105,17 +102,17 @@ public class DataQueries extends Portal {
         return elementPresent(By.xpath("//input[@name='minVolume']"));
     }
 
-    public DataQueries validatePerformanceReport(){
+    public DataQueries validatePerformanceReport() {
 
         navigateToDataQueries("Performance Report Validation");
 
         reporter.assertChild(softly.assertThat(labelRunReport().isDisplayed())
-                                .as("Run a Report Label is displayed")
-                                .isEqualTo(true),
-                        "Run a Report Label is displayed");
+                        .as("Run a Report Label is displayed")
+                        .isEqualTo(true),
+                "Run a Report Label is displayed");
 
         changeDropdown(dropDownReportType(),
-                ReportType.Performance.toString().replaceAll("_"," "));
+                ReportType.Performance.toString().replaceAll("_", " "));
         changeDropdown(dropDownPerformancePeriod(), "12 Months");
         inputPerformancePercentage().sendKeys("10");
         changeDropdown(dropDownFormat(), "HTML/Web");
@@ -130,7 +127,7 @@ public class DataQueries extends Portal {
         return this;
     }
 
-    public DataQueries validateSymbolReport(PortalName portalName){
+    public DataQueries validateSymbolReport(PortalName portalName) {
 
         navigateToDataQueries("Symbol Report Validation");
 
@@ -140,18 +137,18 @@ public class DataQueries extends Portal {
                 "Run a Report Label is displayed");
 
         changeDropdown(dropDownReportType(),
-                ReportType.Symbol.toString().replaceAll("_"," "));
+                ReportType.Symbol.toString().replaceAll("_", " "));
         checkBoxAllAccounts().click();
         sleep(500);
-        changeDropdown(dropDownPeriod(),"Daily");
+        changeDropdown(dropDownPeriod(), "Daily");
         inputDate().click();
         previousMonth().get(0).click();
-        random(datePicker(),1).get(0).click();
+        random(datePicker(), 1).get(0).click();
         sleep(500);
-        changeDropdown(dropDownSearchIn(),"Activity and Positions");
+        changeDropdown(dropDownSearchIn(), "Activity and Positions");
         changeDropdown(dropDownFormat(), "HTML/Web");
 
-        if(portalName.equals(PortalName.Broker_Portal)){
+        if (portalName.equals(PortalName.Broker_Portal)) {
 
             buttonAction(Action.Run_Report).click();
             sleep(1000);
@@ -161,8 +158,7 @@ public class DataQueries extends Portal {
                             .isEqualTo(true),
                     "Selected Asset Required Alert is displayed");
 
-        }
-        else if (portalName.equals(PortalName.Compliance_Portal)){
+        } else if (portalName.equals(PortalName.Compliance_Portal)) {
 
             buttonAction(Action.Select).click();
             sleep(1000);
@@ -184,7 +180,7 @@ public class DataQueries extends Portal {
         return this;
     }
 
-    public DataQueries validateTransactionCountReport(PortalName portalName){
+    public DataQueries validateTransactionCountReport(PortalName portalName) {
 
         navigateToDataQueries("Transaction Count Report Validation");
 
@@ -194,9 +190,9 @@ public class DataQueries extends Portal {
                 "Run a Report Label is displayed");
 
         changeDropdown(dropDownReportType(),
-                ReportType.Transaction_Count.toString().replaceAll("_"," "));
+                ReportType.Transaction_Count.toString().replaceAll("_", " "));
 
-        if(portalName.equals(PortalName.Broker_Portal)){
+        if (portalName.equals(PortalName.Broker_Portal)) {
 
             buttonAccountSelector().click();
             sleep(500);
@@ -205,10 +201,10 @@ public class DataQueries extends Portal {
             sleep(1000);
         }
 
-        changeDropdown(dropDownPeriod(),"Daily");
+        changeDropdown(dropDownPeriod(), "Daily");
         inputDate().click();
         previousMonth().get(0).click();
-        random(datePicker(),1).get(0).click();
+        random(datePicker(), 1).get(0).click();
         sleep(500);
         inputMinimumCount().sendKeys("9");
         changeDropdown(dropDownFormat(), "HTML/Web");
@@ -223,7 +219,7 @@ public class DataQueries extends Portal {
         return this;
     }
 
-    private void navigateToDataQueries(String reportName){
+    private void navigateToDataQueries(String reportName) {
 
         tabs(Tabs.Tools).click();
         sleep(1000);
@@ -237,4 +233,8 @@ public class DataQueries extends Portal {
         buttonClientDataQueries().click();
         sleep(1000);
     }
+
+    private enum ReportType {Performance, Symbol, Transaction_Count}
+
+    private enum Action {Run_Report, Reset, Continue, Select}
 }

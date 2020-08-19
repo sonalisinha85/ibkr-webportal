@@ -10,8 +10,6 @@ import java.util.List;
 
 public class Calendar extends Portal {
 
-    enum Action {month,list}
-
     public Calendar withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -63,4 +61,6 @@ public class Calendar extends Portal {
 
         return this;
     }
+
+    private enum Action {month, list}
 }

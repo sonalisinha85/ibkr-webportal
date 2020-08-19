@@ -10,8 +10,6 @@ import java.util.List;
 
 public class AccountSelector extends Groups {
 
-    enum Action {Reset, Continue}
-
     public AccountSelector withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -23,27 +21,29 @@ public class AccountSelector extends Groups {
         return this;
     }
 
-    protected WebElement labelAccounts() {
+    private WebElement labelAccounts() {
         return elementNoLog(By.xpath("//li[@class='active']/a[text()='Accounts']"));
     }
 
-    protected List<WebElement> radioButtonsPicker() {
+    private List<WebElement> radioButtonsPicker() {
         return elementsPresent(By.xpath("//i[@class='fa fa-lg fa-circle-thin']"));
     }
 
-    protected WebElement buttonAction(Action action) {
+    private WebElement buttonAction(Action action) {
         return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
     }
 
-    public AccountSelector selectAccount(){
+    public AccountSelector selectAccount() {
 
-        if(!isNotDisplayed(labelAccounts())){
+        if (!isNotDisplayed(labelAccounts())) {
 
-            random(radioButtonsPicker(),1).get(0).click();
+            random(radioButtonsPicker(), 1).get(0).click();
             buttonAction(Action.Continue).click();
             sleep(1000);
         }
 
         return this;
     }
+
+    private enum Action {Reset, Continue}
 }

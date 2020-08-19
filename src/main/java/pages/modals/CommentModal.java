@@ -10,8 +10,6 @@ import java.util.List;
 
 public class CommentModal extends Employee {
 
-    enum Action {Add, Cancel}
-
     public CommentModal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -70,4 +68,6 @@ public class CommentModal extends Employee {
 
         return this;
     }
+
+    private enum Action {Add, Cancel}
 }

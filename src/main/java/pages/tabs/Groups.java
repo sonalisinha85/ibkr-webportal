@@ -12,8 +12,6 @@ import java.util.List;
 
 public class Groups extends Portal {
 
-    enum Action {Yes, No}
-
     public Groups withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
@@ -25,73 +23,74 @@ public class Groups extends Portal {
         return this;
     }
 
-    protected WebElement labelGroups() {
+    private WebElement labelGroups() {
         return elementPresent(By.xpath("//div[@class='crm-page-title']/h4"));
     }
 
-    protected WebElement buttonAdd() {
+    private WebElement buttonAdd() {
         return elementPresent(By.xpath("//i[@data-original-title='Add Group']"));
     }
 
-    protected List<WebElement> buttonsDelete() {
+    private List<WebElement> buttonsDelete() {
         return elementsPresent(By.xpath("//i[@data-original-title='Delete']"));
     }
 
-    protected List<WebElement> buttonsEdit() {
+    private List<WebElement> buttonsEdit() {
         return elementsPresent(By.xpath("//i[@data-original-title='Edit']"));
     }
 
-    protected List<WebElement> buttonView(String groupName) {
+    private List<WebElement> buttonView(String groupName) {
         return elementsPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
                 "/ancestor::div[@class='panel panel-default']//i[@class='fa fa-info-circle']"));
     }
 
-    protected List<WebElement> labelsGroupName() {
+    private List<WebElement> labelsGroupName() {
         return elementsPresent(By.xpath("//h4[@class='panel-title']/a"));
     }
 
-    protected WebElement labelGroupName(String groupName) {
+    private WebElement labelGroupName(String groupName) {
         return elementNoLog(By.xpath("//a[contains(text(),'" + groupName + "')]"));
     }
 
-    protected WebElement buttonDelete(String groupName) {
+    private WebElement buttonDelete(String groupName) {
         return elementPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
                 "/ancestor::h4[@class='panel-title']//i[@data-original-title='Delete']"));
     }
 
-    protected WebElement buttonEdit(String groupName) {
+    private WebElement buttonEdit(String groupName) {
         return elementPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
                 "/ancestor::h4[@class='panel-title']//i[@data-original-title='Edit']"));
     }
-    protected WebElement inputGroupName() {
+
+    private WebElement inputGroupName() {
         return elementPresent(By.xpath("//input[@name='groupName']"));
     }
 
-    protected WebElement buttonAddEditGroupMembers() {
+    private WebElement buttonAddEditGroupMembers() {
         return elementPresent(By.xpath("//button[contains(text(),'Add/Edit Group Members')]"));
     }
 
-    protected List<WebElement> checkBoxAccountPicker() {
+    private List<WebElement> checkBoxAccountPicker() {
         return elementsPresent(By.xpath("//picker-entry-icon/i"));
     }
 
-    protected WebElement buttonPickerContinue() {
+    private WebElement buttonPickerContinue() {
         return elementPresent(By.xpath("//am-button[contains(@on-click,'pickerSubmit')]/a"));
     }
 
-    protected WebElement buttonContinue() {
+    private WebElement buttonContinue() {
         return elementPresent(By.xpath("//am-button[contains(@on-click,'continueBtn')]/a"));
     }
 
-    protected WebElement buttonAction(Action action) {
+    private WebElement buttonAction(Action action) {
         return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
     }
 
-    protected WebElement buttonReset() {
+    private WebElement buttonReset() {
         return elementPresent(By.xpath("//am-button[@btn-text='Reset']/a"));
     }
 
-    protected WebElement labelReviewGroup() {
+    private WebElement labelReviewGroup() {
         return elementNoLog(By.xpath("//h3/strong"));
     }
 
@@ -123,7 +122,7 @@ public class Groups extends Portal {
         reporter.assertChild(softly.assertThat(labelReviewGroup().getText())
                         .as("Group is created")
                         .isEqualTo(groupName),
-                "Group "+ groupName + " is created");
+                "Group " + groupName + " is created");
 
         buttonContinue().click();
         sleep(500);
@@ -189,7 +188,7 @@ public class Groups extends Portal {
         reporter.assertChild(softly.assertThat(labelReviewGroup().getText())
                         .as("Group is edited")
                         .isEqualTo(groupName),
-                "Group "+ groupName + " is edited");
+                "Group " + groupName + " is edited");
 
         buttonContinue().click();
         sleep(500);
@@ -228,4 +227,6 @@ public class Groups extends Portal {
 
         return this;
     }
+
+    private enum Action {Yes, No}
 }

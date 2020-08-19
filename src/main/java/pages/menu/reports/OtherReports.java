@@ -4,17 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.Portal;
-import pages.menu.PortfolioAnalyst;
 import reporter.TestReporter;
 import utils.FileUtil;
 
 import java.util.List;
 
 public class OtherReports extends Portal {
-
-    enum ReportsTab {Statements, Flex_Queries, Other_Reports, Tax}
-
-    enum Action {Run_Report, Reset, Continue}
 
     public OtherReports withDriver(WebDriver driver) {
         super.driver = driver;
@@ -317,11 +312,15 @@ public class OtherReports extends Portal {
                         "Reports Label is displayed");
 
         tabReports(ReportsTab.Other_Reports).click();
-        sleep(3000);
+        sleep(4000);
 
         random(radioButtonsAccountPicker(), 1).get(0).click();
         sleep(500);
         buttonAccountSelector(Action.Continue).click();
         sleep(3000);
     }
+
+    private enum ReportsTab {Statements, Flex_Queries, Other_Reports, Tax}
+
+    private enum Action {Run_Report, Reset, Continue}
 }

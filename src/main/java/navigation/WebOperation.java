@@ -8,9 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import reporter.TestReporter;
+
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class WebOperation {
 
@@ -121,13 +124,13 @@ public class WebOperation {
         return returnList;
     }
 
-    protected void switchTab(){
+    protected void switchTab() {
 
-        tabs = new ArrayList<String> (driver.getWindowHandles());
+        tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
 
-    protected void switchToMainTab(){
+    protected void switchToMainTab() {
 
         driver.close();
         driver.switchTo().window(tabs.get(0));

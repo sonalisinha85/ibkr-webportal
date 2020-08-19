@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ViewContact extends Contacts {
 
-    List<String> tabs = new ArrayList(
+    private List<String> tabs = new ArrayList(
             Arrays.asList("Information",
                     "Agenda",
                     "Reports / Tax Docs",
@@ -20,14 +20,14 @@ public class ViewContact extends Contacts {
                     "PortfolioAnalyst",
                     "Margin Requirements"));
 
-    List<String> headingsInformationTab = new ArrayList(
+    private List<String> headingsInformationTab = new ArrayList(
             Arrays.asList("Information",
                     "Profile Information",
                     "Financial Information",
                     "Trading Experience & Permissions",
                     "Configuration"));
 
-    List<String> headingsAgendaTab = new ArrayList(
+    private List<String> headingsAgendaTab = new ArrayList(
             Arrays.asList("Agenda",
                     "Workflows",
                     "Notes",
@@ -46,15 +46,15 @@ public class ViewContact extends Contacts {
         return this;
     }
 
-    protected List<WebElement> listNavigationTabs() {
+    private List<WebElement> listNavigationTabs() {
         return elementsPresent(By.xpath("//ul[@class='nav nav-tabs nav-lines-large']//a"));
     }
 
-    protected List<WebElement> listHeadingsInformationTab() {
+    private List<WebElement> listHeadingsInformationTab() {
         return elementsPresent(By.xpath("//div[contains(@id,'details-tab-information')]//span[@class='heading']"));
     }
 
-    protected List<WebElement> listHeadingsAgendaTab() {
+    private List<WebElement> listHeadingsAgendaTab() {
         return elementsPresent(By.xpath("//div[contains(@id,'details-tab-communication')]//span[@class='heading']"));
     }
 
@@ -79,8 +79,7 @@ public class ViewContact extends Contacts {
                                         .as("Information Tab Heading is present")
                                         .isIn(headingsInformationTab),
                                 heading.getText().trim() + " Heading is present"));
-            }
-            else if (tab.getText().trim().equals("Agenda")) {
+            } else if (tab.getText().trim().equals("Agenda")) {
 
                 tab.click();
 

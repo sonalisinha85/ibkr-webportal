@@ -2,15 +2,18 @@ package advisorportal;
 
 import base.TestBase;
 import enums.PortalName;
+import enums.TestAuthor;
 import enums.TestCategory;
 import org.testng.annotations.Test;
 
 public class AdvisorPortalTest extends TestBase {
 
-    @Test (priority = 1)
+    @Test(priority = 1)
     public void validateAddWorkflow() {
 
-        reporter.createTest("Advisor Portal Add Workflow Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Add Workflow Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -23,10 +26,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 2)
+    @Test(priority = 2)
     public void validateEditWorkflow() {
 
-        reporter.createTest("Advisor Portal Edit Workflow Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Edit Workflow Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -39,10 +44,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 3)
+    @Test(priority = 3)
     public void validateDeleteWorkflow() {
 
-        reporter.createTest("Advisor Portal Delete Workflow Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Delete Workflow Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -55,10 +62,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 4)
+    @Test(priority = 4)
     public void validateViewWorkflow() {
 
-        reporter.createTest("Advisor Portal View Workflow Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal View Workflow Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -72,10 +81,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 5)
+    @Test(priority = 5)
     public void validateAddNotes() {
 
-        reporter.createTest("Advisor Portal Add Notes Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Add Notes Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -88,10 +99,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 6)
+    @Test(priority = 6)
     public void validateEditNotes() {
 
-        reporter.createTest("Advisor Portal Edit Notes Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Edit Notes Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -104,10 +117,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 7)
+    @Test(priority = 7)
     public void validateDeleteNotes() {
 
-        reporter.createTest("Advisor Portal Delete Notes Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Delete Notes Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -120,10 +135,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 8)
+    @Test(priority = 8)
     public void validateViewNotes() {
 
-        reporter.createTest("Advisor Portal View Notes Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal View Notes Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -137,10 +154,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 9)
+    @Test(priority = 9)
     public void validateSearchContacts() {
 
-        reporter.createTest("Advisor Portal Search Contacts Test", TestCategory.AdvisorPortalContacts);
+        reporter.createTest("Advisor Portal Search Contacts Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
 
         loginAdvisor();
         portal()
@@ -152,10 +171,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 10)
+    @Test(priority = 10)
     public void validateAddContacts() {
 
-        reporter.createTest("Advisor Portal Add Contacts Test", TestCategory.AdvisorPortalContacts);
+        reporter.createTest("Advisor Portal Add Contacts Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
 
         loginAdvisor();
         portal()
@@ -167,10 +188,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 11)
+    @Test(priority = 11)
     public void validateFilterContacts() {
 
-        reporter.createTest("Advisor Portal Filter Contacts Test", TestCategory.AdvisorPortalContacts);
+        reporter.createTest("Advisor Portal Filter Contacts Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
 
         loginAdvisor();
         portal()
@@ -182,10 +205,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 12)
+    @Test(priority = 12)
     public void validateSettingsContacts() {
 
-        reporter.createTest("Advisor Portal Filter Contacts Test", TestCategory.AdvisorPortalContacts);
+        reporter.createTest("Advisor Portal Filter Contacts Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
 
         loginAdvisor();
         portal()
@@ -197,10 +222,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 13)
+    @Test(priority = 13)
     public void validateViewContacts() {
 
-        reporter.createTest("Advisor Portal View Contacts Test", TestCategory.AdvisorPortalContacts);
+        reporter.createTest("Advisor Portal View Contacts Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
 
         loginAdvisor();
         portal()
@@ -212,10 +239,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 14)
+    @Test(priority = 14)
     public void validateAumAndMasterAccountBalance() {
 
-        reporter.createTest("Advisor Portal Aum and Master Account Balance Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Aum and Master Account Balance Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -228,10 +257,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 15)
+    @Test(priority = 15)
     public void validateAddGroup() {
 
-        reporter.createTest("Advisor Portal Add Group Test", TestCategory.AdvisorPortalGroup);
+        reporter.createTest("Advisor Portal Add Group Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalGroup);
 
         loginAdvisor();
         portal()
@@ -243,10 +274,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 16)
+    @Test(priority = 16)
     public void validateDeleteGroup() {
 
-        reporter.createTest("Advisor Portal Delete Group Test", TestCategory.AdvisorPortalGroup);
+        reporter.createTest("Advisor Portal Delete Group Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalGroup);
 
         loginAdvisor();
         portal()
@@ -258,10 +291,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 17)
+    @Test(priority = 17)
     public void validateEditGroup() {
 
-        reporter.createTest("Advisor Portal Edit Group Test", TestCategory.AdvisorPortalGroup);
+        reporter.createTest("Advisor Portal Edit Group Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalGroup);
 
         loginAdvisor();
         portal()
@@ -273,10 +308,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 18)
+    @Test(priority = 18)
     public void validateViewGroup() {
 
-        reporter.createTest("Advisor Portal View Group Test", TestCategory.AdvisorPortalGroup);
+        reporter.createTest("Advisor Portal View Group Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalGroup);
 
         loginAdvisor();
         portal()
@@ -288,10 +325,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 19)
+    @Test(priority = 19)
     public void validateViewDocument() {
 
-        reporter.createTest("Advisor Portal View Document Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal View Document Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()
@@ -304,10 +343,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 20)
+    @Test(priority = 20)
     public void validateWhiteBrandingConfiguration() {
 
-        reporter.createTest("Advisor Portal configure White Branding Test", TestCategory.AdvisorPortalSettings);
+        reporter.createTest("Advisor Portal configure White Branding Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalSettings);
 
         loginAdvisor();
         portal()
@@ -319,10 +360,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 21)
+    @Test(priority = 21)
     public void validateAddAndDeleteClientFeeTemplates() {
 
-        reporter.createTest("Advisor Portal Add & Delete Client Fee Template Test", TestCategory.AdvisorPortalFeeAdmin);
+        reporter.createTest("Advisor Portal Add & Delete Client Fee Template Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalFeeAdmin);
 
         loginAdvisor();
         portal()
@@ -335,10 +378,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 22)
+    @Test(priority = 22)
     public void validateApplyClientFeeTemplates() {
 
-        reporter.createTest("Advisor Portal Apply Client Fee Template Test", TestCategory.AdvisorPortalFeeAdmin);
+        reporter.createTest("Advisor Portal Apply Client Fee Template Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalFeeAdmin);
 
         loginAdvisor();
         portal()
@@ -351,10 +396,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 23)
+    @Test(priority = 23)
     public void validateConfigureClientFee() {
 
-        reporter.createTest("Advisor Portal Configure Client Fee Test", TestCategory.AdvisorPortalFeeAdmin);
+        reporter.createTest("Advisor Portal Configure Client Fee Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalFeeAdmin);
 
         loginAdvisor();
         portal()
@@ -366,10 +413,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 24)
+    @Test(priority = 24)
     public void validatePortfolioAnalystAccountSelector() {
 
-        reporter.createTest("Advisor Portfolio Analyst Account Selector Test", TestCategory.AdvisorPortalPortfolioAnalyst);
+        reporter.createTest("Advisor Portfolio Analyst Account Selector Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalPortfolioAnalyst);
 
         loginAdvisor();
         portal()
@@ -381,10 +430,13 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 25)
+    @Test(priority = 25)
     public void validateTransactionHistory() {
 
-        reporter.createTest("Advisor Portfolio Analyst Account Selector Test", TestCategory.AdvisorPortalTransferAndPay);
+        reporter.createTest("Advisor Portfolio Analyst Account Selector Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalTransferAndPay);
+
 
         loginAdvisor();
         portal()
@@ -396,10 +448,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 26)
+    @Test(priority = 26)
     public void validateCreateSynopses() {
 
-        reporter.createTest("Advisor Portal Create Synopses Test", TestCategory.AdvisorPortalPortfolioAnalyst);
+        reporter.createTest("Advisor Portal Create Synopses Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalPortfolioAnalyst);
 
         loginAdvisor();
         portal()
@@ -413,10 +467,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 27)
+    @Test(priority = 27)
     public void validateUpdateSynopses() {
 
-        reporter.createTest("Advisor Portal Update Synopses Test", TestCategory.AdvisorPortalPortfolioAnalyst);
+        reporter.createTest("Advisor Portal Update Synopses Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalPortfolioAnalyst);
 
         loginAdvisor();
         portal()
@@ -430,10 +486,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 28)
+    @Test(priority = 28)
     public void validateDeleteSynopses() {
 
-        reporter.createTest("Advisor Portal Delete Synopses Test", TestCategory.AdvisorPortalPortfolioAnalyst);
+        reporter.createTest("Advisor Portal Delete Synopses Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalPortfolioAnalyst);
 
         loginAdvisor();
         portal()
@@ -447,10 +505,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 29)
+    @Test(priority = 29)
     public void validateRiskMarginReport() {
 
-        reporter.createTest("Advisor Portal Risk Margin Report Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Risk Margin Report Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -462,10 +522,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 30)
+    @Test(priority = 30)
     public void validateStressTestReport() {
 
-        reporter.createTest("Advisor Portal Stress Test Report Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Stress Test Report Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -477,10 +539,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 31)
+    @Test(priority = 31)
     public void validateValueAtRiskReport() {
 
-        reporter.createTest("Advisor Portal Value At Risk Report Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Value At Risk Report Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -492,10 +556,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 32)
+    @Test(priority = 32)
     public void validateTransactionCostAnalysisReport() {
 
-        reporter.createTest("Advisor Portal Transaction Cost Analysis Report Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Transaction Cost Analysis Report Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -507,10 +573,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 33)
+    @Test(priority = 33)
     public void validatePnLMarkupReport() {
 
-        reporter.createTest("Advisor Portal P/L Markup Report Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal P/L Markup Report Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -522,10 +590,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 34)
+    @Test(priority = 34)
     public void validateAdvisoryFeeInvoiceReport() {
 
-        reporter.createTest("Advisor Portal Advisory Fee Invoice Report Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Advisory Fee Invoice Report Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -537,10 +607,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 35)
+    @Test(priority = 35)
     public void validateTaxLotHoldingPeriodChangeReport() {
 
-        reporter.createTest("Advisor Portal Tax Lot Holding Period Change Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Tax Lot Holding Period Change Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -552,10 +624,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 36)
+    @Test(priority = 36)
     public void validateAccountConfirmationLetterReport() {
 
-        reporter.createTest("Advisor Portal Account Confirmation Letter Test", TestCategory.AdvisorPortalReports);
+        reporter.createTest("Advisor Portal Account Confirmation Letter Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
 
         loginAdvisor();
         portal()
@@ -567,10 +641,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 37)
+    @Test(priority = 37)
     public void validateRiskScoresReport() {
 
-        reporter.createTest("Advisor Portal Account Confirmation Letter Test", TestCategory.AdvisorPortalTools);
+        reporter.createTest("Advisor Portal Account Confirmation Letter Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalTools);
 
         loginAdvisor();
         portal()
@@ -582,10 +658,12 @@ public class AdvisorPortalTest extends TestBase {
         softly.assertAll();
     }
 
-    @Test (priority = 50)
+    @Test(priority = 50)
     public void validateUploadDocument() {
 
-        reporter.createTest("Advisor Portal Upload Document Test", TestCategory.AdvisorPortalDashboard);
+        reporter.createTest("Advisor Portal Upload Document Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalDashboard);
 
         loginAdvisor();
         portal()

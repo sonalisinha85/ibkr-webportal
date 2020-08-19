@@ -12,20 +12,14 @@ import java.util.stream.Collectors;
 
 public class FilterContactMenu extends Contacts {
 
-    enum Panel {ContactType, ClientAccountType, ClientAccountStatus}
-
-    enum Action {Apply, Reset_All}
-
-    List<String> mainPanels = new ArrayList(
+    private List<String> mainPanels = new ArrayList(
             Arrays.asList("ContactType",
                     "ClientAccountType",
                     "ClientAccountStatus"));
-
-    List<String> filterContactTypes = new ArrayList(
+    private List<String> filterContactTypes = new ArrayList(
             Arrays.asList("Prospect",
                     "Client"));
-
-    List<String> filterAccountTypes = new ArrayList(
+    private List<String> filterAccountTypes = new ArrayList(
             Arrays.asList("Financial Advisor",
                     "Individual",
                     "IRA",
@@ -35,8 +29,7 @@ public class FilterContactMenu extends Contacts {
                     "Single Hedge Fund",
                     "Trust",
                     "UGMA/UTMA"));
-
-    List<String> filterAccountStatus = new ArrayList(
+    private List<String> filterAccountStatus = new ArrayList(
             Arrays.asList("Application - In Progress",
                     "Application - Pending Approval",
                     "Application - Abandoned",
@@ -55,27 +48,27 @@ public class FilterContactMenu extends Contacts {
         return this;
     }
 
-    protected WebElement buttonMainPanel(Panel panel) {
+    private WebElement buttonMainPanel(Panel panel) {
         return elementPresent(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//a"));
     }
 
-    protected WebElement buttonMainPanel(String panel) {
+    private WebElement buttonMainPanel(String panel) {
         return elementPresent(By.xpath("//div[contains(@id,'" + panel + "')]//a"));
     }
 
-    protected WebElement buttonFilter(Panel panel, String filterName) {
+    private WebElement buttonFilter(Panel panel, String filterName) {
         return elementPresent(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//td[text()='" + filterName + "']"));
     }
 
-    protected List<WebElement> buttonFilters(Panel panel) {
+    private List<WebElement> buttonFilters(Panel panel) {
         return elementsPresent(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//td"));
     }
 
-    protected List<WebElement> buttonFilters(String panel) {
+    private List<WebElement> buttonFilters(String panel) {
         return elementsPresent(By.xpath("//div[contains(@id,'" + panel + "')]//td"));
     }
 
-    protected WebElement buttonAction(Action action) {
+    private WebElement buttonAction(Action action) {
         return elementPresent(By.xpath("//a[text()='" + action.toString().replaceAll("_", " ") + "']"));
     }
 
@@ -130,7 +123,7 @@ public class FilterContactMenu extends Contacts {
         return this;
     }
 
-    public FilterContactMenu validateFilterResults(Panel panel, String filterName){
+    public FilterContactMenu validateFilterResults(Panel panel, String filterName) {
 
         buttonFilterContact().click();
         sleep(500);
@@ -142,19 +135,19 @@ public class FilterContactMenu extends Contacts {
 
         List<String> columnValues = new ArrayList<>();
 
-        if(panel.equals(Panel.ContactType))
-            listColumnType().forEach(column->columnValues.add(column.getText()));
+        if (panel.equals(Panel.ContactType))
+            listColumnType().forEach(column -> columnValues.add(column.getText()));
         else if (panel.equals(Panel.ClientAccountType))
-            listColumnAccountType().forEach(column->columnValues.add(column.getText()));
+            listColumnAccountType().forEach(column -> columnValues.add(column.getText()));
         else if (panel.equals(Panel.ClientAccountStatus))
-            listColumnStatus().forEach(column->columnValues.add(column.getText()));
+            listColumnStatus().forEach(column -> columnValues.add(column.getText()));
 
         List<String> distinctColumnValues = columnValues.stream().distinct().collect(Collectors.toList());
 
         reporter.createChild("Filtered Records validation for filter " + panel.toString() + " = " + filterName)
                 .assertChild(softly.assertThat(distinctColumnValues.size())
-                        .as("Number of distinct values displayed")
-                        .isEqualTo(1),
+                                .as("Number of distinct values displayed")
+                                .isEqualTo(1),
                         "Number of distinct values displayed")
                 .assertChild(softly.assertThat(distinctColumnValues.get(0))
                                 .as("Filtered column value displayed")
@@ -172,4 +165,8 @@ public class FilterContactMenu extends Contacts {
 
         return this;
     }
+
+    protected enum Panel {ContactType, ClientAccountType, ClientAccountStatus}
+
+    private enum Action {Apply, Reset_All}
 }
