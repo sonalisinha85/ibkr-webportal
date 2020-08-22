@@ -39,6 +39,27 @@ public class Home extends PortfolioAnalyst {
         return elementPresent(By.xpath("//div[@ng-show='filteredPos.length > 0' and h6[contains(text(),'Brokerage Positions')]]//table"));
     }
 
+    private WebElement buttonMWR() {
+        return elementPresent(By.xpath("//a[@ng-click='$ctrl.toggleFn()' and contains(text(),'MWR')]"));
+    }
+
+    private WebElement buttonTWR() {
+        return elementPresent(By.xpath("//a[@ng-click='$ctrl.toggleFn()' and contains(text(),'TWR')]"));
+    }
+
+    private WebElement dropDownViewBy() {
+        return elementPresent(By.xpath("//select"));
+    }
+
+    private WebElement panel(String name) {
+        return elementPresent(By.xpath("//span[@class='heading' " +
+                "and contains(.,'" + name + "')]/ancestor::section[@class='panel']"));
+    }
+
+    private WebElement buttonBrokerage() {
+        return elementPresent(By.xpath("//p[contains(.,'Brokerage')]/i[@class='fa fa-bar-chart text-dark-red']"));
+    }
+
     public Home validateSearch() {
 
         String symbol = "KODK";
@@ -62,6 +83,57 @@ public class Home extends PortfolioAnalyst {
                                 .as("Brokerage Position table is displayed")
                                 .isEqualTo(true),
                         "Brokerage Position table is displayed");
+
+        return this;
+    }
+
+    public Home validateTwrMwrToggle() {
+
+        buttonMenu().click();
+        sleep(500);
+        menu("PortfolioAnalyst").click();
+        sleep(2000);
+
+        reporter.createChild("Validate Twr Mwr Toggle")
+                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
+                                .as("PortfolioAnalyst Label is displayed")
+                                .isEqualTo(true),
+                        "PortfolioAnalyst Label is displayed");
+
+        buttonMWR().click();
+        buttonTWR().click();
+
+        return this;
+    }
+
+    public Home validateViewByDropDown() {
+
+        buttonMenu().click();
+        sleep(500);
+        menu("PortfolioAnalyst").click();
+        sleep(2000);
+
+        reporter.createChild("Validate View By Drop Down")
+                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
+                                .as("PortfolioAnalyst Label is displayed")
+                                .isEqualTo(true),
+                        "PortfolioAnalyst Label is displayed");
+
+        buttonBrokerage().click();
+
+        changeDropdown(dropDownViewBy(), "Account");
+        sleep(1000);
+        reporter.assertChild(softly.assertThat(panel("NAV").isDisplayed())
+                        .as("NAV section is displayed")
+                        .isEqualTo(true),
+                "NAV section is displayed");
+
+        changeDropdown(dropDownViewBy(), "Financial Instrument");
+        sleep(1000);
+        reporter.assertChild(softly.assertThat(panel("Financial Instruments").isDisplayed())
+                        .as("Financial Instruments section is displayed")
+                        .isEqualTo(true),
+                "Financial Instruments section is displayed");
 
         return this;
     }

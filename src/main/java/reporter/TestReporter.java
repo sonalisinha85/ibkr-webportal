@@ -41,48 +41,11 @@ public class TestReporter {
         spark.config().setReportName("IBKR Web Portal Test Execution Report");
         report = new ExtentReports();
 
-        if(!Strings.isNullOrEmpty(System.getProperty("RERUN")))
+        if (!Strings.isNullOrEmpty(System.getProperty("RERUN")))
             RERUN = true;
 
-        if(!RERUN)
+        if (!RERUN)
             attachReporter();
-    }
-
-    private synchronized void attachReporter(){
-
-        JsonFormatter json = new JsonFormatter("target/extent.json");
-
-        try {
-            report.createDomainFromJsonArchive("target/extent.json");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        report.attachReporter(json, spark);
-    }
-
-    private synchronized void checkPreviousReport(String testName){
-
-        String fileName = System.getProperty("user.dir") + "\\target\\extent.json";
-
-        if(new File(fileName).exists()){
-
-            FileUtil util = new FileUtil();
-
-            JSONArray array = new JSONArray(util.readFile(fileName));
-            JSONArray array1 = new JSONArray(util.readFile(fileName));
-            int j=0;
-
-            for(int i=0;i<array.length();i++){
-//
-                if(array.getJSONObject(i).get("name").equals(testName) && array.getJSONObject(i).get("status").equals("FAIL")){
-                    array1.remove(i-j);
-                    j++;
-                }
-            }
-
-            util.appendFile(fileName, array1.toString());
-        }
     }
 
     public static ExtentReports report() {
@@ -106,10 +69,47 @@ public class TestReporter {
         report().removeTest(testMap.get((int) (long) (Thread.currentThread().getId())));
     }
 
+    private synchronized void attachReporter() {
+
+        JsonFormatter json = new JsonFormatter("target/extent.json");
+
+        try {
+            report.createDomainFromJsonArchive("target/extent.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        report.attachReporter(json, spark);
+    }
+
+    private synchronized void checkPreviousReport(String testName) {
+
+        String fileName = System.getProperty("user.dir") + "\\target\\extent.json";
+
+        if (new File(fileName).exists()) {
+
+            FileUtil util = new FileUtil();
+
+            JSONArray array = new JSONArray(util.readFile(fileName));
+            JSONArray array1 = new JSONArray(util.readFile(fileName));
+            int j = 0;
+
+            for (int i = 0; i < array.length(); i++) {
+//
+                if (array.getJSONObject(i).get("name").equals(testName) && array.getJSONObject(i).get("status").equals("FAIL")) {
+                    array1.remove(i - j);
+                    j++;
+                }
+            }
+
+            util.appendFile(fileName, array1.toString());
+        }
+    }
+
     //    Method to create test in the report
     public TestReporter createTest(String name) {
 
-        if(RERUN){
+        if (RERUN) {
             checkPreviousReport(name);
             attachReporter();
         }

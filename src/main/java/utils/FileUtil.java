@@ -63,8 +63,7 @@ public class FileUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else
+        } else
             deleteFile(filename);
 
         //true = append file

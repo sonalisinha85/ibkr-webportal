@@ -81,4 +81,80 @@ public class ClientPortalTest extends TestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 5)
+    public void validateTwrMwrToggle() {
+
+        reporter.createTest("Validate Twr Mwr Toggle")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withHome()
+                .validateTwrMwrToggle();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 6)
+    public void validateViewByDropdown() {
+
+        reporter.createTest("Validate View By Drop down")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withHome()
+                .validateViewByDropDown();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 7)
+    public void validateFundSearchETF() {
+
+        reporter.createTest("Validate Fund Search ETF")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withFundParser()
+                .validateExchangeTradedFundSearch();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 8)
+    public void validateFundSearchMutualFund() {
+
+        reporter.createTest("Validate Fund Search Mutual Fund")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withFundParser()
+                .validateMutualFundSearch();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
 }
