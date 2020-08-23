@@ -35,6 +35,13 @@ public class PortfolioAnalyst extends ClientPortal {
                 .withReporter(reporter);
     }
 
+    public ExternalAccount withExternalAccount() {
+
+        return new ExternalAccount()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
     public Home withHome() {
 
         return new Home()
