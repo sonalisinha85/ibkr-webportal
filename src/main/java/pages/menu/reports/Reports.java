@@ -9,15 +9,15 @@ import utils.FileUtil;
 
 import java.util.List;
 
-public class OtherReports extends Portal {
+public class Reports extends Portal {
 
-    public OtherReports withDriver(WebDriver driver) {
+    public Reports withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
     }
 
     //    Method used to set instance of Reporter
-    public OtherReports withReporter(TestReporter reporter) {
+    public Reports withReporter(TestReporter reporter) {
         super.reporter = reporter;
         super.softly = reporter.softly();
         return this;
@@ -106,6 +106,18 @@ public class OtherReports extends Portal {
                 + action.toString().replaceAll("_", " ") + "']"));
     }
 
+    private WebElement buttonActionRightpanel(Action action) {
+
+        return elementPresent(By.xpath("//div[@class='panel-btn-right']" +
+                "//am-button[@btn-text='" + action.toString().replaceAll("_", " ") + "']"));
+    }
+
+    private WebElement buttonActionLeftpanel(Action action) {
+
+        return elementPresent(By.xpath("//div[@class='panel-btn-left']" +
+                "//am-button[@btn-text='" + action.toString().replaceAll("_", " ") + "']"));
+    }
+
     private WebElement statementSection() {
 
         return elementPresent(By.xpath("//section[@class='statement']"));
@@ -136,11 +148,16 @@ public class OtherReports extends Portal {
         return elementPresent(By.xpath("//div[contains(@class,'alert')]/p"));
     }
 
+    private WebElement labelAlertSuccess() {
+
+        return elementPresent(By.xpath("//div[contains(@class,'alert alert-success')]/p"));
+    }
+
     private WebElement checkboxAllAccount() {
         return elementPresent(By.xpath("//i[contains(@ng-class,'allSelected')]"));
     }
 
-    protected List<WebElement> radioButtonsAccountPicker() {
+    private List<WebElement> radioButtonsAccountPicker() {
         return elementsPresent(By.xpath("//i[@class='fa fa-lg fa-circle-thin']"));
     }
 
@@ -148,7 +165,65 @@ public class OtherReports extends Portal {
         return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
-    public OtherReports validateRiskMarginReport() {
+    private WebElement labelCreateCustomReport() {
+        return elementPresent(By.xpath("//h4[text()='Create Custom Statement']"));
+    }
+
+    private WebElement labelReviewCustomReport() {
+        return elementPresent(By.xpath("//h2[text()='Review Your Custom Statement']"));
+    }
+
+    private WebElement labelCustomReportConfirmation() {
+        return elementPresent(By.xpath("//h1[text()='Custom Statement Saved']"));
+    }
+
+    private WebElement buttonCreateCustomReport() {
+        return elementPresent(By.xpath("//i[@data-original-title='Create']"));
+    }
+
+    private List<WebElement> buttonCustomReportAction(Action action) {
+        return elementsPresent(By.xpath("//span[text()='Custom Statements']" +
+                "/ancestor::section[@class='panel']//i[@data-original-title='" + action.toString() + "']"));
+    }
+
+    private List<WebElement> reportList() {
+        return elementsPresent(By.xpath("//span[text()='Custom Statements']/ancestor::section[@class='panel']//div[@ng-repeat]"));
+    }
+
+    private WebElement labelCustomReport(String name) {
+        return elementPresent(By.xpath("//span[text()='Custom Statements']" +
+                "/ancestor::section[@class='panel']//p/strong[text()='" + name + "']"));
+    }
+
+    private WebElement inputReportName() {
+        return elementPresent(By.xpath("//input[@name='reportName']"));
+    }
+
+    private List<WebElement> buttonSections() {
+        return elementsPresent(By.xpath("//p[@ng-repeat]/a"));
+    }
+
+    private WebElement dropDownActivityPeriod() {
+
+        return elementPresent(By.xpath("//select[@name='activityPeriod']"));
+    }
+
+    private WebElement buttonOk() {
+
+        return elementPresent(By.xpath("//p/a[text()='Ok']"));
+    }
+
+    private WebElement labelDeleteActivityStatement() {
+
+        return elementPresent(By.xpath("//span[text()='Delete Activity Statement']"));
+    }
+
+    private WebElement sectionCustomStatements() {
+
+        return elementPresent(By.xpath("//section//span[text()='Custom Statements']"));
+    }
+
+    public Reports validateRiskMarginReport() {
 
         navigateToReport("Risk Margin");
 
@@ -160,7 +235,7 @@ public class OtherReports extends Portal {
         changeDropdown(dropDownFormat(), "HTML/View");
         changeDropdown(dropDownLanguage(), "English");
         buttonAction(Action.Run_Report).click();
-        sleep(3000);
+        sleep(4000);
 
         reporter.assertChild(softly.assertThat(statementSection().isDisplayed())
                         .as("Margin Reports is displayed")
@@ -170,7 +245,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validateStressTestReport() {
+    public Reports validateStressTestReport() {
 
         navigateToReport("Stress Test");
 
@@ -186,7 +261,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validateValueAtRiskReport() {
+    public Reports validateValueAtRiskReport() {
 
         navigateToReport("Value At Risk");
 
@@ -205,7 +280,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validateTransactionCostAnalysisReport() {
+    public Reports validateTransactionCostAnalysisReport() {
 
         navigateToReport("Transaction Cost Analysis");
 
@@ -224,7 +299,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validatePnLMarkupReport() {
+    public Reports validatePnLMarkupReport() {
 
         navigateToReport("P/L Markup");
 
@@ -243,7 +318,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validateAdvisoryFeeInvoiceReport() {
+    public Reports validateAdvisoryFeeInvoiceReport() {
 
         navigateToReport("Advisory Fee Invoice");
 
@@ -258,7 +333,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validateTaxLotHoldingPeriodChangeReport() {
+    public Reports validateTaxLotHoldingPeriodChangeReport() {
 
         navigateToReport("Tax Lot Holding Period Change");
 
@@ -277,7 +352,7 @@ public class OtherReports extends Portal {
         return this;
     }
 
-    public OtherReports validateAccountConfirmationLetterReport() {
+    public Reports validateAccountConfirmationLetterReport() {
 
         navigateToReport("Account Confirmation Letter");
 
@@ -314,13 +389,144 @@ public class OtherReports extends Portal {
         tabReports(ReportsTab.Other_Reports).click();
         sleep(4000);
 
+        pickAccount();
+    }
+
+    private void pickAccount() {
+
         random(radioButtonsAccountPicker(), 1).get(0).click();
         sleep(500);
         buttonAccountSelector(Action.Continue).click();
         sleep(3000);
     }
 
+    private void navigateToCustomReport(String description) {
+
+        menu("Reports / Tax Docs").click();
+        sleep(1500);
+        pickAccount();
+
+        reporter.createChild(description)
+                .assertChild(softly.assertThat(sectionCustomStatements().isDisplayed())
+                                .as("Custom Statement Section is displayed")
+                                .isEqualTo(true),
+                        "Custom Statement Section is displayed");
+    }
+
+    public Reports runCustomReport() {
+
+        navigateToCustomReport("Validate Run Custom Report");
+
+        random(buttonCustomReportAction(Action.Run), 1).get(0).click();
+        sleep(1000);
+        buttonActionRightpanel(Action.Run).click();
+        sleep(2000);
+
+        reporter.assertChild(softly.assertThat(panelSection().isDisplayed())
+                        .as("Custom Report is displayed")
+                        .isEqualTo(true),
+                "Custom Report is displayed");
+
+        return this;
+    }
+
+    public Reports deleteCustomReport() {
+
+        navigateToCustomReport("Validate Delete Custom Report");
+
+        int count = reportList().size();
+        random(buttonCustomReportAction(Action.Delete), 1).get(0).click();
+        sleep(1000);
+        buttonActionLeftpanel(Action.No).click();
+        sleep(500);
+        random(buttonCustomReportAction(Action.Delete), 1).get(0).click();
+        sleep(1000);
+        buttonActionRightpanel(Action.Yes).click();
+        sleep(1000);
+
+        reporter.assertChild(softly.assertThat(labelAlertSuccess().isDisplayed())
+                        .as("Custom Report Deleted")
+                        .isEqualTo(true),
+                "Custom Report Deleted");
+
+        buttonActionRightpanel(Action.Close).click();
+        sleep(2000);
+
+        reporter.assertChild(softly.assertThat(reportList().size())
+                        .as("Custom report is deleted [Old Custom Reports count vs New Custom Reports count validated]")
+                        .isEqualTo(count - 1),
+                "Custom report is deleted [Old Custom Reports count vs New Custom Reports count validated]");
+
+        return this;
+    }
+
+    public Reports editCustomReport() {
+
+        navigateToCustomReport("Validate Edit Custom Report");
+
+        random(buttonCustomReportAction(Action.Edit), 1).get(0).click();
+        sleep(2000);
+        random(buttonSections(), 2).forEach(section -> section.click());
+        buttonActionRightpanel(Action.Continue).click();
+        sleep(500);
+
+        reporter.assertChild(softly.assertThat(labelReviewCustomReport().isDisplayed())
+                        .as("Review Custom Report label is displayed")
+                        .isEqualTo(true),
+                "Review Custom Report label is displayed");
+
+        buttonActionRightpanel(Action.Save_Changes).click();
+        sleep(500);
+
+        reporter.assertChild(softly.assertThat(labelCustomReportConfirmation().isDisplayed())
+                        .as("Custom Report Saved label is displayed")
+                        .isEqualTo(true),
+                "Custom Report Saved label is displayed");
+
+        buttonOk().click();
+        sleep(1000);
+
+        return this;
+    }
+
+    public Reports createCustomReport() {
+
+        navigateToCustomReport("Validate Edit Custom Report");
+
+        String name = "Regression Test " + getCurrentTime();
+        buttonCreateCustomReport().click();
+        sleep(1500);
+        inputReportName().sendKeys(name);
+        random(buttonSections(), 1).get(0).click();
+        changeDropdown(dropDownActivityPeriod(), "Monthly");
+        buttonActionRightpanel(Action.Continue).click();
+        sleep(500);
+
+        reporter.assertChild(softly.assertThat(labelReviewCustomReport().isDisplayed())
+                        .as("Review Custom Report label is displayed")
+                        .isEqualTo(true),
+                "Review Custom Report label is displayed");
+
+        buttonActionRightpanel(Action.Create).click();
+        sleep(500);
+
+        reporter.assertChild(softly.assertThat(labelCustomReportConfirmation().isDisplayed())
+                        .as("Custom Report Saved label is displayed")
+                        .isEqualTo(true),
+                "Custom Report Saved label is displayed");
+
+        buttonOk().click();
+        sleep(1000);
+
+        reporter.assertChild(softly.assertThat(labelCustomReport(name).isDisplayed())
+                        .as(name + " Custom Report is created")
+                        .isEqualTo(true),
+                name + " Custom Report is created");
+
+        return this;
+    }
+
     private enum ReportsTab {Statements, Flex_Queries, Other_Reports, Tax}
 
-    private enum Action {Run_Report, Reset, Continue}
+    private enum Action {Run_Report, Reset, Continue, Delete, Edit, Run, Create, Save_Changes, No, Yes, Close}
 }

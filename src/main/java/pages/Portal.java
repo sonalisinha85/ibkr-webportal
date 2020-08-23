@@ -7,8 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.menu.AccountSettings;
 import pages.menu.PortfolioAnalyst;
+import pages.menu.PreTradeCompliance;
 import pages.menu.TransactionStatusAndHistory;
-import pages.menu.reports.OtherReports;
+import pages.menu.reports.Reports;
 import pages.tabs.Calendar;
 import pages.tabs.Dashboard;
 import pages.tabs.FeeAdmin;
@@ -34,14 +35,10 @@ public class Portal extends WebOperation {
         return this;
     }
 
-    ;
-
     public Portal withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
     }
-
-    ;
 
     public Employee withEmployee() {
 
@@ -49,8 +46,6 @@ public class Portal extends WebOperation {
                 .withDriver(driver)
                 .withReporter(reporter);
     }
-
-    ;
 
     public Contacts withContacts() {
 
@@ -122,9 +117,16 @@ public class Portal extends WebOperation {
                 .withReporter(reporter);
     }
 
-    public OtherReports withOtherReports() {
+    public Reports withReports() {
 
-        return new OtherReports()
+        return new Reports()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
+    public PreTradeCompliance withPreTradeCompliance() {
+
+        return new PreTradeCompliance()
                 .withDriver(driver)
                 .withReporter(reporter);
     }

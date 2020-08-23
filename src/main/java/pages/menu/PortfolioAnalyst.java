@@ -16,8 +16,6 @@ public class PortfolioAnalyst extends Portal {
         return this;
     }
 
-    ;
-
     //    Method used to set instance of Reporter
     public PortfolioAnalyst withReporter(TestReporter reporter) {
         super.reporter = reporter;

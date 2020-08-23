@@ -75,4 +75,140 @@ public class CompliancePortalTest extends TestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 5)
+    public void validateNewRestriction() {
+
+        reporter.createTest("Compliance Portal New Restriction Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withPreTradeCompliance()
+                .validateNewRestriction();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 6)
+    public void validateCopyRestriction() {
+
+        reporter.createTest("Compliance Portal Copy Restriction Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withPreTradeCompliance()
+                .validateCopyRestriction();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 7)
+    public void validateDeleteRestriction() {
+
+        reporter.createTest("Compliance Portal Delete Restriction Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withPreTradeCompliance()
+                .validateDeleteRestriction();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 8)
+    public void validateViewRestriction() {
+
+        reporter.createTest("Compliance Portal View Restriction Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withPreTradeCompliance()
+                .validateViewRestriction();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 9)
+    public void validateCreateCustomReport() {
+
+        reporter.createTest("Compliance Portal Create Custom Report Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .createCustomReport();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 10)
+    public void validateEditCustomReport() {
+
+        reporter.createTest("Compliance Portal Edit Custom Report Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .editCustomReport();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 11)
+    public void validateRunCustomReport() {
+
+        reporter.createTest("Compliance Portal Run Custom Report Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .runCustomReport();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 12)
+    public void validateDeleteCustomReport() {
+
+        reporter.createTest("Compliance Portal Delete Custom Report Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .deleteCustomReport();
+        portal().logout();
+
+        softly.assertAll();
+    }
 }

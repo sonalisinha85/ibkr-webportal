@@ -95,8 +95,8 @@ public class TestReporter {
             int j = 0;
 
             for (int i = 0; i < array.length(); i++) {
-//
-                if (array.getJSONObject(i).get("name").equals(testName) && array.getJSONObject(i).get("status").equals("FAIL")) {
+//      && array.getJSONObject(i).get("status").equals("FAIL")
+                if (array.getJSONObject(i).get("name").equals(testName)) {
                     array1.remove(i - j);
                     j++;
                 }

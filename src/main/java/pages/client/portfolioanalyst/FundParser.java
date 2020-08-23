@@ -103,10 +103,8 @@ public class FundParser extends PortfolioAnalyst {
 
         String symbol = "SPY";
         textBoxFundSearch().sendKeys(symbol);
-        sleep(500);
-        WebElement labelFund = random(labelsFund(), 1).get(0);
-        String fundDesc = labelFund.getText().replaceAll("-", "").trim();
-        labelFund.click();
+        sleep(1000);
+        random(labelsFund(), 1).get(0).click();
         sleep(500);
         buttonSearch().click();
         sleep(1000);
@@ -114,11 +112,7 @@ public class FundParser extends PortfolioAnalyst {
         reporter.assertChild(softly.assertThat(labelFundHeader(symbol).isDisplayed())
                         .as(symbol + " fund header is displayed")
                         .isEqualTo(true),
-                symbol + " fund header is displayed")
-                .assertChild(softly.assertThat(labelFundDesc(fundDesc).isDisplayed())
-                                .as(fundDesc + " fund is displayed")
-                                .isEqualTo(true),
-                        fundDesc + " fund is displayed");
+                symbol + " fund header is displayed");
 
         return this;
     }
