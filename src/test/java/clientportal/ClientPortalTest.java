@@ -85,7 +85,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 5)
     public void validateTwrMwrToggle() {
 
-        reporter.createTest("Validate Twr Mwr Toggle")
+        reporter.createTest("Client Portal Twr Mwr Toggle")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -104,7 +104,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 6)
     public void validateViewByDropdown() {
 
-        reporter.createTest("Validate View By Drop down")
+        reporter.createTest("Client Portal View By Drop down")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -123,7 +123,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 7)
     public void validateFundSearchETF() {
 
-        reporter.createTest("Validate Fund Search ETF")
+        reporter.createTest("Client Portal Fund Search ETF")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -142,7 +142,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 8)
     public void validateFundSearchMutualFund() {
 
-        reporter.createTest("Validate Fund Search Mutual Fund")
+        reporter.createTest("Client Portal Fund Search Mutual Fund")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -152,6 +152,25 @@ public class ClientPortalTest extends TestBase {
                 .withPortfolioAnalyst()
                 .withFundParser()
                 .validateMutualFundSearch();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 9)
+    public void validateAddExternalAccount() {
+
+        reporter.createTest("Client Portal Add External Account")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withExternalAccount()
+                .addExternalAccount();
         clientPortal()
                 .logout();
 
