@@ -85,7 +85,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 5)
     public void validateTwrMwrToggle() {
 
-        reporter.createTest("Client Portal Twr Mwr Toggle")
+        reporter.createTest("Client Portal Twr Mwr Toggle Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -104,7 +104,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 6)
     public void validateViewByDropdown() {
 
-        reporter.createTest("Client Portal View By Drop down")
+        reporter.createTest("Client Portal View By Drop down Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -123,7 +123,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 7)
     public void validateFundSearchETF() {
 
-        reporter.createTest("Client Portal Fund Search ETF")
+        reporter.createTest("Client Portal Fund Search ETF Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -142,7 +142,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 8)
     public void validateFundSearchMutualFund() {
 
-        reporter.createTest("Client Portal Fund Search Mutual Fund")
+        reporter.createTest("Client Portal Fund Search Mutual Fund Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -161,7 +161,7 @@ public class ClientPortalTest extends TestBase {
     @Test(priority = 9)
     public void validateAddExternalAccount() {
 
-        reporter.createTest("Client Portal Add External Account")
+        reporter.createTest("Client Portal Add External Account Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -171,6 +171,25 @@ public class ClientPortalTest extends TestBase {
                 .withPortfolioAnalyst()
                 .withExternalAccount()
                 .addExternalAccount();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 10)
+    public void validateReportDelivery() {
+
+        reporter.createTest("Client Portal Edit Report Delivery Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReport()
+                .validateReportDelivery();
         clientPortal()
                 .logout();
 
