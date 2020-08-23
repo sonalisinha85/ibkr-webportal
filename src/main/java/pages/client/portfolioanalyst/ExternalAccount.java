@@ -8,12 +8,13 @@ import reporter.TestReporter;
 
 import java.util.List;
 
-public class ExternalAccount extends PortfolioAnalyst{
+public class ExternalAccount extends PortfolioAnalyst {
 
     public ExternalAccount withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
     }
+
     //    Method used to set instance of Reporter
     public ExternalAccount withReporter(TestReporter reporter) {
         super.reporter = reporter;
@@ -94,11 +95,11 @@ public class ExternalAccount extends PortfolioAnalyst{
                 .navigate();
 
         String title = "Regression Test " + getCurrentTime();
-        changeDropdown(dropDownAccountType(),"Other Asset");
+        changeDropdown(dropDownAccountType(), "Other Asset");
         inputAccountTitle().sendKeys(title);
-        changeDropdown(dropDownCurrency(),"USD");
+        changeDropdown(dropDownCurrency(), "USD");
         dropDownDate().click();
-        datePicker().get(datePicker().size()-1).click();
+        datePicker().get(datePicker().size() - 1).click();
         inputValue().sendKeys("900");
         buttonContinue().click();
         sleep(1000);
@@ -106,9 +107,9 @@ public class ExternalAccount extends PortfolioAnalyst{
         sleep(1000);
 
         reporter.assertChild(softly.assertThat(labelSuccess().isDisplayed())
-                                .as("Your account has been added Label is displayed")
-                                .isEqualTo(true),
-                        "Your account has been added Label is displayed");
+                        .as("Your account has been added Label is displayed")
+                        .isEqualTo(true),
+                "Your account has been added Label is displayed");
         buttonOk().click();
         sleep(1000);
 
