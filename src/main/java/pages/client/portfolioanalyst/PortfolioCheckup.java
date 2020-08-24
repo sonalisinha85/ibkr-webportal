@@ -47,10 +47,8 @@ public class PortfolioCheckup extends PortfolioAnalyst {
 
     public PortfolioCheckup validatePortfolioCheckup() {
 
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
+        navigateToPortfolioAnalyst("Validate Portfolio Checkup");
+
         tab("Portfolio Checkup").click();
         sleep(1000);
 

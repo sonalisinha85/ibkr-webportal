@@ -62,13 +62,9 @@ public class Home extends PortfolioAnalyst {
 
     public Home validateSearch() {
 
+        navigateToPortfolioAnalyst("Validate Search");
+
         String symbol = "KODK";
-
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
-
         buttonSearchIcon().click();
         inputSearchBox().sendKeys(symbol);
         buttonSearch().click();
@@ -89,16 +85,7 @@ public class Home extends PortfolioAnalyst {
 
     public Home validateTwrMwrToggle() {
 
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
-
-        reporter.createChild("Validate Twr Mwr Toggle")
-                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
-                                .as("PortfolioAnalyst Label is displayed")
-                                .isEqualTo(true),
-                        "PortfolioAnalyst Label is displayed");
+        navigateToPortfolioAnalyst("Validate Twr Mwr Toggle");
 
         buttonMWR().click();
         buttonTWR().click();
@@ -108,16 +95,7 @@ public class Home extends PortfolioAnalyst {
 
     public Home validateViewByDropDown() {
 
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
-
-        reporter.createChild("Validate View By Drop Down")
-                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
-                                .as("PortfolioAnalyst Label is displayed")
-                                .isEqualTo(true),
-                        "PortfolioAnalyst Label is displayed");
+        navigateToPortfolioAnalyst("Validate View By Drop Down");
 
         buttonBrokerage().click();
 

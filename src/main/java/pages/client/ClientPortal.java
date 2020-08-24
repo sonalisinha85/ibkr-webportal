@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.client.portfolioanalyst.PortfolioAnalyst;
+import pages.client.reports.ClientPortalReports;
 import reporter.TestReporter;
 
 public class ClientPortal extends WebOperation {
@@ -57,6 +58,13 @@ public class ClientPortal extends WebOperation {
     public PortfolioAnalyst withPortfolioAnalyst() {
 
         return new PortfolioAnalyst()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
+    public ClientPortalReports withClientPortalReports() {
+
+        return new ClientPortalReports()
                 .withDriver(driver)
                 .withReporter(reporter);
     }

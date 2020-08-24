@@ -269,6 +269,7 @@ public class BrokerPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateRiskMarginReport();
         portal().logout();
 
@@ -286,6 +287,7 @@ public class BrokerPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateStressTestReport();
         portal().logout();
 
@@ -303,6 +305,7 @@ public class BrokerPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateValueAtRiskReport();
         portal().logout();
 
@@ -320,6 +323,7 @@ public class BrokerPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateTransactionCostAnalysisReport();
         portal().logout();
 
@@ -337,6 +341,7 @@ public class BrokerPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateTaxLotHoldingPeriodChangeReport();
         portal().logout();
 
@@ -354,6 +359,7 @@ public class BrokerPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateTaxLotHoldingPeriodChangeReport();
         portal().logout();
 

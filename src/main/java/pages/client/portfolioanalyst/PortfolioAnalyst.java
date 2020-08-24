@@ -20,7 +20,7 @@ public class PortfolioAnalyst extends ClientPortal {
         return this;
     }
 
-    protected WebElement labelPortfolioAnalyst() {
+    private WebElement labelPortfolioAnalyst() {
         return elementPresent(By.xpath("//h3[contains(.,'PortfolioAnalyst')]"));
     }
 
@@ -42,9 +42,9 @@ public class PortfolioAnalyst extends ClientPortal {
                 .withReporter(reporter);
     }
 
-    public Report withReport() {
+    public Reports withReports() {
 
-        return new Report()
+        return new Reports()
                 .withDriver(driver)
                 .withReporter(reporter);
     }
@@ -61,5 +61,21 @@ public class PortfolioAnalyst extends ClientPortal {
         return new PortfolioCheckup()
                 .withDriver(driver)
                 .withReporter(reporter);
+    }
+
+    protected PortfolioAnalyst navigateToPortfolioAnalyst(String description) {
+
+        buttonMenu().click();
+        sleep(500);
+        menu("PortfolioAnalyst").click();
+        sleep(2000);
+
+        reporter.createChild(description)
+                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
+                                .as("PortfolioAnalyst Label is displayed")
+                                .isEqualTo(true),
+                        "PortfolioAnalyst Label is displayed");
+
+        return this;
     }
 }

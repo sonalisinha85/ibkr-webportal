@@ -143,16 +143,7 @@ public class FundParser extends PortfolioAnalyst {
 
     private void navigateToFundParser(String description) {
 
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
-
-        reporter.createChild(description)
-                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
-                                .as("PortfolioAnalyst Label is displayed")
-                                .isEqualTo(true),
-                        "PortfolioAnalyst Label is displayed");
+        navigateToFundParser(description);
 
         tab("Fund Parser").click();
         sleep(1000);

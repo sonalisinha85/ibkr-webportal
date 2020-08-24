@@ -188,8 +188,200 @@ public class ClientPortalTest extends TestBase {
         clientPortal()
                 .validateLogin()
                 .withPortfolioAnalyst()
-                .withReport()
+                .withReports()
                 .validateReportDelivery();
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 11)
+    public void validateCreateCustomStatements() {
+
+        reporter.createTest("Client Portal Create Custom Statements Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withStatements()
+                .validateStatementTab()
+                .createCustomStatements();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 12)
+    public void validateEditCustomStatements() {
+
+        reporter.createTest("Client Portal Edit Custom Statements Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withStatements()
+                .validateStatementTab()
+                .editCustomStatements();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 13)
+    public void validateRunCustomStatements() {
+
+        reporter.createTest("Client Portal Run Custom Statements Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withStatements()
+                .validateStatementTab()
+                .runCustomStatements();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 14)
+    public void validateDeleteCustomStatements() {
+
+        reporter.createTest("Client Portal Delete Custom Statements Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withStatements()
+                .validateStatementTab()
+                .deleteCustomStatements();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 15)
+    public void validateCreateActivityFlexQuery() {
+
+        reporter.createTest("Client Portal Create Activity Flex Query Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .createActivityFlexQuery();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 16)
+    public void validateEditActivityFlexQuery() {
+
+        reporter.createTest("Client Portal Edit Activity Flex Query Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .editActivityFlexQuery();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 17)
+    public void validateRunActivityFlexQuery() {
+
+        reporter.createTest("Client Portal Run Activity Flex Query Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .runActivityFlexQuery();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 18)
+    public void validateDeleteActivityFlexQuery() {
+
+        reporter.createTest("Client Portal Delete Activity Flex Query Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .deleteActivityFlexQuery();
+
         clientPortal()
                 .logout();
 

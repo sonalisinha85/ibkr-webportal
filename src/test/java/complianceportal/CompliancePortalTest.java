@@ -145,9 +145,9 @@ public class CompliancePortalTest extends TestBase {
     }
 
     @Test(priority = 9)
-    public void validateCreateCustomReport() {
+    public void validateCreateCustomStatements() {
 
-        reporter.createTest("Compliance Portal Create Custom Report Test")
+        reporter.createTest("Compliance Portal Create Custom Statements Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalReports);
 
@@ -155,16 +155,19 @@ public class CompliancePortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Compliance_Portal)
                 .withReports()
-                .createCustomReport();
+                .withStatements()
+                .navigateToReport()
+                .validateStatementTab()
+                .createCustomStatements();
         portal().logout();
 
         softly.assertAll();
     }
 
     @Test(priority = 10)
-    public void validateEditCustomReport() {
+    public void validateEditCustomStatements() {
 
-        reporter.createTest("Compliance Portal Edit Custom Report Test")
+        reporter.createTest("Compliance Portal Edit Custom Statements Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalReports);
 
@@ -172,16 +175,19 @@ public class CompliancePortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Compliance_Portal)
                 .withReports()
-                .editCustomReport();
+                .withStatements()
+                .navigateToReport()
+                .validateStatementTab()
+                .editCustomStatements();
         portal().logout();
 
         softly.assertAll();
     }
 
     @Test(priority = 11)
-    public void validateRunCustomReport() {
+    public void validateRunCustomStatements() {
 
-        reporter.createTest("Compliance Portal Run Custom Report Test")
+        reporter.createTest("Compliance Portal Run Custom Statements Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalReports);
 
@@ -189,16 +195,19 @@ public class CompliancePortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Compliance_Portal)
                 .withReports()
-                .runCustomReport();
+                .withStatements()
+                .navigateToReport()
+                .validateStatementTab()
+                .runCustomStatements();
         portal().logout();
 
         softly.assertAll();
     }
 
     @Test(priority = 12)
-    public void validateDeleteCustomReport() {
+    public void validateDeleteCustomStatements() {
 
-        reporter.createTest("Compliance Portal Delete Custom Report Test")
+        reporter.createTest("Compliance Portal Delete Custom Statements Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalReports);
 
@@ -206,7 +215,90 @@ public class CompliancePortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Compliance_Portal)
                 .withReports()
-                .deleteCustomReport();
+                .withStatements()
+                .navigateToReport()
+                .validateStatementTab()
+                .deleteCustomStatements();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 13)
+    public void validateCreateActivityFlexQuery() {
+
+        reporter.createTest("Compliance Portal Create Activity Flex Query Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .withFlexQueries()
+                .navigateToReport()
+                .navigateToFlexQueries()
+                .createActivityFlexQuery();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 14)
+    public void validateEditActivityFlexQuery() {
+
+        reporter.createTest("Compliance Portal Edit Activity Flex Query Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .withFlexQueries()
+                .navigateToReport()
+                .navigateToFlexQueries()
+                .editActivityFlexQuery();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 15)
+    public void validateRunActivityFlexQuery() {
+
+        reporter.createTest("Compliance Portal Run Activity Flex Query Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .withFlexQueries()
+                .navigateToReport()
+                .navigateToFlexQueries()
+                .runActivityFlexQuery();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 16)
+    public void validateDeleteActivityFlexQuery() {
+
+        reporter.createTest("Compliance Portal Delete Activity Flex Query Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalReports);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withReports()
+                .withFlexQueries()
+                .navigateToReport()
+                .navigateToFlexQueries()
+                .deleteActivityFlexQuery();
         portal().logout();
 
         softly.assertAll();

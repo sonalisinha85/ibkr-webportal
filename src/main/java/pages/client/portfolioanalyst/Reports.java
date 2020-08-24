@@ -5,15 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import reporter.TestReporter;
 
-public class Report extends PortfolioAnalyst {
+public class Reports extends PortfolioAnalyst {
 
-    public Report withDriver(WebDriver driver) {
+    public Reports withDriver(WebDriver driver) {
         super.driver = driver;
         return this;
     }
 
     //    Method used to set instance of Reporter
-    public Report withReporter(TestReporter reporter) {
+    public Reports withReporter(TestReporter reporter) {
         super.reporter = reporter;
         super.softly = reporter.softly();
         return this;
@@ -36,7 +36,7 @@ public class Report extends PortfolioAnalyst {
         return elementPresent(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
     }
 
-    private WebElement buttonContinue() {
+    private WebElement buttonAccountPickerContinue() {
         return elementPresent(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
     }
 
@@ -56,18 +56,9 @@ public class Report extends PortfolioAnalyst {
         return elementPresent(By.xpath("//a[@class='btn btn-success' and contains(text(),'Ok')]"));
     }
 
-    public Report validateReportDelivery() {
+    public Reports validateReportDelivery() {
 
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
-
-        reporter.createChild("Validate Report Delivery")
-                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
-                                .as("PortfolioAnalyst Label is displayed")
-                                .isEqualTo(true),
-                        "PortfolioAnalyst Label is displayed");
+        navigateToPortfolioAnalyst("Validate Report Delivery");
 
         buttonReportsTab().click();
         buttonConfigureIcon().click();
@@ -75,7 +66,7 @@ public class Report extends PortfolioAnalyst {
         buttonAddEditAccount().click();
         sleep(200);
         checkboxSelectAllAccount().click();
-        buttonContinue().click();
+        buttonAccountPickerContinue().click();
         sleep(1000);
         buttonContinue2().click();
         sleep(1000);

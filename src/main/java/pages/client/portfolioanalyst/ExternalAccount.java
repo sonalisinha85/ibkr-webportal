@@ -73,16 +73,7 @@ public class ExternalAccount extends PortfolioAnalyst {
 
     public ExternalAccount addExternalAccount() {
 
-        buttonMenu().click();
-        sleep(500);
-        menu("PortfolioAnalyst").click();
-        sleep(2000);
-
-        reporter.createChild("Validate Add External Account")
-                .assertChild(softly.assertThat(labelPortfolioAnalyst().isDisplayed())
-                                .as("PortfolioAnalyst Label is displayed")
-                                .isEqualTo(true),
-                        "PortfolioAnalyst Label is displayed");
+        navigateToPortfolioAnalyst("Validate Add External Account");
 
         buttonExternalAccountBeta().click();
         sleep(1000);

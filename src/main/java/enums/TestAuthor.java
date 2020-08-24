@@ -19,5 +19,6 @@ public enum TestAuthor {
     CompliancePortalPreTradeCompliance,
     CompliancePortalReports,
     ClientPortalFindServices,
-    ClientPortalPortfolioAnalyst
+    ClientPortalPortfolioAnalyst,
+    ClientPortalReports
 }

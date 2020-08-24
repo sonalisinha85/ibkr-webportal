@@ -516,6 +516,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateRiskMarginReport();
         portal().logout();
 
@@ -533,6 +534,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateStressTestReport();
         portal().logout();
 
@@ -550,6 +552,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateValueAtRiskReport();
         portal().logout();
 
@@ -567,6 +570,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateTransactionCostAnalysisReport();
         portal().logout();
 
@@ -584,6 +588,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validatePnLMarkupReport();
         portal().logout();
 
@@ -601,6 +606,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateAdvisoryFeeInvoiceReport();
         portal().logout();
 
@@ -618,6 +624,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateTaxLotHoldingPeriodChangeReport();
         portal().logout();
 
@@ -635,6 +642,7 @@ public class AdvisorPortalTest extends TestBase {
         portal()
                 .withPortalName(PortalName.Advisor_Portal)
                 .withReports()
+                .withOtherReports()
                 .validateTaxLotHoldingPeriodChangeReport();
         portal().logout();
 
