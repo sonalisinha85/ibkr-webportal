@@ -16,19 +16,19 @@
 >>> 4. Tests can be run from command line using "mvn test -PChrome"
 >
 >>Design
->>navigation
+>>com.ibkr.qa.navigation
 >>>1. WebOperation class - used to defined different Web Elements and methods to capture them
 >
->>pages
+>>com.ibkr.qa.pages
 >>> 1. Page classes are created for each Page. e.g. LoginPage - Used to Login to the portal
 >>> 2. All locators available on the page are defined under respective class 
->>> 3. All pages object classes extends WebOperation class
+>>> 3. All com.ibkr.qa.pages object classes extends WebOperation class
 >>modals
 >>> 1. Modal classes are created for each modal that appears on the UI e.g. Workflow modal  
 >
->>reporter
+>>com.ibkr.qa.reporter
 >>> 1. Used to create Extent Report
->>> 2. Create instance of TestReporter e.g. TestReporter reporter = new TestReporter();
+>>> 2. Create instance of TestReporter e.g. TestReporter com.ibkr.qa.reporter = new TestReporter();
 >>> 3. createTest() - used to create the test
 >>> 4. assertTest() - used to assert a test condition
 >>> 5. testInfo() - used to print information at test level
