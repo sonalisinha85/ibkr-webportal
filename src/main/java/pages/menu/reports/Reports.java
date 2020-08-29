@@ -43,6 +43,13 @@ public class Reports extends Portal {
                 .withReporter(reporter);
     }
 
+    public TaxForms withTaxForms() {
+
+        return new TaxForms()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
     protected WebElement labelReports() {
 
         return elementPresent(By.xpath("//h3[contains(.,'Reports')]"));

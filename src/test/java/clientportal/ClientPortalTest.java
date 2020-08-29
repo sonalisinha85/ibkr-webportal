@@ -387,4 +387,248 @@ public class ClientPortalTest extends TestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 19)
+    public void validateCreateCustomBenchMarks() {
+
+        reporter.createTest("Client Portal Create Custom Benchmarks Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .createCustomBenchmarks();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 20)
+    public void validateEditCustomBenchMarks() {
+
+        reporter.createTest("Client Portal Edit Custom Benchmarks Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .editCustomBenchmarks();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 21)
+    public void validateDeleteCustomBenchMarks() {
+
+        reporter.createTest("Client Portal Delete Custom Benchmarks Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .deleteCustomBenchmarks();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 22)
+    public void validateCreateCustomReport() {
+
+        reporter.createTest("Client Portal Create Custom Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .createCustomReports();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 23)
+    public void validateEditCustomReport() {
+
+        reporter.createTest("Client Portal Edit Custom Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .editCustomReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 24)
+    public void validateDeleteCustomReport() {
+
+        reporter.createTest("Client Portal Delete Custom Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .deleteCustomReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 25)
+    public void validateRunCustomReport() {
+
+        reporter.createTest("Client Portal Run Custom Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .runCustomReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 26)
+    public void validateViewDefaultReport() {
+
+        reporter.createTest("Client Portal View Default Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .viewDefaultReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 27)
+    public void validateSnapshotDefaultReport() {
+
+        reporter.createTest("Client Portal Snapshot Default Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .runSnapshotDefaultReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 28)
+    public void validateDetailPDFDefaultReport() {
+
+        reporter.createTest("Client Portal Detail PDF Default Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .runDetailPdfDefaultReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 29)
+    public void validateDetailCSVDefaultReport() {
+
+        reporter.createTest("Client Portal Detail CSV Default Report Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withPortfolioAnalyst()
+                .withReports()
+                .runDetailCsvDefaultReport();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 30)
+    public void validateViewTaxForms() {
+
+        reporter.createTest("Client Portal Tax Form Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalReports);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withClientPortalReports()
+                .navigateToReports();
+        portal()
+                .withReports()
+                .withTaxForms()
+                .navigateToTax()
+                .validateTaxForms();
+
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
 }

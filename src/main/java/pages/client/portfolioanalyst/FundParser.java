@@ -143,8 +143,7 @@ public class FundParser extends PortfolioAnalyst {
 
     private void navigateToFundParser(String description) {
 
-        navigateToFundParser(description);
-
+        navigateToPortfolioAnalyst(description);
         tab("Fund Parser").click();
         sleep(1000);
     }
