@@ -24,19 +24,19 @@ public class WhiteBranding extends AccountSettings {
     }
 
     private WebElement labelWhiteBranding() {
-        return elementPresent(By.xpath("//h3[contains(.,'White Branding')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'White Branding')]"));
     }
 
     private WebElement buttonViewBanner() {
-        return elementPresent(By.xpath("//i[@data-original-title='View']"));
+        return elementVisible(By.xpath("//i[@data-original-title='View']"));
     }
 
     private WebElement labelBanner() {
-        return elementPresent(By.xpath("//i[@data-original-title='View']/ancestor::label"));
+        return elementVisible(By.xpath("//i[@data-original-title='View']/ancestor::label"));
     }
 
     private WebElement buttonConfigure(Heading heading) {
-        return elementPresent(By.xpath("//section[div[span[text()='" + heading.toString().replaceAll("_", " ") + "']]]//i[@data-original-title='Configure']"));
+        return elementVisible(By.xpath("//section[div[span[text()='" + heading.toString().replaceAll("_", " ") + "']]]//i[@data-original-title='Configure']"));
     }
 
     public WhiteBranding validateWhiteBranding() {

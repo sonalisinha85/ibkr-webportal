@@ -1,11 +1,11 @@
-package com.ibkr.qa.clientportal;
+package com.ibkr.qa.portal;
 
-import com.ibkr.qa.base.TestBase;
+import com.ibkr.qa.base.PortalTestBase;
 import com.ibkr.qa.enums.TestAuthor;
 import com.ibkr.qa.enums.TestCategory;
 import org.testng.annotations.Test;
 
-public class ClientPortalTest extends TestBase {
+public class ClientPortalTest extends PortalTestBase {
 
     @Test(priority = 1)
     public void validateFindServices() {

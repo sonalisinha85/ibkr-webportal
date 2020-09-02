@@ -19,43 +19,43 @@ public class AddContact extends Contacts {
     }
 
     private WebElement labelAddContacts() {
-        return elementPresent(By.xpath("//h4[text()='Configure Contact Profile for Primary Account Holder']"));
+        return elementVisible(By.xpath("//h4[text()='Configure Contact Profile for Primary Account Holder']"));
     }
 
     private WebElement dropDownSalutation() {
-        return elementPresent(By.xpath("//am-select[contains(@ng-model,'salutation')]/select"));
+        return elementVisible(By.xpath("//am-select[contains(@ng-model,'salutation')]/select"));
     }
 
     private WebElement inputFirstName() {
-        return elementPresent(By.xpath("//input[@name='firstName']"));
+        return elementVisible(By.xpath("//input[@name='firstName']"));
     }
 
     private WebElement inputLastName() {
-        return elementPresent(By.xpath("//input[@name='lastName']"));
+        return elementVisible(By.xpath("//input[@name='lastName']"));
     }
 
     private WebElement inputPhoneNumber1() {
-        return elementPresent(By.xpath("//input[@name='phoneNumber1']"));
+        return elementVisible(By.xpath("//input[@name='phoneNumber1']"));
     }
 
     private WebElement dropDownCountry() {
-        return elementPresent(By.xpath("//select[@name='country']"));
+        return elementVisible(By.xpath("//select[@name='country']"));
     }
 
     private WebElement buttonContinue() {
-        return elementPresent(By.xpath("//div[@class='panel-btn-right']//am-button[@btn-text='Continue']"));
+        return elementVisible(By.xpath("//div[@class='panel-btn-right']//am-button[@btn-text='Continue']"));
     }
 
     private WebElement labelReviewContactProfile() {
-        return elementPresent(By.xpath("//h4[text()='Review Contact Profile']"));
+        return elementVisible(By.xpath("//h4[text()='Review Contact Profile']"));
     }
 
     private WebElement buttonOk() {
-        return elementPresent(By.xpath("//am-button[@btn-text='Ok']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='Ok']"));
     }
 
     private WebElement labelContactAdded(String label) {
-        return elementPresent(By.xpath("//h3[contains(text(),'" + label + "')]"));
+        return elementVisible(By.xpath("//h3[contains(text(),'" + label + "')]"));
     }
 
     public AddContact addAndReviwContactForm() {

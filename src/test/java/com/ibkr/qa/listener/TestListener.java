@@ -1,7 +1,7 @@
 package com.ibkr.qa.listener;
 
 import com.aventstack.extentreports.Status;
-import com.ibkr.qa.base.TestBase;
+import com.ibkr.qa.base.PortalTestBase;
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,7 +10,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListener extends TestBase implements ITestListener {
+public class TestListener extends PortalTestBase implements ITestListener {
 
     private static String getTestMethodName(ITestResult result) {
         return result.getMethod().getConstructorOrMethod().getName();
@@ -41,7 +41,7 @@ public class TestListener extends TestBase implements ITestListener {
 
         //Get driver from BaseTest and assign to local webDriver variable.
         Object testClass = result.getInstance();
-        WebDriver driver = ((TestBase) testClass).driver();
+        WebDriver driver = ((PortalTestBase) testClass).driver();
 
         //Take base64Screenshot screenshot.
         String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) driver).

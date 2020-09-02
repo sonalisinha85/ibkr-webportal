@@ -54,109 +54,109 @@ public class Dashboard extends Portal {
     }
 
     protected List<WebElement> buttonsViewWorkflow() {
-        return elementsPresent(By.xpath("//section[@class='panel crm-workflows']//i[contains(@class,'fa-info-circle')]"));
+        return elementsVisible(By.xpath("//section[@class='panel crm-workflows']//i[contains(@class,'fa-info-circle')]"));
     }
 
     protected WebElement buttonAddWorkflow() {
-        return elementPresent(By.xpath("//section[@class='panel crm-workflows']//i[@data-original-title='Add Workflow']"));
+        return elementVisible(By.xpath("//section[@class='panel crm-workflows']//i[@data-original-title='Add Workflow']"));
     }
 
     protected List<WebElement> buttonsEditWorkflow() {
-        return elementsPresent(By.xpath("//section[@class='panel crm-workflows']//i[@data-original-title='Edit Workflow']"));
+        return elementsVisible(By.xpath("//section[@class='panel crm-workflows']//i[@data-original-title='Edit Workflow']"));
     }
 
     protected List<WebElement> buttonsDeleteWorkflow() {
-        return elementsPresent(By.xpath("//section[@class='panel crm-workflows']//i[@data-original-title='Delete Workflow']"));
+        return elementsVisible(By.xpath("//section[@class='panel crm-workflows']//i[@data-original-title='Delete Workflow']"));
     }
 
     protected WebElement buttonAddNotes() {
-        return elementPresent(By.xpath("//section[@id='crm-notes']//i[@data-original-title='Add']"));
+        return elementVisible(By.xpath("//section[@id='crm-notes']//i[@data-original-title='Add']"));
     }
 
     protected List<WebElement> buttonsEditNotes() {
-        return elementsPresent(By.xpath("//section[@id='crm-notes']//i[@data-original-title='Edit Note']"));
+        return elementsVisible(By.xpath("//section[@id='crm-notes']//i[@data-original-title='Edit Note']"));
     }
 
     protected List<WebElement> buttonsDeleteNotes() {
-        return elementsPresent(By.xpath("//section[@id='crm-notes']//i[@data-original-title='Delete Note']"));
+        return elementsVisible(By.xpath("//section[@id='crm-notes']//i[@data-original-title='Delete Note']"));
     }
 
     protected WebElement buttonViewMoreWorkflows() {
-        return elementPresent(By.xpath("//p/a[text()='View More Workflows']"));
+        return elementVisible(By.xpath("//p/a[text()='View More Workflows']"));
     }
 
     protected WebElement buttonViewMoreNotes() {
-        return elementPresent(By.xpath("//p/a[text()='View More Notes']"));
+        return elementVisible(By.xpath("//p/a[text()='View More Notes']"));
     }
 
     protected List<WebElement> listWorkflow() {
-        return elementsPresent(By.xpath("//div[@class='from-bordered' and @id='workflow-list']"));
+        return elementsVisible(By.xpath("//div[@class='from-bordered' and @id='workflow-list']"));
     }
 
     protected List<WebElement> listNotes() {
-        return elementsPresent(By.xpath("//li[@ng-repeat='nt in $ctrl.notes']"));
+        return elementsVisible(By.xpath("//li[@ng-repeat='nt in $ctrl.notes']"));
     }
 
     protected WebElement buttonAddDocument() {
-        return elementPresent(By.xpath("//section[@id='crm-documents-id']//i[@data-original-title='Add']"));
+        return elementVisible(By.xpath("//section[@id='crm-documents-id']//i[@data-original-title='Add']"));
     }
 
     protected List<WebElement> labelsDocumentLink() {
-        return elementsPresent(By.xpath("//section[@id='crm-documents-id']//p[@ng-repeat]/span[@class='link-label']"));
+        return elementsVisible(By.xpath("//section[@id='crm-documents-id']//p[@ng-repeat]/span[@class='link-label']"));
     }
 
     protected WebElement labelDocumentLink(String documentName) {
-        return elementPresent(By.xpath("//section[@id='crm-documents-id']//p[@ng-repeat]" +
+        return elementVisible(By.xpath("//section[@id='crm-documents-id']//p[@ng-repeat]" +
                 "/span[@class='link-label' and contains(.,'" + documentName + "')]"));
     }
 
     protected List<WebElement> buttonViewDocument(String documentName) {
-        return elementsPresent(By.xpath("//span[@class='link-label' and contains(text(),'" + documentName + "')]" +
+        return elementsVisible(By.xpath("//span[@class='link-label' and contains(text(),'" + documentName + "')]" +
                 "/ancestor::section[@id='crm-documents-id']//p[@ng-repeat]//am-button[@tooltip-text='View']"));
     }
 
     protected WebElement labelAum() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Assets Under Management (AUM)']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Assets Under Management (AUM)']"));
     }
 
     protected WebElement labelConsolidatedAum() {
-        return elementPresent(By.xpath("//span[text()='Consolidated']/ancestor::h5/span[text()!='Consolidated']"));
+        return elementVisible(By.xpath("//span[text()='Consolidated']/ancestor::h5/span[text()!='Consolidated']"));
     }
 
     protected WebElement labelChangeInUsd() {
-        return elementPresent(By.xpath("//span[contains(text(),'Change in')]/ancestor::h5/span[not(contains(text(),'Change in'))]"));
+        return elementVisible(By.xpath("//span[contains(text(),'Change in')]/ancestor::h5/span[not(contains(text(),'Change in'))]"));
     }
 
     private WebElement buttonNav() {
-        return elementPresent(By.xpath("//*[local-name()='g']//*[local-name()='tspan' and text()='Net Asset Value']"));
+        return elementVisible(By.xpath("//*[local-name()='g']//*[local-name()='tspan' and text()='Net Asset Value']"));
     }
 
     private WebElement buttonReturn() {
-        return elementPresent(By.xpath("//*[local-name()='g']//*[local-name()='tspan' and text()='Return']"));
+        return elementVisible(By.xpath("//*[local-name()='g']//*[local-name()='tspan' and text()='Return']"));
     }
 
     protected WebElement labelMasterAccountBalance() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Master Account Balance']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Master Account Balance']"));
     }
 
     protected WebElement labelMasterAccountBalanceUsd() {
-        return elementPresent(By.xpath("//section[contains(@ng-if,'MasterBalance')]//h5/span"));
+        return elementVisible(By.xpath("//section[contains(@ng-if,'MasterBalance')]//h5/span"));
     }
 
     protected WebElement buttonAddEvent() {
-        return elementPresent(By.xpath("//section[@class='panel crm-calendar']//i[@data-original-title='Add']"));
+        return elementVisible(By.xpath("//section[@class='panel crm-calendar']//i[@data-original-title='Add']"));
     }
 
     protected List<WebElement> buttonEditEvent() {
-        return elementsPresent(By.xpath("//section[@class='panel crm-calendar']//a[@class='editEvent fa fa-pencil']"));
+        return elementsVisible(By.xpath("//section[@class='panel crm-calendar']//a[@class='editEvent fa fa-pencil']"));
     }
 
     protected WebElement labelEventName(String name) {
-        return elementPresent(By.xpath("//section[@class='panel crm-calendar']//a[contains(text(),'" + name + "')]"));
+        return elementVisible(By.xpath("//section[@class='panel crm-calendar']//a[contains(text(),'" + name + "')]"));
     }
 
     private WebElement buttonViewFullCalendar() {
-        return elementPresent(By.xpath("//section[@class='panel crm-calendar']//a[@class='btn-view-all']"));
+        return elementVisible(By.xpath("//section[@class='panel crm-calendar']//a[@class='btn-view-all']"));
     }
 
     public Dashboard validateAum() {

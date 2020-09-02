@@ -21,19 +21,19 @@ public class CustomReportModal extends Reports {
     }
 
     private WebElement labelDeleteText() {
-        return elementPresent(By.xpath("//confirm-modal/div/p/strong"));
+        return elementVisible(By.xpath("//confirm-modal/div/p/strong"));
     }
 
     private WebElement buttonYes() {
-        return elementPresent(By.xpath("//am-button[@btn-text='Yes']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='Yes']"));
     }
 
     private WebElement labelDeleteReportAlert() {
-        return elementPresent(By.xpath("//div[@class='alert alert-success']/p"));
+        return elementVisible(By.xpath("//div[@class='alert alert-success']/p"));
     }
 
     private WebElement buttonClose() {
-        return elementPresent(By.xpath("//am-button[@btn-text='Close']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='Close']"));
     }
 
     public CustomReportModal deleteCustomReport() {

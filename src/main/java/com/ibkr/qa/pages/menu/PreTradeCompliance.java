@@ -43,64 +43,64 @@ public class PreTradeCompliance extends Portal {
 //            ));
 
     private WebElement labelPreTradeCompliance() {
-        return elementPresent(By.xpath("//span[text()='Pre-Trade Compliance']"));
+        return elementVisible(By.xpath("//span[text()='Pre-Trade Compliance']"));
     }
 
     private WebElement labelRestrictions() {
-        return elementPresent(By.xpath("//h5[text()='Restrictions']"));
+        return elementVisible(By.xpath("//h5[text()='Restrictions']"));
     }
 
     private List<WebElement> linksRestrictionName() {
-        return elementsPresent(By.xpath("//tr//a[@href]"));
+        return elementsVisible(By.xpath("//tr//a[@href]"));
     }
 
     private WebElement linkRestrictionName(String name) {
-        return elementPresent(By.xpath("//td/a[text()='" + name + "']"));
+        return elementVisible(By.xpath("//td/a[text()='" + name + "']"));
     }
 
     private WebElement buttonNewRestriction() {
-        return elementPresent(By.xpath("//button[text()='New Restriction']"));
+        return elementVisible(By.xpath("//button[text()='New Restriction']"));
     }
 
     private List<WebElement> buttonsRemove() {
-        return elementsPresent(By.xpath("//button[@title='Remove']"));
+        return elementsVisible(By.xpath("//button[@title='Remove']"));
     }
 
     private List<WebElement> buttonsCopy() {
-        return elementsPresent(By.xpath("//button[@title='Copy']"));
+        return elementsVisible(By.xpath("//button[@title='Copy']"));
     }
 
 
     private WebElement selectRestrictionMethod() {
-        return elementPresent(By.xpath("//label[text()='Select Restriction Method']/ancestor::span[@role='combobox']"));
+        return elementVisible(By.xpath("//label[text()='Select Restriction Method']/ancestor::span[@role='combobox']"));
     }
 
     private WebElement inputName() {
-        return elementPresent(By.xpath("//input[@name='name']"));
+        return elementVisible(By.xpath("//input[@name='name']"));
     }
 
     private WebElement listSelection(String selection) {
-        return elementPresent(By.xpath("//li[text()='" + selection + "']"));
+        return elementVisible(By.xpath("//li[text()='" + selection + "']"));
     }
 
     private WebElement selectAddRule() {
-        return elementPresent(By.xpath("//label[contains(text(),'Add rule')]/ancestor::span[@role='combobox']"));
+        return elementVisible(By.xpath("//label[contains(text(),'Add rule')]/ancestor::span[@role='combobox']"));
     }
 
     private WebElement buttonSave() {
-        return elementPresent(By.xpath("//button[contains(text(),'Save')]"));
+        return elementVisible(By.xpath("//button[contains(text(),'Save')]"));
     }
 
     private WebElement buttonCancel() {
-        return elementPresent(By.xpath("//button[contains(text(),'Cancel')]"));
+        return elementVisible(By.xpath("//button[contains(text(),'Cancel')]"));
     }
 
     private WebElement buttonDelete() {
-        return elementPresent(By.xpath("//button[contains(text(),'Delete')]"));
+        return elementVisible(By.xpath("//button[contains(text(),'Delete')]"));
     }
 
     private WebElement form() {
-        return elementPresent(By.xpath("//form"));
+        return elementVisible(By.xpath("//form"));
     }
 
     public PreTradeCompliance validateNewRestriction() {
@@ -164,7 +164,7 @@ public class PreTradeCompliance extends Portal {
         random(buttonsRemove(), 1).get(0).click();
         sleep(1000);
         buttonDelete().click();
-        sleep(1000);
+        sleep(2000);
 
         reporter.assertChild(softly.assertThat(linksRestrictionName().size())
                         .as("Restriction is deleted [Old Restrictions count vs New Restrictions count validated]")

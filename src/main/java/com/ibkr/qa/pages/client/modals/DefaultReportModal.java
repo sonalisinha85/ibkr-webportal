@@ -22,19 +22,19 @@ public class DefaultReportModal extends Reports {
     }
 
     private WebElement panelBenchmark() {
-        return elementPresent(By.xpath("//h6[text()='Benchmarks']/ancestor::div[contains(@ng-if,'benchmarks')]"));
+        return elementVisible(By.xpath("//h6[text()='Benchmarks']/ancestor::div[contains(@ng-if,'benchmarks')]"));
     }
 
     private WebElement panelReportDetails() {
-        return elementPresent(By.xpath("//h6[text()='Report Details']/ancestor::div[contains(@ng-controller,'PaReportInfoCtrl')]"));
+        return elementVisible(By.xpath("//h6[text()='Report Details']/ancestor::div[contains(@ng-controller,'PaReportInfoCtrl')]"));
     }
 
     private WebElement buttonClose() {
-        return elementPresent(By.xpath("//p//am-button[@btn-text='Close']/a[contains(.,'Close')]"));
+        return elementVisible(By.xpath("//p//am-button[@btn-text='Close']/a[contains(.,'Close')]"));
     }
 
     private WebElement buttonConsolidateReport() {
-        return elementPresent(By.xpath("//a[contains(.,'Consolidate Selected Accounts into Single Report')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Consolidate Selected Accounts into Single Report')]"));
     }
 
     public DefaultReportModal viewDefaultReportModal() {

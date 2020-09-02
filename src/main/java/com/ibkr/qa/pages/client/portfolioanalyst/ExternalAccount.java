@@ -23,52 +23,52 @@ public class ExternalAccount extends PortfolioAnalyst {
     }
 
     private WebElement buttonExternalAccountBeta() {
-        return elementPresent(By.xpath("//a[contains(.,'External Accounts (Beta)')]"));
+        return elementVisible(By.xpath("//a[contains(.,'External Accounts (Beta)')]"));
     }
 
     private WebElement buttonAdd() {
-        return elementPresent(By.xpath("//i[@data-original-title='Add']"));
+        return elementVisible(By.xpath("//i[@data-original-title='Add']"));
     }
 
     private WebElement dropDownAccountType() {
-        return elementPresent(By.xpath("//select[@name='type']"));
+        return elementVisible(By.xpath("//select[@name='type']"));
     }
 
     private WebElement inputAccountTitle() {
-        return elementPresent(By.xpath("//am-input[contains(@ng-model,'title')]/input"));
+        return elementVisible(By.xpath("//am-input[contains(@ng-model,'title')]/input"));
     }
 
     private WebElement dropDownCurrency() {
-        return elementPresent(By.xpath("//am-select[contains(@options,'currencies')]/select"));
+        return elementVisible(By.xpath("//am-select[contains(@options,'currencies')]/select"));
     }
 
     private WebElement dropDownDate() {
 
-        return elementPresent(By.xpath("//input[@name='date']"));
+        return elementVisible(By.xpath("//input[@name='date']"));
     }
 
     private List<WebElement> datePicker() {
-        return elementsPresent(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled'))]"));
+        return elementsVisible(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled'))]"));
     }
 
     private WebElement inputValue() {
-        return elementPresent(By.xpath("//am-input[contains(@ng-model,'amt')]/input"));
+        return elementVisible(By.xpath("//am-input[contains(@ng-model,'amt')]/input"));
     }
 
     private WebElement buttonContinue() {
-        return elementPresent(By.xpath("//div[@class='panel-body']//am-button[@btn-text='Continue']"));
+        return elementVisible(By.xpath("//div[@class='panel-body']//am-button[@btn-text='Continue']"));
     }
 
     private WebElement labelSuccess() {
-        return elementPresent(By.xpath("//h1[contains(.,'Your account has been added!')]"));
+        return elementVisible(By.xpath("//h1[contains(.,'Your account has been added!')]"));
     }
 
     private WebElement buttonOk() {
-        return elementPresent(By.xpath("//a[contains(.,'Ok')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Ok')]"));
     }
 
     private WebElement labelAccountTitle(String title) {
-        return elementPresent(By.xpath("//p[contains(.,'" + title + "')]"));
+        return elementVisible(By.xpath("//p[contains(.,'" + title + "')]"));
     }
 
     public ExternalAccount addExternalAccount() {

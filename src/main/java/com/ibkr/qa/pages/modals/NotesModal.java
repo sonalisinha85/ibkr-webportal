@@ -24,36 +24,36 @@ public class NotesModal extends Dashboard {
 
     private WebElement labelNotes(String name) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
     }
 
     private WebElement inputContact() {
 
-        return elementPresent(By.xpath("//input[@name='addedContactName']"));
+        return elementVisible(By.xpath("//input[@name='addedContactName']"));
     }
 
     private WebElement inputDescription() {
 
-        return elementPresent(By.xpath("//textarea[@placeholder='Required']"));
+        return elementVisible(By.xpath("//textarea[@placeholder='Required']"));
     }
 
     private List<WebElement> radioButtonsContact() {
-        return elementsPresent(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
+        return elementsVisible(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
     }
 
     private WebElement buttonCloseModal() {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//button[@class='close']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//button[@class='close']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     private WebElement labelDeleteAlert() {
 
-        return elementPresent(By.xpath("//div[@class='alert alert-success']/p[text()='Note has been deleted.']"));
+        return elementVisible(By.xpath("//div[@class='alert alert-success']/p[text()='Note has been deleted.']"));
     }
 
     public NotesModal viewNotes() {

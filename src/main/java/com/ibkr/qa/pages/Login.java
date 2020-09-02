@@ -24,11 +24,11 @@ public class Login extends WebOperation {
     }
 
     private WebElement textUserName() {
-        return elementPresent(By.id("user_name"));
+        return elementVisible(By.id("user_name"));
     }
 
     private WebElement textPassword() {
-        return elementPresent(By.id("password"));
+        return elementVisible(By.id("password"));
     }
 
     private WebElement buttonLogin() {

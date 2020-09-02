@@ -49,27 +49,27 @@ public class FilterContactMenu extends Contacts {
     }
 
     private WebElement buttonMainPanel(Panel panel) {
-        return elementPresent(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//a"));
+        return elementVisible(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//a"));
     }
 
     private WebElement buttonMainPanel(String panel) {
-        return elementPresent(By.xpath("//div[contains(@id,'" + panel + "')]//a"));
+        return elementVisible(By.xpath("//div[contains(@id,'" + panel + "')]//a"));
     }
 
     private WebElement buttonFilter(Panel panel, String filterName) {
-        return elementPresent(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//td[text()='" + filterName + "']"));
+        return elementVisible(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//td[text()='" + filterName + "']"));
     }
 
     private List<WebElement> buttonFilters(Panel panel) {
-        return elementsPresent(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//td"));
+        return elementsVisible(By.xpath("//div[contains(@id,'" + panel.toString() + "')]//td"));
     }
 
     private List<WebElement> buttonFilters(String panel) {
-        return elementsPresent(By.xpath("//div[contains(@id,'" + panel + "')]//td"));
+        return elementsVisible(By.xpath("//div[contains(@id,'" + panel + "')]//td"));
     }
 
     private WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//a[text()='" + action.toString().replaceAll("_", " ") + "']"));
+        return elementVisible(By.xpath("//a[text()='" + action.toString().replaceAll("_", " ") + "']"));
     }
 
     public FilterContactMenu validateFilterMenu() {

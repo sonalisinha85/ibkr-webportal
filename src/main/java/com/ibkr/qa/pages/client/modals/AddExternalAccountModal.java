@@ -21,11 +21,11 @@ public class AddExternalAccountModal extends ExternalAccount {
     }
 
     private WebElement buttonContinue() {
-        return elementPresent(By.xpath("//div[@class='panel-btn-right']//am-button[@btn-text='Continue']"));
+        return elementVisible(By.xpath("//div[@class='panel-btn-right']//am-button[@btn-text='Continue']"));
     }
 
     private WebElement buttonOfflineAccount() {
-        return elementPresent(By.xpath("//a[@class='btn-account-type' and contains(.,'Offline Account')]"));
+        return elementVisible(By.xpath("//a[@class='btn-account-type' and contains(.,'Offline Account')]"));
     }
 
     public ExternalAccount navigate() {

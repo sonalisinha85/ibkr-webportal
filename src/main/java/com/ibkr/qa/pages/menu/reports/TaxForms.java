@@ -21,19 +21,19 @@ public class TaxForms extends Reports {
     }
 
     private WebElement panelTaxForms() {
-        return elementPresent(By.xpath("//span[text()='Tax Forms']/ancestor::section[@ng-if='taxCtrl.isTaxFormsAccessible']"));
+        return elementVisible(By.xpath("//span[text()='Tax Forms']/ancestor::section[@ng-if='taxCtrl.isTaxFormsAccessible']"));
     }
 
     private WebElement dropdownTaxYear() {
-        return elementPresent(By.xpath("//select[contains(@ng-model,'taxForm.selectedTaxYear')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'taxForm.selectedTaxYear')]"));
     }
 
     private WebElement buttonPDF() {
-        return elementPresent(By.xpath("//i[@class='fa fa-arrow-down margin-right-10']/ancestor::a[contains(.,'PDF')]"));
+        return elementVisible(By.xpath("//i[@class='fa fa-arrow-down margin-right-10']/ancestor::a[contains(.,'PDF')]"));
     }
 
     private WebElement buttonCSV() {
-        return elementPresent(By.xpath("//i[@class='fa fa-arrow-down margin-right-10']/ancestor::a[contains(.,'CSV')]"));
+        return elementVisible(By.xpath("//i[@class='fa fa-arrow-down margin-right-10']/ancestor::a[contains(.,'CSV')]"));
     }
 
     public TaxForms navigateToTax() {
@@ -56,7 +56,7 @@ public class TaxForms extends Reports {
         sleep(1000);
 
         buttonPDF().click();
-        sleep(1000);
+        sleep(2000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("Tax Form PDF is Download")
@@ -65,7 +65,7 @@ public class TaxForms extends Reports {
 
         sleep(2000);
         buttonCSV().click();
-        sleep(1000);
+        sleep(2000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("Tax Form CSV is Download")

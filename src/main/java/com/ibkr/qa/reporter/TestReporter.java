@@ -3,7 +3,6 @@ package com.ibkr.qa.reporter;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.JsonFormatter;
 import com.ibkr.qa.enums.TestAuthor;
@@ -25,7 +24,6 @@ public class TestReporter {
     static Map<Integer, ExtentTest> testMap = new HashMap();
     static Map<Integer, ExtentTest> childMap = new HashMap();
     private static ExtentReports report;
-    private ExtentHtmlReporter extent;
     private ExtentSparkReporter spark;
     private ExtentTest test;
     private ExtentTest child;

@@ -140,42 +140,42 @@ public class Portal extends WebOperation {
 
     private WebElement labelPortal() {
 
-        return elementPresent(By.xpath("//h3[contains(text(),'" + portalName + "')]"));
+        return elementVisible(By.xpath("//h3[contains(text(),'" + portalName + "')]"));
     }
 
     protected WebElement buttonNewAm() {
 
         switchFrame("footer");
-        return elementPresent(By.xpath("//li[a[text()='New AM']]"));
+        return elementVisible(By.xpath("//li[a[text()='New AM']]"));
     }
 
     private WebElement buttonUserOption() {
 
-        return elementPresent(By.xpath("//user-options//span[@class='fa fa-angle-down']"));
+        return elementVisible(By.xpath("//user-options//span[@class='fa fa-angle-down']"));
     }
 
     private WebElement buttonLogout() {
 
-        return elementPresent(By.xpath("//i[contains(@class,'fa-sign-out')]"));
+        return elementVisible(By.xpath("//i[contains(@class,'fa-sign-out')]"));
     }
 
     protected WebElement tabs(Tabs tabs) {
-        return elementPresent(By.xpath("//a[@data-toggle='tab' and contains(text(),'"
+        return elementVisible(By.xpath("//a[@data-toggle='tab' and contains(text(),'"
                 + tabs.toString().replaceAll("_", " ") + "')]"));
     }
 
     protected WebElement menu(Menu menu) {
-        return elementPresent(By.xpath("//i[@data-original-title='"
+        return elementVisible(By.xpath("//i[@data-original-title='"
                 + menu.toString().replaceAll("_", " ").replaceAll("And", "&") + "']"));
     }
 
     protected WebElement menu(String menu) {
-        return elementPresent(By.xpath("//i[@data-original-title='"
+        return elementVisible(By.xpath("//i[@data-original-title='"
                 + menu + "']"));
     }
 
     protected WebElement subMenu(SubMenu subMenu) {
-        return elementPresent(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
+        return elementVisible(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
                 "/a[contains(text(),'" + subMenu.toString().replaceAll("_", " ").replaceAll("And", "&") + "')]"));
     }
 

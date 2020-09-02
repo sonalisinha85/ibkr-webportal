@@ -21,31 +21,31 @@ public class SynopsesModal extends PortfolioAnalyst {
     }
 
     private WebElement labelCreateNewSynopses() {
-        return elementPresent(By.xpath("//span[text()='Create New Synopsis']"));
+        return elementVisible(By.xpath("//span[text()='Create New Synopsis']"));
     }
 
     private WebElement labelDeleteSynopses() {
-        return elementPresent(By.xpath("//span[text()='Delete Synopsis']"));
+        return elementVisible(By.xpath("//span[text()='Delete Synopsis']"));
     }
 
     private WebElement labelDeleteSuccess() {
-        return elementPresent(By.xpath("//div[@class='alert alert-success']"));
+        return elementVisible(By.xpath("//div[@class='alert alert-success']"));
     }
 
     private WebElement inputName() {
-        return elementPresent(By.xpath("//input[@name='title']"));
+        return elementVisible(By.xpath("//input[@name='title']"));
     }
 
     private WebElement inputText() {
-        return elementPresent(By.xpath("//textarea[@name='text']"));
+        return elementVisible(By.xpath("//textarea[@name='text']"));
     }
 
     private WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     private WebElement labelSynopsesName(String name) {
-        return elementPresent(By.xpath("//span[contains(.,'" + name + "')]"));
+        return elementVisible(By.xpath("//span[contains(.,'" + name + "')]"));
     }
 
     public SynopsesModal createSynopses() {

@@ -35,11 +35,11 @@ public class ContactSettings extends Contacts {
     }
 
     private List<WebElement> buttonsColumns() {
-        return elementsPresent(By.xpath("//p[contains(@ng-repeat,'columnName')]/a"));
+        return elementsVisible(By.xpath("//p[contains(@ng-repeat,'columnName')]/a"));
     }
 
     private WebElement buttonReset() {
-        return elementPresent(By.xpath("//p/a[text()='Reset']"));
+        return elementVisible(By.xpath("//p/a[text()='Reset']"));
     }
 
     public ContactSettings validateSettingsMenu() {

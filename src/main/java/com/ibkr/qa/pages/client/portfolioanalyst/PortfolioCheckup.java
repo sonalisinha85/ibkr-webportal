@@ -34,15 +34,15 @@ public class PortfolioCheckup extends PortfolioAnalyst {
     }
 
     private WebElement labelConcentrationReport() {
-        return elementPresent(By.xpath("//div[@ng-controller='ConcentrationReportCtrl as ctrl']"));
+        return elementVisible(By.xpath("//div[@ng-controller='ConcentrationReportCtrl as ctrl']"));
     }
 
     private WebElement labelSection(String sectionName) {
-        return elementPresent(By.xpath("//span[contains(text(),'" + sectionName + "')]/ancestor::section[@class='panel']"));
+        return elementVisible(By.xpath("//span[contains(text(),'" + sectionName + "')]/ancestor::section[@class='panel']"));
     }
 
     private WebElement labelNotes() {
-        return elementPresent(By.xpath("//div[@class='notes']"));
+        return elementVisible(By.xpath("//div[@class='notes']"));
     }
 
     public PortfolioCheckup validatePortfolioCheckup() {

@@ -36,39 +36,39 @@ public class FundParser extends PortfolioAnalyst {
     }
 
     private WebElement labelConcentrationReport() {
-        return elementPresent(By.xpath("//div[@ng-controller='ConcentrationReportCtrl as ctrl']"));
+        return elementVisible(By.xpath("//div[@ng-controller='ConcentrationReportCtrl as ctrl']"));
     }
 
     private WebElement labelSection(String sectionName) {
-        return elementPresent(By.xpath("//span[text()='" + sectionName + "']/ancestor::section[@class='panel']"));
+        return elementVisible(By.xpath("//span[text()='" + sectionName + "']/ancestor::section[@class='panel']"));
     }
 
     private WebElement buttonViewAll() {
-        return elementPresent(By.xpath("//a[contains(text(),'View All')]"));
+        return elementVisible(By.xpath("//a[contains(text(),'View All')]"));
     }
 
     private WebElement textBoxFundSearch() {
-        return elementPresent(By.xpath("//input[@name='fundSearch']"));
+        return elementVisible(By.xpath("//input[@name='fundSearch']"));
     }
 
     private List<WebElement> labelsFund() {
-        return elementsPresent(By.xpath("//div[@ng-repeat='fund in $ctrl.list']"));
+        return elementsVisible(By.xpath("//div[@ng-repeat='fund in $ctrl.list']"));
     }
 
     private WebElement buttonSearch() {
-        return elementPresent(By.xpath("//i[@class='fa fa-search']"));
+        return elementVisible(By.xpath("//i[@class='fa fa-search']"));
     }
 
     private WebElement labelFundHeader(String fundName) {
-        return elementPresent(By.xpath("//span[contains(. ,'Fund Parser (" + fundName + "')]"));
+        return elementVisible(By.xpath("//span[contains(. ,'Fund Parser (" + fundName + "')]"));
     }
 
     private WebElement labelFundDesc(String fundDesc) {
-        return elementPresent(By.xpath("//p[contains(.,'" + fundDesc + "')]"));
+        return elementVisible(By.xpath("//p[contains(.,'" + fundDesc + "')]"));
     }
 
     private WebElement sectionMutualFundSummary() {
-        return elementPresent(By.xpath("//div[contains(@ng-if,'FundSummary')]//section"));
+        return elementVisible(By.xpath("//div[contains(@ng-if,'FundSummary')]//section"));
     }
 
     public FundParser validateConcentrationReport() {

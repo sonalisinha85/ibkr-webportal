@@ -47,15 +47,15 @@ public class ViewContact extends Contacts {
     }
 
     private List<WebElement> listNavigationTabs() {
-        return elementsPresent(By.xpath("//ul[@class='nav nav-tabs nav-lines-large']//a"));
+        return elementsVisible(By.xpath("//ul[@class='nav nav-tabs nav-lines-large']//a"));
     }
 
     private List<WebElement> listHeadingsInformationTab() {
-        return elementsPresent(By.xpath("//div[contains(@id,'details-tab-information')]//span[@class='heading']"));
+        return elementsVisible(By.xpath("//div[contains(@id,'details-tab-information')]//span[@class='heading']"));
     }
 
     private List<WebElement> listHeadingsAgendaTab() {
-        return elementsPresent(By.xpath("//div[contains(@id,'details-tab-communication')]//span[@class='heading']"));
+        return elementsVisible(By.xpath("//div[contains(@id,'details-tab-communication')]//span[@class='heading']"));
     }
 
     public ViewContact validateViewContact() {

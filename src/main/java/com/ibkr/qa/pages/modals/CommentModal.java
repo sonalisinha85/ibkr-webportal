@@ -24,21 +24,21 @@ public class CommentModal extends Employee {
 
     private WebElement labelNotes(String name) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
     }
 
     private WebElement inputComment() {
 
-        return elementPresent(By.xpath("//textarea[@placeholder='Required']"));
+        return elementVisible(By.xpath("//textarea[@placeholder='Required']"));
     }
 
     private List<WebElement> listComments() {
-        return elementsPresent(By.xpath("//div[@ng-repeat and @class='row']"));
+        return elementsVisible(By.xpath("//div[@ng-repeat and @class='row']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     public CommentModal addComment() {

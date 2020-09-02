@@ -5,10 +5,15 @@
     </listeners>
     <test name="IBKR_Web_Portal_Test">
         <classes>
-            <class name="com.ibkr.qa.advisorportal.AdvisorPortalTest"/>
-            <class name="com.ibkr.qa.brokerportal.BrokerPortalTest"/>
-            <class name="com.ibkr.qa.complianceportal.CompliancePortalTest"/>
-            <class name="com.ibkr.qa.clientportal.ClientPortalTest"/>
+            <class name="com.ibkr.qa.portal.AdvisorPortalTest"/>
+            <class name="com.ibkr.qa.portal.BrokerPortalTest"/>
+            <class name="com.ibkr.qa.portal.CompliancePortalTest"/>
+            <class name="com.ibkr.qa.portal.ClientPortalTest"/>
+        </classes>
+    </test>
+    <test name="IBKR_Web_Portal_Upload_Test">
+        <classes>
+            <class name="com.ibkr.qa.portal.PortalDocumentUploadTest"/>
         </classes>
     </test>
 </suite>

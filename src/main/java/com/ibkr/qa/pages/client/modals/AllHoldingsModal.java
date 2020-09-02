@@ -22,15 +22,15 @@ public class AllHoldingsModal extends FundParser {
     }
 
     private WebElement labelAllHoldings() {
-        return elementPresent(By.xpath("//span[contains(text(),'All Holdings')]"));
+        return elementVisible(By.xpath("//span[contains(text(),'All Holdings')]"));
     }
 
     private WebElement buttonClose() {
-        return elementPresent(By.xpath("//a[contains(text(),'Close')]"));
+        return elementVisible(By.xpath("//a[contains(text(),'Close')]"));
     }
 
     private WebElement tableAllHoldings() {
-        return elementPresent(By.xpath("//div[@class='modal-content']//table"));
+        return elementVisible(By.xpath("//div[@class='modal-content']//table"));
     }
 
     public PortfolioAnalyst validateAllHoldingsModal() {

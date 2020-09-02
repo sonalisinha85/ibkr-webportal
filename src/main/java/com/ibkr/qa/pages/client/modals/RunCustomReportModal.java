@@ -22,11 +22,11 @@ public class RunCustomReportModal extends Reports {
     }
 
     private WebElement dropDownConsolidate() {
-        return elementPresent(By.xpath("//select[@name='option']"));
+        return elementVisible(By.xpath("//select[@name='option']"));
     }
 
     private WebElement buttonRunCR() {
-        return elementPresent(By.xpath("//p//am-button[@btn-text='Run']/a[contains(.,'Run')]"));
+        return elementVisible(By.xpath("//p//am-button[@btn-text='Run']/a[contains(.,'Run')]"));
     }
 
     public RunCustomReportModal runCustomReportModal() {

@@ -24,22 +24,22 @@ public class OtherReports extends Reports {
 
     private WebElement dropDownReportType() {
 
-        return elementPresent(By.xpath("//select[@name='selectedRptType']"));
+        return elementVisible(By.xpath("//select[@name='selectedRptType']"));
     }
 
     private WebElement dropDownSubType() {
 
-        return elementPresent(By.xpath("//select[contains(@ng-model,'SubType')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'SubType')]"));
     }
 
     private WebElement inputDate() {
 
-        return elementPresent(By.xpath("//am-date-picker/input"));
+        return elementVisible(By.xpath("//am-date-picker/input"));
     }
 
     private WebElement dropDownDate() {
 
-        return elementPresent(By.xpath("//select[contains(@ng-model,'Date')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'Date')]"));
     }
 
     private List<WebElement> previousMonth() {
@@ -47,70 +47,70 @@ public class OtherReports extends Reports {
     }
 
     private List<WebElement> datePicker() {
-        return elementsPresent(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled'))]"));
+        return elementsVisible(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled'))]"));
     }
 
     private WebElement inputFromDate() {
-        return elementPresent(By.xpath("//input[@name='fromDate']"));
+        return elementVisible(By.xpath("//input[@name='fromDate']"));
     }
 
     private WebElement inputToDate() {
-        return elementPresent(By.xpath("//input[@name='toDate']"));
+        return elementVisible(By.xpath("//input[@name='toDate']"));
     }
 
     private WebElement dropDownFormat() {
 
-        return elementPresent(By.xpath("//select[contains(@ng-model,'Format')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'Format')]"));
     }
 
     private WebElement dropDownPeriod() {
 
-        return elementPresent(By.xpath("//select[contains(@ng-model,'period')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'period')]"));
     }
 
     private WebElement dropDownLotsLongTerm() {
 
-        return elementPresent(By.xpath("//select[contains(@ng-model,'currentDaysToLong')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'currentDaysToLong')]"));
     }
 
     private WebElement dropDownLanguage() {
 
-        return elementPresent(By.xpath("//select[contains(@ng-model,'language')]"));
+        return elementVisible(By.xpath("//select[contains(@ng-model,'language')]"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//button[text()='"
+        return elementVisible(By.xpath("//button[text()='"
                 + action.toString().replaceAll("_", " ") + "']"));
     }
 
     private WebElement statementSection() {
 
-        return elementPresent(By.xpath("//section[@class='statement']"));
+        return elementVisible(By.xpath("//section[@class='statement']"));
     }
 
     private WebElement labelNoStatementAlert() {
 
-        return elementPresent(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'no statement available')]"));
+        return elementVisible(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'no statement available')]"));
     }
 
     private WebElement labelNoDataAlert() {
 
-        return elementPresent(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'no data available')]"));
+        return elementVisible(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'no data available')]"));
     }
 
     private WebElement labelNoInvoicesAlert() {
 
-        return elementPresent(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'No invoices available')]"));
+        return elementVisible(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'No invoices available')]"));
     }
 
     private WebElement labelAlert() {
 
-        return elementPresent(By.xpath("//div[contains(@class,'alert')]/p"));
+        return elementVisible(By.xpath("//div[contains(@class,'alert')]/p"));
     }
 
     private WebElement checkboxAllAccount() {
-        return elementPresent(By.xpath("//i[contains(@ng-class,'allSelected')]"));
+        return elementVisible(By.xpath("//i[contains(@ng-class,'allSelected')]"));
     }
 
     public Reports validateRiskMarginReport() {
@@ -198,7 +198,7 @@ public class OtherReports extends Reports {
         changeDropdown(dropDownLanguage(), "English");
         String name = selectDropDown(dropDownDate()).getFirstSelectedOption().getText();
         buttonAction(Action.Run_Report).click();
-        sleep(3000);
+        sleep(4000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("P/L Markup Report Download")

@@ -21,11 +21,11 @@ public class AccountSettings extends Portal {
     }
 
     private WebElement labelAccountSettings() {
-        return elementPresent(By.xpath("//h3[contains(.,'Account Settings')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'Account Settings')]"));
     }
 
     private WebElement buttonConfigure(Configuration configuration) {
-        return elementPresent(By.xpath("//strong[contains(text(),'" + configuration.toString().replaceAll("_", " ") + "')]/ancestor::p//i[@data-original-title='Configure']"));
+        return elementVisible(By.xpath("//strong[contains(text(),'" + configuration.toString().replaceAll("_", " ") + "')]/ancestor::p//i[@data-original-title='Configure']"));
     }
 
     public AccountSettings configureWhiteBranding() {

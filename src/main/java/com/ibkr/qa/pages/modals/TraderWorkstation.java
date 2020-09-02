@@ -21,11 +21,11 @@ public class TraderWorkstation extends WhiteBranding {
     }
 
     private WebElement labelTraderWorkstation() {
-        return elementPresent(By.xpath("//h4//span[text()='Trader Workstation']"));
+        return elementVisible(By.xpath("//h4//span[text()='Trader Workstation']"));
     }
 
     protected WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     public TraderWorkstation validateTraderWorkstation() {

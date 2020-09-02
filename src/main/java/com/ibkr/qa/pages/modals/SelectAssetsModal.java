@@ -23,15 +23,15 @@ public class SelectAssetsModal extends DataQueries {
     }
 
     private WebElement labelSelectAssets() {
-        return elementPresent(By.xpath("//div[@id='amModalContent']//span[text()='Select Assets']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//span[text()='Select Assets']"));
     }
 
     private List<WebElement> checkBoxesSymbol() {
-        return elementsPresent(By.xpath("//input[@type='checkbox' and @ng-model='symbol.selected']"));
+        return elementsVisible(By.xpath("//input[@type='checkbox' and @ng-model='symbol.selected']"));
     }
 
     private WebElement buttonSelect() {
-        return elementPresent(By.xpath("//am-button[@btn-type='primary' and @btn-text='Select']"));
+        return elementVisible(By.xpath("//am-button[@btn-type='primary' and @btn-text='Select']"));
     }
 
     public SelectAssetsModal selectAssets() {

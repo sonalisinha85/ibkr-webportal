@@ -26,11 +26,11 @@ public class AccountSelector extends Groups {
     }
 
     private List<WebElement> radioButtonsPicker() {
-        return elementsPresent(By.xpath("//i[@class='fa fa-lg fa-circle-thin']"));
+        return elementsVisible(By.xpath("//i[@class='fa fa-lg fa-circle-thin']"));
     }
 
     private WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
     }
 
     public AccountSelector selectAccount() {

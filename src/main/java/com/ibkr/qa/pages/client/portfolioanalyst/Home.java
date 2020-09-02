@@ -20,44 +20,44 @@ public class Home extends PortfolioAnalyst {
     }
 
     private WebElement buttonSearchIcon() {
-        return elementPresent(By.xpath("//i[@data-original-title='Search']"));
+        return elementVisible(By.xpath("//i[@data-original-title='Search']"));
     }
 
     private WebElement inputSearchBox() {
-        return elementPresent(By.xpath("//input[@ng-model='searchInput']"));
+        return elementVisible(By.xpath("//input[@ng-model='searchInput']"));
     }
 
     private WebElement buttonSearch() {
-        return elementPresent(By.xpath("//a[contains(text(),'Search')]"));
+        return elementVisible(By.xpath("//a[contains(text(),'Search')]"));
     }
 
     private WebElement labelSearchResult() {
-        return elementPresent(By.xpath("//div[@ng-if='paSearch.results.rc === 0']/h5[contains(text(),'Search Results')]"));
+        return elementVisible(By.xpath("//div[@ng-if='paSearch.results.rc === 0']/h5[contains(text(),'Search Results')]"));
     }
 
     private WebElement tableBrokeragePosition() {
-        return elementPresent(By.xpath("//div[@ng-show='filteredPos.length > 0' and h6[contains(text(),'Brokerage Positions')]]//table"));
+        return elementVisible(By.xpath("//div[@ng-show='filteredPos.length > 0' and h6[contains(text(),'Brokerage Positions')]]//table"));
     }
 
     private WebElement buttonMWR() {
-        return elementPresent(By.xpath("//a[@ng-click='$ctrl.toggleFn()' and contains(text(),'MWR')]"));
+        return elementVisible(By.xpath("//a[@ng-click='$ctrl.toggleFn()' and contains(text(),'MWR')]"));
     }
 
     private WebElement buttonTWR() {
-        return elementPresent(By.xpath("//a[@ng-click='$ctrl.toggleFn()' and contains(text(),'TWR')]"));
+        return elementVisible(By.xpath("//a[@ng-click='$ctrl.toggleFn()' and contains(text(),'TWR')]"));
     }
 
     private WebElement dropDownViewBy() {
-        return elementPresent(By.xpath("//select"));
+        return elementVisible(By.xpath("//select"));
     }
 
     private WebElement panel(String name) {
-        return elementPresent(By.xpath("//span[@class='heading' " +
+        return elementVisible(By.xpath("//span[@class='heading' " +
                 "and contains(.,'" + name + "')]/ancestor::section[@class='panel']"));
     }
 
     private WebElement buttonBrokerage() {
-        return elementPresent(By.xpath("//p[contains(.,'Brokerage')]/i[@class='fa fa-bar-chart text-dark-red']"));
+        return elementVisible(By.xpath("//p[contains(.,'Brokerage')]/i[@class='fa fa-bar-chart text-dark-red']"));
     }
 
     public Home validateSearch() {

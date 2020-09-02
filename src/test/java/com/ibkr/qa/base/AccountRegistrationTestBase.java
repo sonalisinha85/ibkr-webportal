@@ -1,10 +1,6 @@
 package com.ibkr.qa.base;
 
-import com.ibkr.qa.pages.Login;
-import com.ibkr.qa.pages.Portal;
 import com.ibkr.qa.pages.accountapplication.AccountApplication;
-import com.ibkr.qa.pages.client.ClientPortal;
-import com.ibkr.qa.reporter.TestReporter;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,13 +10,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-public class TestBase {
+public class AccountRegistrationTestBase {
 
     private static final String BROWSER;
 
@@ -29,22 +23,17 @@ public class TestBase {
     }
 
     protected SoftAssertions softly;
-    protected TestReporter reporter;
     protected WebDriver driver;
-    protected Map<String, String> credentials = new HashMap();
 
-    public TestBase() {
+    public AccountRegistrationTestBase() {
 
         Properties prop = new Properties();
 
         try {
             prop.load(getClass().getClassLoader().getResourceAsStream("credentials.properties"));
-            prop.forEach((k, v) -> credentials.put(k.toString(), v.toString()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        reporter = new TestReporter();
     }
 
     @BeforeMethod
@@ -58,10 +47,9 @@ public class TestBase {
             ie();
 
         driver.manage().window().maximize();
-        driver.get("https://ndcdyn.interactivebrokers.com/sso/Login?RL=1");
+        driver.get("https://www.interactivebrokers.com/");
 
         softly = new SoftAssertions();
-        reporter.withSoftAssertion(softly);
     }
 
     public WebDriver driver() {
@@ -87,72 +75,10 @@ public class TestBase {
         driver = new InternetExplorerDriver();
     }
 
-    protected void loginAdvisor() {
-
-        login()
-                .withUserName(credentials.get("ADVISOR_USER"))
-                .withPassword(credentials.get("ADVISOR_PASSWORD"))
-                .login();
-    }
-
-    protected void loginBroker() {
-
-        login()
-                .withUserName(credentials.get("BROKER_USER"))
-                .withPassword(credentials.get("BROKER_PASSWORD"))
-                .login();
-    }
-
-    protected void loginCompliance() {
-
-        login()
-                .withUserName(credentials.get("COMPLIANCE_USER"))
-                .withPassword(credentials.get("COMPLIANCE_PASSWORD"))
-                .login();
-    }
-
-    protected void loginClient() {
-
-        login()
-                .withUserName(credentials.get("CLIENT_USER"))
-                .withPassword(credentials.get("CLIENT_PASSWORD"))
-                .login();
-    }
-
-    protected void loginChineseNative() {
-
-        login()
-                .withUserName("ibk200829")
-                .withPassword("tester12")
-                .login();
-    }
-
-    protected Login login() {
-
-        return new Login()
-                .withDriver(driver)
-                .withReporter(reporter);
-    }
-
-    protected Portal portal() {
-
-        return new Portal()
-                .withDriver(driver)
-                .withReporter(reporter);
-    }
-
     protected AccountApplication accountApplication() {
 
         return new AccountApplication()
-                .withDriver(driver)
-                .withReporter(reporter);
-    }
-
-    public ClientPortal clientPortal() {
-
-        return new ClientPortal()
-                .withDriver(driver)
-                .withReporter(reporter);
+                .withDriver(driver);
     }
 
     //    After test method to quit the driver and generate test execution report
@@ -161,6 +87,5 @@ public class TestBase {
     public void after() {
 
         driver.quit();
-        reporter.persist();
     }
 }

@@ -24,31 +24,31 @@ public class WorkflowModal extends Dashboard {
 
     private WebElement labelWorkflow(String name) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
     }
 
     private WebElement inputAssociatedContact() {
 
-        return elementPresent(By.xpath("//input[@name='addedContactName']"));
+        return elementVisible(By.xpath("//input[@name='addedContactName']"));
     }
 
     private WebElement inputDetails() {
 
-        return elementPresent(By.xpath("//input[@name='taskDescription']"));
+        return elementVisible(By.xpath("//input[@name='taskDescription']"));
     }
 
     private List<WebElement> radioButtonsContact() {
-        return elementsPresent(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
+        return elementsVisible(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
     }
 
     private WebElement buttonCloseModal() {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//button[@class='close']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//button[@class='close']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     public WorkflowModal viewWorkflow() {

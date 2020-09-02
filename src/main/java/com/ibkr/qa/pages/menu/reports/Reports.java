@@ -52,102 +52,102 @@ public class Reports extends Portal {
 
     protected WebElement labelReports() {
 
-        return elementPresent(By.xpath("//h3[contains(.,'Reports')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'Reports')]"));
     }
 
     private WebElement labelAccountNumber() {
 
-        return elementPresent(By.xpath("//span[@class='account-numbers']"));
+        return elementVisible(By.xpath("//span[@class='account-numbers']"));
     }
 
     private WebElement labelAccountsTab() {
 
-        return elementPresent(By.xpath("//a[@data-toggle='tab' and text()='Accounts']"));
+        return elementVisible(By.xpath("//a[@data-toggle='tab' and text()='Accounts']"));
     }
 
     protected WebElement tabReports(ReportsTab tab) {
 
-        return elementPresent(By.xpath("//li[contains(@ng-repeat,'tab')]" +
+        return elementVisible(By.xpath("//li[contains(@ng-repeat,'tab')]" +
                 "/a[contains(text(),'" + tab.toString().replaceAll("_", " ") + "')]"));
     }
 
     protected WebElement buttonActionRightpanel(Action action) {
 
-        return elementPresent(By.xpath("//div[@class='panel-btn-right']" +
+        return elementVisible(By.xpath("//div[@class='panel-btn-right']" +
                 "//am-button[@btn-text='" + action.toString().replaceAll("_", " ") + "']"));
     }
 
     protected WebElement dropDownOutputFormat() {
 
-        return elementPresent(By.xpath("//select[@name='outputFormat']"));
+        return elementVisible(By.xpath("//select[@name='outputFormat']"));
     }
 
     protected WebElement reportModalTitle() {
 
-        return elementPresent(By.xpath("//span[@id='amModalTitle']"));
+        return elementVisible(By.xpath("//span[@id='amModalTitle']"));
     }
 
     protected WebElement buttonActionLeftpanel(Action action) {
 
-        return elementPresent(By.xpath("//div[@class='panel-btn-left']" +
+        return elementVisible(By.xpath("//div[@class='panel-btn-left']" +
                 "//am-button[@btn-text='" + action.toString().replaceAll("_", " ") + "']"));
     }
 
     protected WebElement panelSection() {
 
-        return elementPresent(By.xpath("//section[@class='panel']"));
+        return elementVisible(By.xpath("//section[@class='panel']"));
     }
 
     protected WebElement labelAlertSuccess() {
 
-        return elementPresent(By.xpath("//div[contains(@class,'alert alert-success')]/p"));
+        return elementVisible(By.xpath("//div[contains(@class,'alert alert-success')]/p"));
     }
 
     private List<WebElement> radioButtonsAccountPicker() {
-        return elementsPresent(By.xpath("//span[@ng-switch-when='status' and text()!='Unknown']/ancestor::tbody//i[@class='fa fa-lg fa-circle-thin']"));
+        return elementsVisible(By.xpath("//span[@ng-switch-when='status' and text()!='Unknown']/ancestor::tbody//i[@class='fa fa-lg fa-circle-thin']"));
     }
 
     protected WebElement buttonAccountSelector(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     private WebElement labelCreateCustomReport() {
-        return elementPresent(By.xpath("//h4[text()='Create Custom Statement']"));
+        return elementVisible(By.xpath("//h4[text()='Create Custom Statement']"));
     }
 
     protected WebElement labelReviewReport(String name) {
-        return elementPresent(By.xpath("//h2[text()='" + name + "']"));
+        return elementVisible(By.xpath("//h2[text()='" + name + "']"));
     }
 
     protected WebElement labelReportConfirmation(String name) {
-        return elementPresent(By.xpath("//h1[text()='" + name + "']"));
+        return elementVisible(By.xpath("//h1[text()='" + name + "']"));
     }
 
     protected WebElement buttonCreate(String name) {
-        return elementPresent(By.xpath("//span[text()='" + name + "']" +
+        return elementVisible(By.xpath("//span[text()='" + name + "']" +
                 "/ancestor::section[@class='panel']//i[@data-original-title='Create']"));
     }
 
     protected List<WebElement> buttonReportAction(String section, Action action) {
-        return elementsPresent(By.xpath("//span[text()='" + section + "']" +
+        return elementsVisible(By.xpath("//span[text()='" + section + "']" +
                 "/ancestor::section[@class='panel']//i[@data-original-title='" + action.toString() + "']"));
     }
 
     protected List<WebElement> reportList(String section) {
-        return elementsPresent(By.xpath("//span[text()='" + section + "']/ancestor::section[@class='panel']//div[@ng-repeat]"));
+        return elementsVisible(By.xpath("//span[text()='" + section + "']/ancestor::section[@class='panel']//div[@ng-repeat]"));
     }
 
     protected WebElement labelReport(String section, String name) {
-        return elementPresent(By.xpath("//span[text()='" + section + "']" +
+        return elementVisible(By.xpath("//span[text()='" + section + "']" +
                 "/ancestor::section[@class='panel']//p/strong[text()='" + name + "']"));
     }
 
     protected WebElement inputReportName() {
-        return elementPresent(By.xpath("//input[@name='reportName']"));
+        return elementVisible(By.xpath("//input[@name='reportName']"));
     }
 
     protected WebElement inputQueryName() {
-        return elementPresent(By.xpath("//input[@name='queryName']"));
+        return elementVisible(By.xpath("//input[@name='queryName']"));
     }
 
     protected List<WebElement> buttonSections() {
@@ -155,31 +155,31 @@ public class Reports extends Portal {
     }
 
     protected WebElement buttonSectionTradeConfirmation() {
-        return elementPresent(By.xpath("//p[@ng-repeat]/a[contains(text(),'Trade Confirmation')]"));
+        return elementVisible(By.xpath("//p[@ng-repeat]/a[contains(text(),'Trade Confirmation')]"));
     }
 
     protected List<WebElement> inputsCheckboxes() {
-        return elementsPresent(By.xpath("//div[input[@type='checkbox']]"));
+        return elementsVisible(By.xpath("//div[input[@type='checkbox']]"));
     }
 
     protected WebElement dropDownActivityPeriod() {
 
-        return elementPresent(By.xpath("//select[@name='activityPeriod']"));
+        return elementVisible(By.xpath("//select[@name='activityPeriod']"));
     }
 
     protected WebElement buttonOk() {
 
-        return elementPresent(By.xpath("//p/a[text()='Ok']"));
+        return elementVisible(By.xpath("//p/a[text()='Ok']"));
     }
 
     private WebElement labelDeleteActivityStatement() {
 
-        return elementPresent(By.xpath("//span[text()='Delete Activity Statement']"));
+        return elementVisible(By.xpath("//span[text()='Delete Activity Statement']"));
     }
 
     protected WebElement sectionReport(String name) {
 
-        return elementPresent(By.xpath("//section//span[text()='" + name + "']"));
+        return elementVisible(By.xpath("//section//span[text()='" + name + "']"));
     }
 
     protected void pickAccount() {

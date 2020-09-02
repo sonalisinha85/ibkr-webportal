@@ -26,25 +26,25 @@ public class DocumentModal extends Dashboard {
 
     private WebElement labelUploadDocument() {
 
-        return elementPresent(By.xpath("//h4//span[text()='Upload Document']"));
+        return elementVisible(By.xpath("//h4//span[text()='Upload Document']"));
     }
 
     private WebElement inputContactName() {
 
-        return elementPresent(By.xpath("//am-input/input[@name='addedContactName']"));
+        return elementVisible(By.xpath("//am-input/input[@name='addedContactName']"));
     }
 
     private List<WebElement> radioButtonsContact() {
-        return elementsPresent(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
+        return elementsVisible(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
     }
 
     protected WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
     }
 
     private WebElement buttonUploadFile() {
 
-        return elementPresent(By.xpath("//label/i[@class='fa fa-upload']"));
+        return elementVisible(By.xpath("//label/i[@class='fa fa-upload']"));
     }
 
     public DocumentModal viewDocument() {

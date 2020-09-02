@@ -1,12 +1,12 @@
-package com.ibkr.qa.brokerportal;
+package com.ibkr.qa.portal;
 
-import com.ibkr.qa.base.TestBase;
+import com.ibkr.qa.base.PortalTestBase;
 import com.ibkr.qa.enums.PortalName;
 import com.ibkr.qa.enums.TestAuthor;
 import com.ibkr.qa.enums.TestCategory;
 import org.testng.annotations.Test;
 
-public class BrokerPortalTest extends TestBase {
+public class BrokerPortalTest extends PortalTestBase {
 
     @Test(priority = 1)
     public void validateAddWorkflow() {

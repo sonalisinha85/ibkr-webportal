@@ -22,30 +22,30 @@ public class ClientPortal extends WebOperation {
     }
 
     protected WebElement buttonMenu() {
-        return elementPresent(By.xpath("//div[@class='bar3-logo']/button"));
+        return elementVisible(By.xpath("//div[@class='bar3-logo']/button"));
     }
 
     protected WebElement menu(String menu) {
-        return elementPresent(By.xpath("//a[contains(@id,'tool') and contains(.,'" + menu + "')]"));
+        return elementVisible(By.xpath("//a[contains(@id,'tool') and contains(.,'" + menu + "')]"));
     }
 
     protected WebElement subMenu(String subMenu) {
-        return elementPresent(By.xpath("//a[text()='" + subMenu + "']"));
+        return elementVisible(By.xpath("//a[text()='" + subMenu + "']"));
     }
 
     private WebElement buttonUser() {
 
-        return elementPresent(By.xpath("//button[@aria-label='User']"));
+        return elementVisible(By.xpath("//button[@aria-label='User']"));
     }
 
     private WebElement buttonLogout() {
 
-        return elementPresent(By.xpath("//div[contains(@class,'bottom')]//button[contains(text(),'Log out')]"));
+        return elementVisible(By.xpath("//div[contains(@class,'bottom')]//button[contains(text(),'Log out')]"));
     }
 
     private WebElement labelAccountTitle() {
 
-        return elementPresent(By.xpath("//span[@class='bar-fg fs7']"));
+        return elementVisible(By.xpath("//span[@class='bar-fg fs7']"));
     }
 
     public InvestorMarketplace withInvestorMarketplace() {
@@ -71,8 +71,9 @@ public class ClientPortal extends WebOperation {
 
     public ClientPortal logout() {
 
+        sleep(500);
         buttonUser().click();
-        sleep(200);
+        sleep(500);
         buttonLogout().click();
         sleep(500);
         return this;

@@ -24,28 +24,28 @@ public class Groups extends Portal {
     }
 
     private WebElement labelGroups() {
-        return elementPresent(By.xpath("//div[@class='crm-page-title']/h4"));
+        return elementVisible(By.xpath("//div[@class='crm-page-title']/h4"));
     }
 
     private WebElement buttonAdd() {
-        return elementPresent(By.xpath("//i[@data-original-title='Add Group']"));
+        return elementVisible(By.xpath("//i[@data-original-title='Add Group']"));
     }
 
     private List<WebElement> buttonsDelete() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Delete']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Delete']"));
     }
 
     private List<WebElement> buttonsEdit() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Edit']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Edit']"));
     }
 
     private List<WebElement> buttonView(String groupName) {
-        return elementsPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
+        return elementsVisible(By.xpath("//a[contains(text(),'" + groupName + "')]" +
                 "/ancestor::div[@class='panel panel-default']//i[@class='fa fa-info-circle']"));
     }
 
     private List<WebElement> labelsGroupName() {
-        return elementsPresent(By.xpath("//h4[@class='panel-title']/a"));
+        return elementsVisible(By.xpath("//h4[@class='panel-title']/a"));
     }
 
     private WebElement labelGroupName(String groupName) {
@@ -53,41 +53,41 @@ public class Groups extends Portal {
     }
 
     private WebElement buttonDelete(String groupName) {
-        return elementPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
+        return elementVisible(By.xpath("//a[contains(text(),'" + groupName + "')]" +
                 "/ancestor::h4[@class='panel-title']//i[@data-original-title='Delete']"));
     }
 
     private WebElement buttonEdit(String groupName) {
-        return elementPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
+        return elementVisible(By.xpath("//a[contains(text(),'" + groupName + "')]" +
                 "/ancestor::h4[@class='panel-title']//i[@data-original-title='Edit']"));
     }
 
     private WebElement inputGroupName() {
-        return elementPresent(By.xpath("//input[@name='groupName']"));
+        return elementVisible(By.xpath("//input[@name='groupName']"));
     }
 
     private WebElement buttonAddEditGroupMembers() {
-        return elementPresent(By.xpath("//button[contains(text(),'Add/Edit Group Members')]"));
+        return elementVisible(By.xpath("//button[contains(text(),'Add/Edit Group Members')]"));
     }
 
     private List<WebElement> checkBoxAccountPicker() {
-        return elementsPresent(By.xpath("//picker-entry-icon/i"));
+        return elementsVisible(By.xpath("//picker-entry-icon/i"));
     }
 
     private WebElement buttonPickerContinue() {
-        return elementPresent(By.xpath("//am-button[contains(@on-click,'pickerSubmit')]/a"));
+        return elementVisible(By.xpath("//am-button[contains(@on-click,'pickerSubmit')]/a"));
     }
 
     private WebElement buttonContinue() {
-        return elementPresent(By.xpath("//am-button[contains(@on-click,'continueBtn')]/a"));
+        return elementVisible(By.xpath("//am-button[contains(@on-click,'continueBtn')]/a"));
     }
 
     private WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']/a"));
     }
 
     private WebElement buttonReset() {
-        return elementPresent(By.xpath("//am-button[@btn-text='Reset']/a"));
+        return elementVisible(By.xpath("//am-button[@btn-text='Reset']/a"));
     }
 
     private WebElement labelReviewGroup() {

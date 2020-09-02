@@ -24,31 +24,31 @@ public class Employee extends Portal {
     }
 
     private List<WebElement> buttonsEmployeeDetails() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Employee Details']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Employee Details']"));
     }
 
     protected WebElement buttonsStatementAudit() {
-        return elementPresent(By.xpath("//i[@data-original-title='Statement Audit']"));
+        return elementVisible(By.xpath("//i[@data-original-title='Statement Audit']"));
     }
 
     private List<WebElement> buttonsEmployeeDelink() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Delink']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Delink']"));
     }
 
     protected WebElement buttonAddComment() {
-        return elementPresent(By.xpath("//section[div[span[text()='Comments']]]//i[@data-original-title='Add']"));
+        return elementVisible(By.xpath("//section[div[span[text()='Comments']]]//i[@data-original-title='Add']"));
     }
 
     private List<WebElement> listAccountNumber() {
-        return elementsPresent(By.xpath("//td[contains(@ng-show,'acctNumber')]"));
+        return elementsVisible(By.xpath("//td[contains(@ng-show,'acctNumber')]"));
     }
 
     private WebElement inputSearch() {
-        return elementPresent(By.xpath("//input[@name='filter_employeeSearchText']"));
+        return elementVisible(By.xpath("//input[@name='filter_employeeSearchText']"));
     }
 
     private WebElement buttonCancelSearch() {
-        return elementPresent(By.xpath("//span[contains(@class,'input-group-addon')]/i[@class='fa fa-times']"));
+        return elementVisible(By.xpath("//span[contains(@class,'input-group-addon')]/i[@class='fa fa-times']"));
     }
 
     public Employee validateEmployeeViewAndAddComment() {

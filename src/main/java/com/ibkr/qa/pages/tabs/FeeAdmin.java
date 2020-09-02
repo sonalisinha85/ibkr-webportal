@@ -23,27 +23,27 @@ public class FeeAdmin extends Portal {
     }
 
     private WebElement labelFeeAdmin() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Fee Administration']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Fee Administration']"));
     }
 
     private WebElement buttonConfigureFee(AdminFunction adminFunction) {
-        return elementPresent(By.xpath("//p//span[text()='" + adminFunction.toString().replaceAll("_", " ") + "']"));
+        return elementVisible(By.xpath("//p//span[text()='" + adminFunction.toString().replaceAll("_", " ") + "']"));
     }
 
     private WebElement labelConfigureClientFeeTemplate() {
-        return elementPresent(By.xpath("//span[@class='heading' and contains(text(),'Configure Client Fee Templates')]"));
+        return elementVisible(By.xpath("//span[@class='heading' and contains(text(),'Configure Client Fee Templates')]"));
     }
 
     private WebElement labelClientFees() {
-        return elementPresent(By.xpath("//span[@class='heading' and contains(text(),'Client Fees')]"));
+        return elementVisible(By.xpath("//span[@class='heading' and contains(text(),'Client Fees')]"));
     }
 
     private WebElement buttonAdd() {
-        return elementPresent(By.xpath("//section[@class='panel']//i[@data-original-title='Add']"));
+        return elementVisible(By.xpath("//section[@class='panel']//i[@data-original-title='Add']"));
     }
 
     private WebElement labelCreateClientFeeTemplate() {
-        return elementPresent(By.xpath("//h4[text()='Create a Client Fee Template']"));
+        return elementVisible(By.xpath("//h4[text()='Create a Client Fee Template']"));
     }
 
     private WebElement labelResendConfirmationNumber() {
@@ -51,52 +51,52 @@ public class FeeAdmin extends Portal {
     }
 
     private WebElement inputTemplateName() {
-        return elementPresent(By.xpath("//input[@name='templateName']"));
+        return elementVisible(By.xpath("//input[@name='templateName']"));
     }
 
     private WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//p/am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//p/am-button[@btn-text='" + action.toString() + "']"));
     }
 
     private WebElement labelClientFeeTemplateSuccess() {
-        return elementPresent(By.xpath("//h3[text()='Your client fee template has been created.']"));
+        return elementVisible(By.xpath("//h3[text()='Your client fee template has been created.']"));
     }
 
     private WebElement buttonDelete(String templateName) {
-        return elementPresent(By.xpath("//p/strong[text()='" + templateName + "']" +
+        return elementVisible(By.xpath("//p/strong[text()='" + templateName + "']" +
                 "/ancestor::div[@ng-repeat]//i[@data-original-title='Delete']"));
     }
 
     private WebElement labelDeleteSuccess(String templateName) {
-        return elementPresent(By.xpath("//p[text()='" + templateName + " has been deleted.']"));
+        return elementVisible(By.xpath("//p[text()='" + templateName + " has been deleted.']"));
     }
 
     private List<WebElement> buttonsApply() {
-        return elementsPresent(By.xpath("//section//i[@data-original-title='Apply']"));
+        return elementsVisible(By.xpath("//section//i[@data-original-title='Apply']"));
     }
 
     private WebElement buttonEdit() {
-        return elementPresent(By.xpath("//i[@data-original-title='Edit']"));
+        return elementVisible(By.xpath("//i[@data-original-title='Edit']"));
     }
 
     private WebElement labelApplyFeeTemplate() {
-        return elementPresent(By.xpath("//h4[text()='Apply Fee Template']"));
+        return elementVisible(By.xpath("//h4[text()='Apply Fee Template']"));
     }
 
     private WebElement buttonAddAccount() {
-        return elementPresent(By.xpath("//am-picker-button/button[text()='Add/Edit Account(s)']"));
+        return elementVisible(By.xpath("//am-picker-button/button[text()='Add/Edit Account(s)']"));
     }
 
     private List<WebElement> checkboxesAccountPicker() {
-        return elementsPresent(By.xpath("//i[contains(@ng-if,'pickerEntry')]"));
+        return elementsVisible(By.xpath("//i[contains(@ng-if,'pickerEntry')]"));
     }
 
     private WebElement buttonAccountPickerAction(Action action) {
-        return elementPresent(By.xpath("//div/am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//div/am-button[@btn-text='" + action.toString() + "']"));
     }
 
     private WebElement labelApplyFeeTemplateSuccess() {
-        return elementPresent(By.xpath("//h5[@translate='applyFeesTemplate.result.SUCCESS']"));
+        return elementVisible(By.xpath("//h5[@translate='applyFeesTemplate.result.SUCCESS']"));
     }
 
     public FeeAdmin configureClientFeeTemplateNavigation() {

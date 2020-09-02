@@ -99,7 +99,7 @@ public class Statements extends Reports {
 
         String name = "Regression Test " + getCurrentTime();
         buttonCreate("Custom Statements").click();
-        sleep(1500);
+        sleep(2000);
         inputReportName().sendKeys(name);
         random(buttonSections(), 1).get(0).click();
         changeDropdown(dropDownActivityPeriod(), "Monthly");

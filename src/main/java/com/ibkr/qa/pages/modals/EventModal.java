@@ -24,26 +24,26 @@ public class EventModal extends Dashboard {
 
     private WebElement labelEvent(String name) {
 //  name -  Add Event, Delete Event, Edit Event
-        return elementPresent(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
     }
 
     private WebElement inputContact() {
 
-        return elementPresent(By.xpath("//input[@name='addedContactName']"));
+        return elementVisible(By.xpath("//input[@name='addedContactName']"));
     }
 
     private WebElement inputName() {
 
-        return elementPresent(By.xpath("//input[contains(@ng-model,'originalTitle')]"));
+        return elementVisible(By.xpath("//input[contains(@ng-model,'originalTitle')]"));
     }
 
     private List<WebElement> radioButtonsContact() {
-        return elementsPresent(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
+        return elementsVisible(By.xpath("//tr[@ng-repeat]//div[@class='iradio_square-blue']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     public EventModal addEvent() {

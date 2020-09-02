@@ -24,12 +24,12 @@ public class EducationCenter extends PortfolioAnalyst {
 
     private WebElement heading() {
 
-        return elementPresent(By.xpath("//span[@class='heading' and text()='Education Center']"));
+        return elementVisible(By.xpath("//span[@class='heading' and text()='Education Center']"));
     }
 
     private WebElement link(String name) {
 
-        return elementPresent(By.xpath("//a[@class='linkexternal' and contains(text(),'" + name + "')]"));
+        return elementVisible(By.xpath("//a[@class='linkexternal' and contains(text(),'" + name + "')]"));
     }
 
     public EducationCenter validateEducationCenter() {

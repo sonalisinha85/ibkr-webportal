@@ -25,15 +25,15 @@ public class TransactionStatusAndHistory extends Portal {
     //div[@class='table-responsive']/table
 
     private WebElement labelTransactionStatusAndHistory() {
-        return elementPresent(By.xpath("//h3[contains(.,'Transaction Status & History')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'Transaction Status & History')]"));
     }
 
     private WebElement inputFromDate() {
-        return elementPresent(By.xpath("//input[@name='fromDate']"));
+        return elementVisible(By.xpath("//input[@name='fromDate']"));
     }
 
     private WebElement inputToDate() {
-        return elementPresent(By.xpath("//input[@name='toDate']"));
+        return elementVisible(By.xpath("//input[@name='toDate']"));
     }
 
     private List<WebElement> previousMonth() {
@@ -41,11 +41,11 @@ public class TransactionStatusAndHistory extends Portal {
     }
 
     private List<WebElement> datePicker() {
-        return elementsPresent(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled day'))]"));
+        return elementsVisible(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled day'))]"));
     }
 
     private WebElement tableTransactionHistory() {
-        return elementPresent(By.xpath("//div[@ng-if and @class='table-responsive']/table"));
+        return elementVisible(By.xpath("//div[@ng-if and @class='table-responsive']/table"));
     }
 
     public TransactionStatusAndHistory validateTransactionHistory() {

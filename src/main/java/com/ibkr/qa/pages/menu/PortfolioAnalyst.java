@@ -31,36 +31,36 @@ public class PortfolioAnalyst extends Portal {
     }
 
     private List<WebElement> checkboxesAccountPicker() {
-        return elementsPresent(By.xpath("//i[contains(@ng-if,'pickerEntry')]"));
+        return elementsVisible(By.xpath("//i[contains(@ng-if,'pickerEntry')]"));
     }
 
     private WebElement checkboxAllAccount() {
-        return elementPresent(By.xpath("//i[contains(@ng-class,'allSelected')]"));
+        return elementVisible(By.xpath("//i[contains(@ng-class,'allSelected')]"));
     }
 
     private WebElement buttonAction(Action action) {
-        return elementPresent(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='" + action.toString() + "']"));
     }
 
     private WebElement sectionNav() {
-        return elementPresent(By.xpath("//span[@class='heading' and contains(text(),'NAV')]/ancestor::section[@class='panel']"));
+        return elementVisible(By.xpath("//span[@class='heading' and contains(text(),'NAV')]/ancestor::section[@class='panel']"));
     }
 
     private WebElement tabsPortfolioAnalyst(Tabs tabs) {
-        return elementPresent(By.xpath("//a[@data-toggle='tab' and contains(text(),'"
+        return elementVisible(By.xpath("//a[@data-toggle='tab' and contains(text(),'"
                 + tabs.toString().replaceAll("_", " ") + "')]"));
     }
 
     protected WebElement buttonCreateSynopses() {
-        return elementPresent(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='Create']"));
+        return elementVisible(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='Create']"));
     }
 
     protected List<WebElement> buttonsViewSynopses() {
-        return elementsPresent(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='View']"));
+        return elementsVisible(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='View']"));
     }
 
     protected List<WebElement> buttonsDeleteSynopses() {
-        return elementsPresent(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='Delete']"));
+        return elementsVisible(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='Delete']"));
     }
 
     public PortfolioAnalyst validatePortfolioAnalystAccountSelector() {

@@ -23,20 +23,20 @@ public class Calendar extends Portal {
     }
 
     private WebElement labelCalendar() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Calendar']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Calendar']"));
     }
 
     private List<WebElement> labelMonthEventEntry() {
-        return elementsPresent(By.xpath("//td[@class='fc-event-container']//span[contains(text(),'Regression Test')]"));
+        return elementsVisible(By.xpath("//td[@class='fc-event-container']//span[contains(text(),'Regression Test')]"));
     }
 
     private List<WebElement> labelListEventEntry() {
-        return elementsPresent(By.xpath("//td/a[contains(text(),'Regression Test')]"));
+        return elementsVisible(By.xpath("//td/a[contains(text(),'Regression Test')]"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//button[text()='" + action.toString() + "']"));
+        return elementVisible(By.xpath("//button[text()='" + action.toString() + "']"));
     }
 
     public Calendar viewFullCalendar() {

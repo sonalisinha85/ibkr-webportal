@@ -32,23 +32,23 @@ public class InvestorMarketplace extends ClientPortal {
     }
 
     private WebElement labelFindServices() {
-        return elementPresent(By.xpath("//h3[contains(.,'Find Services')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'Find Services')]"));
     }
 
     private List<WebElement> labelServices() {
-        return elementsPresent(By.xpath("//div[@ng-repeat]/h6"));
+        return elementsVisible(By.xpath("//div[@ng-repeat]/h6"));
     }
 
     private WebElement buttonService(String serviceName) {
-        return elementPresent(By.xpath("//a[contains(.,'" + serviceName + "')]"));
+        return elementVisible(By.xpath("//a[contains(.,'" + serviceName + "')]"));
     }
 
     private WebElement labelService(String serviceName) {
-        return elementPresent(By.xpath("//h3[contains(.,'" + serviceName + "')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'" + serviceName + "')]"));
     }
 
     private List<WebElement> cardsProviders() {
-        return elementsPresent(By.xpath("//div[@class='provider']"));
+        return elementsVisible(By.xpath("//div[@class='provider']"));
     }
 
     public InvestorMarketplace validateFindServicesNavigation() {

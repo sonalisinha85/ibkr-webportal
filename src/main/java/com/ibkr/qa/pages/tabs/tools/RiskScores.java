@@ -49,50 +49,50 @@ public class RiskScores extends Portal {
     }
 
     private WebElement labelTools() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Tools']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Tools']"));
     }
 
     private WebElement labelRiskScores() {
-        return elementPresent(By.xpath("//h4[text()='Risk Scores']"));
+        return elementVisible(By.xpath("//h4[text()='Risk Scores']"));
     }
 
     private WebElement labelCalculatedRiskScores() {
-        return elementPresent(By.xpath("//span[contains(text(),'The Risk Score is')]"));
+        return elementVisible(By.xpath("//span[contains(text(),'The Risk Score is')]"));
     }
 
     private WebElement labelDisclosures() {
-        return elementPresent(By.xpath("//h5[contains(text(),'Disclosures')]"));
+        return elementVisible(By.xpath("//h5[contains(text(),'Disclosures')]"));
     }
 
     private WebElement labelQuestionnaire() {
-        return elementPresent(By.xpath("//h4/span[text()='Your Questionnaire']"));
+        return elementVisible(By.xpath("//h4/span[text()='Your Questionnaire']"));
     }
 
     private WebElement buttonRiskScores() {
-        return elementPresent(By.xpath("//a/span[contains(text(),'Risk Scores')]"));
+        return elementVisible(By.xpath("//a/span[contains(text(),'Risk Scores')]"));
     }
 
     private List<WebElement> tabsQuestionnaire() {
-        return elementsPresent(By.xpath("//div[@role='tablist']/a"));
+        return elementsVisible(By.xpath("//div[@role='tablist']/a"));
     }
 
     private WebElement tabQuestionnaire(String name) {
-        return elementPresent(By.xpath("//div[@role='tablist']/a[@title='" + name + "']"));
+        return elementVisible(By.xpath("//div[@role='tablist']/a[@title='" + name + "']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//am-button[@btn-text='"
+        return elementVisible(By.xpath("//am-button[@btn-text='"
                 + action.toString().replaceAll("_", " ") + "']"));
     }
 
     private WebElement buttonAction(String action) {
 
-        return elementPresent(By.xpath("//button[contains(text(),'" + action + "')]"));
+        return elementVisible(By.xpath("//button[contains(text(),'" + action + "')]"));
     }
 
     private List<WebElement> questions(String key) {
-        return elementsPresent(By.xpath("//h6[contains(text(),'" + key + "')]" +
+        return elementsVisible(By.xpath("//h6[contains(text(),'" + key + "')]" +
                 "/ancestor::div[@class='has-label']//span[@aria-hidden]"));
     }
 

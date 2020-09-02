@@ -21,6 +21,10 @@ public class AboutYou extends AccountApplication {
         return this;
     }
 
+    private WebElement labelAboutYou() {
+        return elementPresent(By.xpath("//h1[contains(text(),'About You')]"));
+    }
+
     private WebElement dropDownSalution() {
         return elementPresent(By.id("salutation"));
     }
@@ -47,10 +51,6 @@ public class AboutYou extends AccountApplication {
 
     private WebElement inputState() {
         return elementPresent(By.xpath("//div[@id='stateMain_chosen']//div[@class='chosen-search']/input"));
-    }
-
-    private WebElement listState() {
-        return elementPresent(By.xpath("//li[text()='Beijing']"));
     }
 
     private WebElement inputCityMain() {
@@ -121,12 +121,7 @@ public class AboutYou extends AccountApplication {
         return elementPresent(By.id("answer2"));
     }
 
-    private WebElement buttonContinue() {
-        return elementPresent(By.id("continue"));
-    }
-
-
-    public AboutYou fillForm() {
+    public AccountApplication fillForm() {
 
         changeDropdown(dropDownSalution(), "Mr.");
         inputFirstName().sendKeys("黄");
@@ -143,9 +138,12 @@ public class AboutYou extends AccountApplication {
         changeDropdown(dropDownDependents(), "0");
         inputResidencyNumber().sendKeys("450329198904304321");
         changeDropdown(dropDownDocumentType(), "Resident Identity Card Identification Number (RIC)");
+        sleep(500);
         inputIdentificationNumber().sendKeys("450329198904304321");
         changeDropdown(dropDownEmploymentType(), "Homemaker");
+        sleep(1000);
         random(checkBoxSourcesOfWealth(), 2).forEach(checkBox -> checkBox.click());
+        sleep(500);
         changeDropdown(dropDownSecurityQuestionOne(), "What is name of first boyfriend/girlfriend?");
         inputAnswerOne().sendKeys("test123");
         changeDropdown(dropDownSecurityQuestionTwo(), "What is the name of a school you attended?");
@@ -153,7 +151,11 @@ public class AboutYou extends AccountApplication {
         changeDropdown(dropDownSecurityQuestionThree(), "In what city were you married?");
         inputAnswerThree().sendKeys("test12345");
         buttonContinue().click();
+        sleep(8000);
 
-        return this;
+        reporter.createChild("About You Page Validation")
+                .childInfo("About You Page Filled");
+
+        return (AccountApplication) this;
     }
 }

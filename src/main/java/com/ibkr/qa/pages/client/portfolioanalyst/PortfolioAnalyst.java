@@ -21,11 +21,11 @@ public class PortfolioAnalyst extends ClientPortal {
     }
 
     private WebElement labelPortfolioAnalyst() {
-        return elementPresent(By.xpath("//h3[contains(.,'PortfolioAnalyst')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'PortfolioAnalyst')]"));
     }
 
     protected WebElement tab(String tabName) {
-        return elementPresent(By.xpath("//a[@data-toggle='tab' and contains(text(),'" + tabName + "')]"));
+        return elementVisible(By.xpath("//a[@data-toggle='tab' and contains(text(),'" + tabName + "')]"));
     }
 
     public FundParser withFundParser() {

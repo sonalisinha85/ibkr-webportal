@@ -36,13 +36,13 @@ public class StatementAuditModal extends Employee {
 
     private WebElement badge(String reviewStatus) {
 
-        return elementPresent(By.xpath(panelReviewStatus(reviewStatus) +
+        return elementVisible(By.xpath(panelReviewStatus(reviewStatus) +
                 "/ancestor::div[@class='panel-heading']//span[@class='badge bg-red']"));
     }
 
     private List<WebElement> listReviewEntries(String reviewStatus) {
 
-        return elementsPresent(By.xpath(panelReviewStatus(reviewStatus) +
+        return elementsVisible(By.xpath(panelReviewStatus(reviewStatus) +
                 "//ancestor::div[@class='panel panel-default']//tr[@ng-repeat]"));
     }
 
@@ -54,33 +54,33 @@ public class StatementAuditModal extends Employee {
 
     private WebElement buttonExpandCollapse(String reviewStatus) {
 
-        return elementPresent(By.xpath("//a[text()='" + reviewStatus + "']"));
+        return elementVisible(By.xpath("//a[text()='" + reviewStatus + "']"));
     }
 
     private WebElement labelNotes(String name) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
+        return elementVisible(By.xpath("//div[@id='amModalContent']//span[text()='" + name + "']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//div[@id='amModalContent']" +
+        return elementVisible(By.xpath("//div[@id='amModalContent']" +
                 "//am-button[@btn-text='" + action.toString().replaceAll("_", " ") + "']"));
     }
 
     private WebElement buttonExport() {
 
-        return elementPresent(By.xpath("//i[@data-original-title='Export']"));
+        return elementVisible(By.xpath("//i[@data-original-title='Export']"));
     }
 
     private WebElement buttonOk() {
 
-        return elementPresent(By.xpath("//am-button[@btn-text='Ok']"));
+        return elementVisible(By.xpath("//am-button[@btn-text='Ok']"));
     }
 
     private WebElement dropDownReportDate() {
 
-        return elementPresent(By.xpath("//select[@name='reportDate']"));
+        return elementVisible(By.xpath("//select[@name='reportDate']"));
     }
 
     public StatementAuditModal viewLog() {

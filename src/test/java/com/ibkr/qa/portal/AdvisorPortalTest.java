@@ -1,12 +1,12 @@
-package com.ibkr.qa.advisorportal;
+package com.ibkr.qa.portal;
 
-import com.ibkr.qa.base.TestBase;
+import com.ibkr.qa.base.PortalTestBase;
 import com.ibkr.qa.enums.PortalName;
 import com.ibkr.qa.enums.TestAuthor;
 import com.ibkr.qa.enums.TestCategory;
 import org.testng.annotations.Test;
 
-public class AdvisorPortalTest extends TestBase {
+public class AdvisorPortalTest extends PortalTestBase {
 
     @Test(priority = 1)
     public void validateAddWorkflow() {
@@ -661,24 +661,6 @@ public class AdvisorPortalTest extends TestBase {
                 .withPortalName(PortalName.Advisor_Portal)
                 .withRiskScores()
                 .validateRiskScores();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 50)
-    public void validateUploadDocument() {
-
-        reporter.createTest("Advisor Portal Upload Document Test")
-                .withCategory(TestCategory.AdvisorPortal)
-                .withAuthor(TestAuthor.AdvisorPortalDashboard);
-
-        loginAdvisor();
-        portal()
-                .withPortalName(PortalName.Advisor_Portal)
-                .withDashboard()
-                .withDocumentModal()
-                .addDocument();
         portal().logout();
 
         softly.assertAll();

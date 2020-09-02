@@ -24,7 +24,7 @@ public class FlexQueries extends Reports {
 
         String name = "Regression Test " + getCurrentTime();
         buttonCreate("Activity Flex Query").click();
-        sleep(1500);
+        sleep(2000);
         inputQueryName().sendKeys(name);
         random(buttonSections(), 1).get(0).click();
         sleep(1500);
@@ -224,11 +224,11 @@ public class FlexQueries extends Reports {
         String name = reportModalTitle().getText();
         changeDropdown(dropDownOutputFormat(), "CSV");
         buttonActionRightpanel(Action.Run).click();
-        sleep(3000);
+        sleep(4000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("Trade Confirmation Flex Query is Download")
-                        .contains(name),
+                        .contains(name.replaceAll("\\ | |:| ", "_")),
                 "Trade Confirmation Flex Query is Download");
 
         return this;

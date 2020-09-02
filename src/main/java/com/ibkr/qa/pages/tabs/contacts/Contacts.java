@@ -23,47 +23,47 @@ public class Contacts extends Portal {
     }
 
     private List<WebElement> buttonsViewContact() {
-        return elementsPresent(By.xpath("//section[@class='panel']//i[contains(@class,'fa-info-circle')]"));
+        return elementsVisible(By.xpath("//section[@class='panel']//i[contains(@class,'fa-info-circle')]"));
     }
 
     private WebElement buttonAddContact() {
-        return elementPresent(By.xpath("//section[@class='panel']//i[@data-original-title='Add Contact']"));
+        return elementVisible(By.xpath("//section[@class='panel']//i[@data-original-title='Add Contact']"));
     }
 
     private WebElement buttonAddContactByManualInput() {
-        return elementPresent(By.xpath("//a[text()='Contact by Manual Input']"));
+        return elementVisible(By.xpath("//a[text()='Contact by Manual Input']"));
     }
 
     protected WebElement buttonFilterContact() {
-        return elementPresent(By.xpath("//section[@class='panel']//i[@data-original-title='Filters']"));
+        return elementVisible(By.xpath("//section[@class='panel']//i[@data-original-title='Filters']"));
     }
 
     protected WebElement buttonSettingsContact() {
-        return elementPresent(By.xpath("//section[@class='panel']//i[@data-original-title='Settings']"));
+        return elementVisible(By.xpath("//section[@class='panel']//i[@data-original-title='Settings']"));
     }
 
     protected List<WebElement> listColumnType() {
-        return elementsPresent(By.xpath("//td[contains(@ng-show,'type')]"));
+        return elementsVisible(By.xpath("//td[contains(@ng-show,'type')]"));
     }
 
     protected List<WebElement> listColumnAccountType() {
-        return elementsPresent(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[1]"));
+        return elementsVisible(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[1]"));
     }
 
     private List<WebElement> listColumnAccountNumber() {
-        return elementsPresent(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[2]"));
+        return elementsVisible(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[2]"));
     }
 
     protected List<WebElement> listColumnStatus() {
-        return elementsPresent(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[3]"));
+        return elementsVisible(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[3]"));
     }
 
     private WebElement inputSearchContact() {
-        return elementPresent(By.xpath("//input[@name='filter_contactSearchText']"));
+        return elementVisible(By.xpath("//input[@name='filter_contactSearchText']"));
     }
 
     private WebElement buttonClearSearch() {
-        return elementPresent(By.xpath("//span[@class='input-group-addon']/i[@class='fa fa-times']"));
+        return elementVisible(By.xpath("//span[@class='input-group-addon']/i[@class='fa fa-times']"));
     }
 
     protected WebElement headerColumn(String columnName) {

@@ -26,143 +26,143 @@ public class Reports extends PortfolioAnalyst {
     }
 
     private WebElement buttonReportsTab() {
-        return elementPresent(By.xpath("//a[contains(.,'Reports') and @data-toggle='tab']"));
+        return elementVisible(By.xpath("//a[contains(.,'Reports') and @data-toggle='tab']"));
     }
 
     private WebElement buttonConfigureIcon() {
-        return elementPresent(By.xpath("//i[@class='fa fa-gear tooltips']"));
+        return elementVisible(By.xpath("//i[@class='fa fa-gear tooltips']"));
     }
 
     private WebElement buttonAddEditAccount() {
-        return elementPresent(By.xpath("//button[contains(.,'Add/Edit')]"));
+        return elementVisible(By.xpath("//button[contains(.,'Add/Edit')]"));
     }
 
     private WebElement checkboxSelectAllAccount() {
-        return elementPresent(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
+        return elementVisible(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
     }
 
     private WebElement buttonAccountPickerContinue() {
-        return elementPresent(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
+        return elementVisible(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
     }
 
     private WebElement buttonContinue2() {
-        return elementPresent(By.xpath("//am-sequence[@submit-button-text='word.continue']//a[@class='btn btn-primary']"));
+        return elementVisible(By.xpath("//am-sequence[@submit-button-text='word.continue']//a[@class='btn btn-primary']"));
     }
 
     private WebElement labelComplete() {
-        return elementPresent(By.xpath("//h1[@class='text-center text-success' and contains(text(),'Complete')]"));
+        return elementVisible(By.xpath("//h1[@class='text-center text-success' and contains(text(),'Complete')]"));
     }
 
     private WebElement labelSettings() {
-        return elementPresent(By.xpath("//h3[@class='text-center text-black' and contains(text(),'Your delivery settings have been')]"));
+        return elementVisible(By.xpath("//h3[@class='text-center text-black' and contains(text(),'Your delivery settings have been')]"));
     }
 
     private WebElement buttonOk() {
-        return elementPresent(By.xpath("//a[@class='btn btn-success' and contains(text(),'Ok')]"));
+        return elementVisible(By.xpath("//a[@class='btn btn-success' and contains(text(),'Ok')]"));
     }
 
     private WebElement buttonAdd() {
-        return elementPresent(By.xpath("//a[@ng-click='paReports.openCustomBenchmarkModal()' and @class='btn-icon']"));
+        return elementVisible(By.xpath("//a[@ng-click='paReports.openCustomBenchmarkModal()' and @class='btn-icon']"));
     }
 
     private WebElement labelCustomBenchmark(String name) {
-        return elementPresent(By.xpath("//span[@class='link-label' and contains(.,'" + name + "')]"));
+        return elementVisible(By.xpath("//span[@class='link-label' and contains(.,'" + name + "')]"));
     }
 
     private List<WebElement> buttonView() {
-        return elementsPresent(By.xpath("//i[@data-original-title='View']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='View']"));
     }
 
     private List<WebElement> buttonDelete() {
-        return elementsPresent(By.xpath("//p[contains(@ng-repeat,'customBenchmark')]//i[@data-original-title='Delete']"));
+        return elementsVisible(By.xpath("//p[contains(@ng-repeat,'customBenchmark')]//i[@data-original-title='Delete']"));
     }
 
     private WebElement buttonAddCustomReport() {
-        return elementPresent(By.xpath("//a[@ng-click='$ctrl.navigateToCreateEditCustom()']/i"));
+        return elementVisible(By.xpath("//a[@ng-click='$ctrl.navigateToCreateEditCustom()']/i"));
     }
 
     private WebElement labelCreateCustomReport() {
-        return elementPresent(By.xpath("//h4[contains(.,'Create Custom Report')]"));
+        return elementVisible(By.xpath("//h4[contains(.,'Create Custom Report')]"));
     }
 
     private WebElement inputReportName() {
-        return elementPresent(By.xpath("//input[@name='reportName']"));
+        return elementVisible(By.xpath("//input[@name='reportName']"));
     }
 
     private WebElement dropDownTime() {
-        return elementPresent(By.xpath("//select[@name='timePeriod']"));
+        return elementVisible(By.xpath("//select[@name='timePeriod']"));
     }
 
     private WebElement dropDownFrequency() {
-        return elementPresent(By.xpath("//select[@name='frequency']"));
+        return elementVisible(By.xpath("//select[@name='frequency']"));
     }
 
     private WebElement buttonBreakdown() {
-        return elementPresent(By.xpath("//a[contains(.,'Breakdown of Accounts')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Breakdown of Accounts')]"));
     }
 
     private WebElement buttonAccountOverview() {
-        return elementPresent(By.xpath("//a[contains(.,'Account Overview')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Account Overview')]"));
     }
 
     private WebElement buttonContinue3() {
-        return elementPresent(By.xpath("//p//am-button[@btn-text='Continue']/a[contains(.,'Continue')]"));
+        return elementVisible(By.xpath("//p//am-button[@btn-text='Continue']/a[contains(.,'Continue')]"));
     }
 
     private WebElement buttonCreateCR() {
-        return elementPresent(By.xpath("//am-button[@btn-text='Create']/a[contains(.,'Create')]"));
+        return elementVisible(By.xpath("//am-button[@btn-text='Create']/a[contains(.,'Create')]"));
     }
 
     private WebElement labelReportSaved() {
-        return elementPresent(By.xpath("//h1[contains(.,'Report Saved')]"));
+        return elementVisible(By.xpath("//h1[contains(.,'Report Saved')]"));
     }
 
     private WebElement labelReportTitle() {
-        return elementPresent(By.xpath("//h3[contains(.,'Your custom PortfolioAnalyst report titled ')]/strong"));
+        return elementVisible(By.xpath("//h3[contains(.,'Your custom PortfolioAnalyst report titled ')]/strong"));
     }
 
     private WebElement buttonOkCR() {
-        return elementPresent(By.xpath("//a[contains(.,'Ok')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Ok')]"));
     }
 
     private WebElement titleCustomReport(String name) {
-        return elementPresent(By.xpath("//p/strong[text()='" + name + "']"));
+        return elementVisible(By.xpath("//p/strong[text()='" + name + "']"));
     }
 
     private List<WebElement> buttonEditCR() {
-        return elementsPresent(By.xpath("//custom-reports-data//i[@data-original-title='Edit']"));
+        return elementsVisible(By.xpath("//custom-reports-data//i[@data-original-title='Edit']"));
     }
 
     private WebElement buttonFeesSummary() {
-        return elementPresent(By.xpath("//a[contains(.,'Fee Summary')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Fee Summary')]"));
     }
 
     private WebElement buttonSaveChangesCR() {
-        return elementPresent(By.xpath("//p//am-button[@btn-text='Save Changes']/a[contains(.,'Save Changes')]"));
+        return elementVisible(By.xpath("//p//am-button[@btn-text='Save Changes']/a[contains(.,'Save Changes')]"));
     }
 
     private List<WebElement> buttonDeleteCR() {
-        return elementsPresent(By.xpath("//custom-reports-data//i[@data-original-title='Delete']"));
+        return elementsVisible(By.xpath("//custom-reports-data//i[@data-original-title='Delete']"));
     }
 
     private List<WebElement> buttonRunCR() {
-        return elementsPresent(By.xpath("//custom-reports-data//i[@data-original-title='Run']"));
+        return elementsVisible(By.xpath("//custom-reports-data//i[@data-original-title='Run']"));
     }
 
     private List<WebElement> buttonViewDR() {
-        return elementsPresent(By.xpath("//span[text()='Default Reports']/ancestor::section[@class='panel']//i[@data-original-title='Info']"));
+        return elementsVisible(By.xpath("//span[text()='Default Reports']/ancestor::section[@class='panel']//i[@data-original-title='Info']"));
     }
 
     private List<WebElement> buttonSnapshot() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Snapshot (PDF)']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Snapshot (PDF)']"));
     }
 
     private List<WebElement> buttonDetailedPdf() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Detailed (PDF)']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Detailed (PDF)']"));
     }
 
     private List<WebElement> buttonDetailedCSV() {
-        return elementsPresent(By.xpath("//i[@data-original-title='Detailed (CSV)']"));
+        return elementsVisible(By.xpath("//i[@data-original-title='Detailed (CSV)']"));
     }
 
     public Reports validateReportDelivery() {

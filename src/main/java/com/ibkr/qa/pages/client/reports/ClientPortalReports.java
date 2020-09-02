@@ -21,15 +21,15 @@ public class ClientPortalReports extends ClientPortal {
     }
 
     private WebElement labelReports() {
-        return elementPresent(By.xpath("//h3[contains(.,'Reports')]"));
+        return elementVisible(By.xpath("//h3[contains(.,'Reports')]"));
     }
 
     private WebElement checkboxSelectAllAccount() {
-        return elementPresent(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
+        return elementVisible(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
     }
 
     private WebElement buttonAccountPickerContinue() {
-        return elementPresent(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
+        return elementVisible(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
     }
 
     public ClientPortalReports navigateToReports() {

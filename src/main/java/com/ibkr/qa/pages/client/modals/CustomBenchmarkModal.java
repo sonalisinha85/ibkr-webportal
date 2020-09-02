@@ -25,19 +25,19 @@ public class CustomBenchmarkModal extends Reports {
     }
 
     private WebElement labelCreateNewCustomBenchMark() {
-        return elementPresent(By.xpath("//span[text()='Create New Custom Benchmark']"));
+        return elementVisible(By.xpath("//span[text()='Create New Custom Benchmark']"));
     }
 
     private WebElement inputTextName() {
-        return elementPresent(By.xpath("//input[@name='cbName']"));
+        return elementVisible(By.xpath("//input[@name='cbName']"));
     }
 
     private WebElement inputTextAbbreviation() {
-        return elementPresent(By.xpath("//input[@name='abbrev']"));
+        return elementVisible(By.xpath("//input[@name='abbrev']"));
     }
 
     private List<WebElement> checkBoxes() {
-        return elementsPresent(By.xpath("//div[@class='icheckbox_square-blue']"));
+        return elementsVisible(By.xpath("//div[@class='icheckbox_square-blue']"));
     }
 
     private List<WebElement> inputWeight() {
@@ -45,23 +45,23 @@ public class CustomBenchmarkModal extends Reports {
     }
 
     private WebElement buttonSave() {
-        return elementPresent(By.xpath("//a[@class='btn btn-primary' and contains(.,'Save')]"));
+        return elementVisible(By.xpath("//a[@class='btn btn-primary' and contains(.,'Save')]"));
     }
 
     private WebElement buttonEdit() {
-        return elementPresent(By.xpath("//a[contains(.,'Edit')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Edit')]"));
     }
 
     private WebElement buttonYes() {
-        return elementPresent(By.xpath("//a[contains(.,'Yes')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Yes')]"));
     }
 
     private WebElement labelNewCustomBenchMarkDelete() {
-        return elementPresent(By.xpath("//div[@class='alert alert-success']/p"));
+        return elementVisible(By.xpath("//div[@class='alert alert-success']/p"));
     }
 
     private WebElement buttonClose() {
-        return elementPresent(By.xpath("//a[contains(.,'Close')]"));
+        return elementVisible(By.xpath("//a[contains(.,'Close')]"));
     }
 
     private String getTime() {

@@ -25,35 +25,35 @@ public class DataQueries extends Portal {
     }
 
     private WebElement labelTools() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Tools']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Tools']"));
     }
 
     private WebElement labelRunReport() {
-        return elementPresent(By.xpath("//div[@class='panel-heading']/span[text()='Run a Report']"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Run a Report']"));
     }
 
     private WebElement buttonClientDataQueries() {
-        return elementPresent(By.xpath("//a/span[contains(text(),'Data Queries')]"));
+        return elementVisible(By.xpath("//a/span[contains(text(),'Data Queries')]"));
     }
 
     private WebElement dropDownReportType() {
-        return elementPresent(By.xpath("//select[@name='reportType']"));
+        return elementVisible(By.xpath("//select[@name='reportType']"));
     }
 
     private WebElement dropDownPerformancePeriod() {
-        return elementPresent(By.xpath("//select[@name='performancePeriod']"));
+        return elementVisible(By.xpath("//select[@name='performancePeriod']"));
     }
 
     private WebElement dropDownPeriod() {
-        return elementPresent(By.xpath("//select[@name='period']"));
+        return elementVisible(By.xpath("//select[@name='period']"));
     }
 
     private WebElement dropDownSearchIn() {
-        return elementPresent(By.xpath("//select[@name='searchIn']"));
+        return elementVisible(By.xpath("//select[@name='searchIn']"));
     }
 
     private WebElement inputDate() {
-        return elementPresent(By.xpath(" //input[@name='singleDate']"));
+        return elementVisible(By.xpath(" //input[@name='singleDate']"));
     }
 
     private List<WebElement> previousMonth() {
@@ -61,45 +61,45 @@ public class DataQueries extends Portal {
     }
 
     private List<WebElement> datePicker() {
-        return elementsPresent(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled'))]"));
+        return elementsVisible(By.xpath("//div[@class='datepicker-days']//tr/td[not(contains(@class,'disabled'))]"));
     }
 
     private WebElement inputPerformancePercentage() {
-        return elementPresent(By.xpath("//input[@name='performancePercentage']"));
+        return elementVisible(By.xpath("//input[@name='performancePercentage']"));
     }
 
     private WebElement dropDownFormat() {
-        return elementPresent(By.xpath("//select[@name='format']"));
+        return elementVisible(By.xpath("//select[@name='format']"));
     }
 
     private WebElement buttonAction(Action action) {
 
-        return elementPresent(By.xpath("//am-button[@btn-text='"
+        return elementVisible(By.xpath("//am-button[@btn-text='"
                 + action.toString().replaceAll("_", " ") + "']"));
     }
 
     private WebElement buttonAccountSelector() {
-        return elementPresent(By.xpath("//am-picker-button[@name='accountSelections']"));
+        return elementVisible(By.xpath("//am-picker-button[@name='accountSelections']"));
     }
 
     private WebElement checkBoxAllAccounts() {
-        return elementPresent(By.xpath("//div[input[@type='checkbox']]"));
+        return elementVisible(By.xpath("//div[input[@type='checkbox']]"));
     }
 
     private WebElement checkBoxAllAccountsInAccountSelector() {
-        return elementPresent(By.xpath("//i[contains(@ng-class,'allSelected')]"));
+        return elementVisible(By.xpath("//i[contains(@ng-class,'allSelected')]"));
     }
 
     private WebElement reportPanel() {
-        return elementPresent(By.xpath("//section[@class='panel report statement']"));
+        return elementVisible(By.xpath("//section[@class='panel report statement']"));
     }
 
     private WebElement alertSelectedAsset() {
-        return elementPresent(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'Required')]"));
+        return elementVisible(By.xpath("//div[contains(@class,'alert')]/p[contains(text(),'Required')]"));
     }
 
     private WebElement inputMinimumCount() {
-        return elementPresent(By.xpath("//input[@name='minVolume']"));
+        return elementVisible(By.xpath("//input[@name='minVolume']"));
     }
 
     public DataQueries validatePerformanceReport() {
