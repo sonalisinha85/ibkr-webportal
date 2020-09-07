@@ -60,7 +60,7 @@ public class ExternalAccount extends PortfolioAnalyst {
     }
 
     private WebElement labelSuccess() {
-        return elementVisible(By.xpath("//h1[contains(.,'Your account has been added!')]"));
+        return elementVisible(By.xpath("//h1[contains(.,'Your account has been updated!')]"));
     }
 
     private WebElement buttonOk() {

@@ -26,11 +26,11 @@ public class Portal extends WebOperation {
     public Portal withPortalName(PortalName portalName) {
         this.portalName = portalName.toString().replaceAll("_", " ");
 
-//        if(this.portalName.contains("Broker")){
-//
-//            buttonNewAm().click();
-//            switchToDefaultContext();
-//        }
+        if(this.portalName.contains("Broker")){
+
+            buttonNewAm().click();
+            switchToDefaultContext();
+        }
         validateLogin();
         return this;
     }

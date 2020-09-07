@@ -40,8 +40,8 @@ public class Groups extends Portal {
     }
 
     private List<WebElement> buttonView(String groupName) {
-        return elementsVisible(By.xpath("//a[contains(text(),'" + groupName + "')]" +
-                "/ancestor::div[@class='panel panel-default']//i[@class='fa fa-info-circle']"));
+        return elementsPresent(By.xpath("//a[contains(text(),'" + groupName + "')]" +
+                "/ancestor::div[@class='panel panel-default']//i[@class='fa-info-circle fa']"));
     }
 
     private List<WebElement> labelsGroupName() {

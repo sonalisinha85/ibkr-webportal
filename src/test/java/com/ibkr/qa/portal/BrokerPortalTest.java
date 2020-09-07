@@ -45,24 +45,6 @@ public class BrokerPortalTest extends PortalTestBase {
     }
 
     @Test(priority = 3)
-    public void validateDeleteWorkflow() {
-
-        reporter.createTest("Broker Portal Delete Workflow Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withWorkflowModal()
-                .deleteWorkflow();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 4)
     public void validateViewWorkflow() {
 
         reporter.createTest("Broker Portal View Workflow Test")
@@ -76,6 +58,24 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withWorkflowModal()
                 .viewWorkflow()
                 .viewMoreWorkflows();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 4)
+    public void validateDeleteWorkflow() {
+
+        reporter.createTest("Broker Portal Delete Workflow Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalDashboard);
+
+        loginBroker();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withDashboard()
+                .withWorkflowModal()
+                .deleteWorkflow();
         portal().logout();
 
         softly.assertAll();
@@ -118,24 +118,6 @@ public class BrokerPortalTest extends PortalTestBase {
     }
 
     @Test(priority = 7)
-    public void validateDeleteNotes() {
-
-        reporter.createTest("Broker Portal Delete Notes Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withNotesModal()
-                .deleteNotes();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 8)
     public void validateViewNotes() {
 
         reporter.createTest("Broker Portal View Notes Test")
@@ -149,6 +131,24 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withNotesModal()
                 .viewNotes()
                 .viewMoreNotes();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 8)
+    public void validateDeleteNotes() {
+
+        reporter.createTest("Broker Portal Delete Notes Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalDashboard);
+
+        loginBroker();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withDashboard()
+                .withNotesModal()
+                .deleteNotes();
         portal().logout();
 
         softly.assertAll();

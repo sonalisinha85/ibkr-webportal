@@ -27,7 +27,7 @@ public class Calendar extends Portal {
     }
 
     private List<WebElement> labelMonthEventEntry() {
-        return elementsVisible(By.xpath("//td[@class='fc-event-container']//span[contains(text(),'Regression Test')]"));
+        return elementsPresent(By.xpath("//td[@class='fc-event-container']//span[contains(text(),'Regression Test')]"));
     }
 
     private List<WebElement> labelListEventEntry() {
@@ -52,7 +52,7 @@ public class Calendar extends Portal {
                         "Event is displayed in Month View");
 
         buttonAction(Action.list).click();
-        sleep(200);
+        sleep(1000);
 
         reporter.assertChild(softly.assertThat(random(labelListEventEntry(), 1).get(0).isDisplayed())
                         .as("Event is displayed in List View")

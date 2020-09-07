@@ -201,7 +201,7 @@ public class Dashboard extends Portal {
     public Dashboard viewFullCalendar() {
 
         buttonViewFullCalendar().click();
-        sleep(1000);
+        sleep(2000);
 
         new Calendar()
                 .withDriver(driver)
