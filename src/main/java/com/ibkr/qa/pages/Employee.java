@@ -1,6 +1,7 @@
 package com.ibkr.qa.pages;
 
 import com.ibkr.qa.pages.modals.CommentModal;
+import com.ibkr.qa.pages.modals.ImportEmployeesModal;
 import com.ibkr.qa.pages.modals.StatementAuditModal;
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.By;
@@ -51,6 +52,14 @@ public class Employee extends Portal {
         return elementVisible(By.xpath("//span[contains(@class,'input-group-addon')]/i[@class='fa fa-times']"));
     }
 
+    protected WebElement buttonImport() {
+        return elementVisible(By.xpath("//i[@data-original-title='Invite/Import']"));
+    }
+
+    protected WebElement buttonImportOption(String text) {
+        return elementVisible(By.xpath("//p/a[text()='" + text + "']"));
+    }
+
     public Employee validateEmployeeViewAndAddComment() {
 
         sleep(1000);
@@ -93,6 +102,21 @@ public class Employee extends Portal {
                 .withReporter(reporter)
                 .withDriver(driver)
                 .viewLog();
+
+        return this;
+    }
+
+    public Employee validateUploadEmployeesByCsv(){
+
+        buttonImport().click();
+        sleep(500);
+        buttonImportOption("Import Employees by CSV File").click();
+        sleep(1000);
+
+        new ImportEmployeesModal()
+                .withDriver(driver)
+                .withReporter(reporter)
+                .uploadEmployeesByCsv();
 
         return this;
     }

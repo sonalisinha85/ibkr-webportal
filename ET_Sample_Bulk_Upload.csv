@@ -1,0 +1,3 @@
+FirstName,LastName,Account,Email,Relationship,ReferenceID
+John,Smith,U123456,jsmith@gmail.com,Employee,
+Mary,Smith,U987654,msmith@gmail.com,Spouse,

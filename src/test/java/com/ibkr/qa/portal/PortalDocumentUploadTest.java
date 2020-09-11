@@ -25,4 +25,21 @@ public class PortalDocumentUploadTest extends PortalTestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 2)
+    public void validateUploadEmployeesByCsv() {
+
+        reporter.createTest("Compliance Portal Upload Employees By CSV Test")
+                .withCategory(TestCategory.CompliancePortal)
+                .withAuthor(TestAuthor.CompliancePortalEmployees);
+
+        loginCompliance();
+        portal()
+                .withPortalName(PortalName.Compliance_Portal)
+                .withEmployee()
+                .validateUploadEmployeesByCsv();
+        portal().logout();
+
+        softly.assertAll();
+    }
 }
