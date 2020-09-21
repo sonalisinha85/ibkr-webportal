@@ -1,4 +1,4 @@
-package com.ibkr.qa.pages.accountapplication;
+package com.ibkr.qa.pages.accountapplication.chinesenative;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -60,6 +60,7 @@ public class AccountRegistration extends AccountApplication {
         inputCountry().sendKeys("China" + Keys.ENTER);
         checkBoxAcknowledgement().click();
         buttonCreateAccount().click();
+        sleep(10000);
 
         return this;
     }

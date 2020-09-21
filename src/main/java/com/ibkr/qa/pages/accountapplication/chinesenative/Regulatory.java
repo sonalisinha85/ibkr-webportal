@@ -1,4 +1,4 @@
-package com.ibkr.qa.pages.accountapplication;
+package com.ibkr.qa.pages.accountapplication.chinesenative;
 
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.By;

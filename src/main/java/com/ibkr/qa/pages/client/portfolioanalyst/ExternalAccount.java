@@ -23,7 +23,7 @@ public class ExternalAccount extends PortfolioAnalyst {
     }
 
     private WebElement buttonExternalAccountBeta() {
-        return elementVisible(By.xpath("//a[contains(.,'External Accounts (Beta)')]"));
+        return elementVisible(By.xpath("//a[contains(.,'External Accounts')]"));
     }
 
     private WebElement buttonAdd() {
@@ -60,7 +60,7 @@ public class ExternalAccount extends PortfolioAnalyst {
     }
 
     private WebElement labelSuccess() {
-        return elementVisible(By.xpath("//h1[contains(.,'Your account has been updated!')]"));
+        return elementVisible(By.xpath("//h1[contains(.,'Your account has been added!')]"));
     }
 
     private WebElement buttonOk() {
@@ -101,6 +101,7 @@ public class ExternalAccount extends PortfolioAnalyst {
                         .as("Your account has been added Label is displayed")
                         .isEqualTo(true),
                 "Your account has been added Label is displayed");
+        sleep(200);
         buttonOk().click();
         sleep(1000);
 

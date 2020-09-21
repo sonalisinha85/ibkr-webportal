@@ -1,6 +1,8 @@
 package com.ibkr.qa.base;
 
-import com.ibkr.qa.pages.accountapplication.AccountApplication;
+import com.ibkr.qa.pages.accountapplication.chinesenative.AccountApplication;
+import com.ibkr.qa.pages.accountapplication.employeetrack.EmployeeTrackAccountRegistration;
+import com.ibkr.qa.pages.accountapplication.portfolioanalyst.PortfolioAnalystAccountRegistration;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -78,6 +80,18 @@ public class AccountRegistrationTestBase {
     protected AccountApplication accountApplication() {
 
         return new AccountApplication()
+                .withDriver(driver);
+    }
+
+    protected PortfolioAnalystAccountRegistration portfolioAnalystAccountRegistration() {
+
+        return new PortfolioAnalystAccountRegistration()
+                .withDriver(driver);
+    }
+
+    protected EmployeeTrackAccountRegistration employeeTrackAccountRegistration() {
+
+        return new EmployeeTrackAccountRegistration()
                 .withDriver(driver);
     }
 

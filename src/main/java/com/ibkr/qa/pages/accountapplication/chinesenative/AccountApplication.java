@@ -1,4 +1,4 @@
-package com.ibkr.qa.pages.accountapplication;
+package com.ibkr.qa.pages.accountapplication.chinesenative;
 
 import com.ibkr.qa.navigation.WebOperation;
 import com.ibkr.qa.pages.Login;
@@ -57,8 +57,7 @@ public class AccountApplication extends WebOperation {
         new Login()
                 .withDriver(driver)
                 .withReporter(reporter)
-//                .withUserName("ibk" + getDate())
-                .withUserName("ibk200831")
+                .withUserName("ibk" + getDate())
                 .withPassword("tester12")
                 .login();
 

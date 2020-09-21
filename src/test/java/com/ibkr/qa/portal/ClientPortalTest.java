@@ -12,7 +12,7 @@ public class ClientPortalTest extends PortalTestBase {
 
         reporter.createTest("Client Portal Find Services Test")
                 .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalFindServices);
+                .withAuthor(TestAuthor.ClientPortalInvestorsMarketPlaceServices);
 
         loginClient();
         clientPortal()
@@ -161,7 +161,7 @@ public class ClientPortalTest extends PortalTestBase {
     @Test(priority = 9)
     public void validateAddExternalAccount() {
 
-        reporter.createTest("Client Portal Add External Account Test")
+        reporter.createTest("Client Portal Add External Account Report Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalPortfolioAnalyst);
 
@@ -742,6 +742,24 @@ public class ClientPortalTest extends PortalTestBase {
                 .withEducationCenter()
                 .validateEducationCenter();
 
+        clientPortal()
+                .logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 36)
+    public void validateAdvertiseServices() {
+
+        reporter.createTest("Client Portal Advertise Services Test")
+                .withCategory(TestCategory.ClientPortal)
+                .withAuthor(TestAuthor.ClientPortalInvestorsMarketPlaceServices);
+
+        loginClient();
+        clientPortal()
+                .validateLogin()
+                .withInvestorMarketplace()
+                .validateAdvertiseServicesNavigation();
         clientPortal()
                 .logout();
 

@@ -182,12 +182,39 @@ public class Reports extends Portal {
         return elementVisible(By.xpath("//section//span[text()='" + name + "']"));
     }
 
-    protected void pickAccount() {
+    private WebElement checkboxSelectAllAccount() {
+        return elementVisible(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
+    }
+
+    private WebElement buttonAccountPickerContinue() {
+        return elementVisible(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
+    }
+
+    public Reports navigateToReports() {
+
+        menu("Reports / Tax Docs").click();
+        sleep(2000);
+        checkboxSelectAllAccount().click();
+        buttonAccountPickerContinue().click();
+        sleep(2000);
+
+        reporter.createChild("Validate Reports Navigation")
+                .assertChild(softly.assertThat(labelReports().isDisplayed())
+                                .as("Reports Label is displayed")
+                                .isEqualTo(true),
+                        "Reports Label is displayed");
+
+        return this;
+    }
+
+    protected Reports pickAccount() {
 
         random(radioButtonsAccountPicker(), 1).get(0).click();
         sleep(500);
         buttonAccountSelector(Action.Continue).click();
         sleep(3000);
+
+        return this;
     }
 
     protected enum ReportsTab {Statements, Flex_Queries, Other_Reports, Tax}

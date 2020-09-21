@@ -18,7 +18,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports createActivityFlexQuery() {
+    public FlexQueries createActivityFlexQuery() {
 
         reporter.createChild("Validate Create Activity Flex Query");
 
@@ -58,7 +58,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports editActivityFlexQuery() {
+    public FlexQueries editActivityFlexQuery() {
 
         reporter.createChild("Validate Edit Activity Flex Query");
 
@@ -93,7 +93,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports runActivityFlexQuery() {
+    public FlexQueries runActivityFlexQuery() {
 
         reporter.createChild("Validate Run Activity Flex Query");
 
@@ -110,7 +110,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports deleteActivityFlexQuery() {
+    public FlexQueries deleteActivityFlexQuery() {
 
         reporter.createChild("Validate Delete Activity Flex Query");
 
@@ -140,7 +140,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports createTradeConfirmationFlexQuery() {
+    public FlexQueries createTradeConfirmationFlexQuery() {
 
         reporter.createChild("Validate Create Trade Confirmation Flex Query");
 
@@ -180,7 +180,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports editTradeConfirmationFlexQuery() {
+    public FlexQueries editTradeConfirmationFlexQuery() {
 
         reporter.createChild("Validate Edit Trade Confirmation Flex Query");
 
@@ -215,7 +215,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports runTradeConfirmationFlexQuery() {
+    public FlexQueries runTradeConfirmationFlexQuery() {
 
         reporter.createChild("Validate Run Trade Confirmation Flex Query");
 
@@ -234,7 +234,7 @@ public class FlexQueries extends Reports {
         return this;
     }
 
-    public Reports deleteTradeConfirmationFlexQuery() {
+    public FlexQueries deleteTradeConfirmationFlexQuery() {
 
         reporter.createChild("Validate Delete Trade Confirmation Flex Query");
 

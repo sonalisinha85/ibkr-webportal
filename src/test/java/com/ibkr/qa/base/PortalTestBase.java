@@ -2,7 +2,9 @@ package com.ibkr.qa.base;
 
 import com.ibkr.qa.pages.Login;
 import com.ibkr.qa.pages.Portal;
-import com.ibkr.qa.pages.accountapplication.AccountApplication;
+import com.ibkr.qa.pages.accountapplication.chinesenative.AccountApplication;
+import com.ibkr.qa.pages.accountapplication.employeetrack.EmployeeTrack;
+import com.ibkr.qa.pages.accountapplication.portfolioanalyst.PortfolioAnalyst;
 import com.ibkr.qa.pages.client.ClientPortal;
 import com.ibkr.qa.reporter.TestReporter;
 import org.assertj.core.api.SoftAssertions;
@@ -98,9 +100,18 @@ public class PortalTestBase {
     protected void loginBroker() {
 
         login()
-                .withUserName(credentials.get("BROKER_USER"))
-                .withPassword(credentials.get("BROKER_PASSWORD"))
+                .withUserName(credentials.get("BROKER_USER_FULLY_DISCLOSED"))
+                .withPassword(credentials.get("BROKER_PASSWORD_FULLY_DISCLOSED"))
                 .login();
+    }
+
+    protected void loginBrokerNonDisclosed() {
+
+        login()
+                .withUserName(credentials.get("BROKER_USER_NON_DISCLOSED"))
+                .withPassword(credentials.get("BROKER_PASSWORD_NON_DISCLOSED"))
+                .login();
+        portal().navigateWithAmButton();
     }
 
     protected void loginCompliance() {
@@ -140,9 +151,23 @@ public class PortalTestBase {
                 .withReporter(reporter);
     }
 
+    protected PortfolioAnalyst portfolioAnalyst() {
+
+        return new PortfolioAnalyst()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
     public ClientPortal clientPortal() {
 
         return new ClientPortal()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
+    protected EmployeeTrack employeeTrack() {
+
+        return new EmployeeTrack()
                 .withDriver(driver)
                 .withReporter(reporter);
     }

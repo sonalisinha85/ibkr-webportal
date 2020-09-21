@@ -130,6 +130,12 @@ public class WebOperation {
         driver.switchTo().window(tabs.get(1));
     }
 
+    protected void switchTab(int tabIndex) {
+
+        tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabIndex));
+    }
+
     protected void switchToMainTab() {
 
         driver.close();

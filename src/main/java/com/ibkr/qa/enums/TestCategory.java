@@ -5,5 +5,5 @@ public enum TestCategory {
     BrokerPortal,
     ClientPortal,
     CompliancePortal,
-    ChineseNativeAccountApplication
+    AccountApplication
 }

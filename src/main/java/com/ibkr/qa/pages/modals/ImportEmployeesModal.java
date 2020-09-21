@@ -42,13 +42,13 @@ public class ImportEmployeesModal extends Employee {
         return elementVisible(By.xpath("//div[contains(@class,'alert-success')]//p[contains(.,'contacts successfully imported')]"));
     }
 
-    public ImportEmployeesModal uploadEmployeesByCsv(){
+    public ImportEmployeesModal uploadEmployeesByCsv() {
 
         reporter.createChild("Validate Upload Employee")
                 .assertChild(softly.assertThat(labelImportEmployeesbyCsv().isDisplayed())
                                 .as("Import Employees by CSV File label is displayed")
                                 .isTrue(),
-                "Import Employees by CSV File label is displayed");
+                        "Import Employees by CSV File label is displayed");
 
         buttonChooseFile().click();
         sleep(1000);
@@ -65,9 +65,9 @@ public class ImportEmployeesModal extends Employee {
         sleep(4000);
 
         reporter.assertChild(softly.assertThat(labelAlert().isDisplayed())
-                                .as("Contact Successfully Imported Alert is displayed")
-                                .isTrue(),
-                        "Contact Successfully Imported Alert is displayed");
+                        .as("Contact Successfully Imported Alert is displayed")
+                        .isTrue(),
+                "Contact Successfully Imported Alert is displayed");
 
         buttonClose().click();
         sleep(1000);

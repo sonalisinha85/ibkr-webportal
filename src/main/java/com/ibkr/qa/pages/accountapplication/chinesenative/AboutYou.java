@@ -1,4 +1,4 @@
-package com.ibkr.qa.pages.accountapplication;
+package com.ibkr.qa.pages.accountapplication.chinesenative;
 
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.By;
@@ -123,6 +123,7 @@ public class AboutYou extends AccountApplication {
 
     public AccountApplication fillForm() {
 
+        sleep(2000);
         changeDropdown(dropDownSalution(), "Mr.");
         inputFirstName().sendKeys("黄");
         inputLastName().sendKeys("丁");

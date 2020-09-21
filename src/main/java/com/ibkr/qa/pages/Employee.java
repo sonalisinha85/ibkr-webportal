@@ -106,7 +106,7 @@ public class Employee extends Portal {
         return this;
     }
 
-    public Employee validateUploadEmployeesByCsv(){
+    public Employee validateUploadEmployeesByCsv() {
 
         buttonImport().click();
         sleep(500);

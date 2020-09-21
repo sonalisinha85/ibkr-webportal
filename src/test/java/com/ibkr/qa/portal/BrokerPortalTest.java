@@ -248,7 +248,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalTools);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withDataQueries()
@@ -265,7 +265,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalReports);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
@@ -283,7 +283,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalReports);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
@@ -301,7 +301,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalReports);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
@@ -319,7 +319,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalReports);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
@@ -337,7 +337,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalReports);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
@@ -355,12 +355,46 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalReports);
 
-        loginBroker();
+        loginBrokerNonDisclosed();
         portal()
                 .withPortalName(PortalName.Broker_Portal)
                 .withReports()
                 .withOtherReports()
                 .validateTaxLotHoldingPeriodChangeReport();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 21)
+    public void validateBrokerFindServices() {
+
+        reporter.createTest("Broker Portal Find Services Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalInvestorsMarketPlaceServices);
+
+        loginBroker();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withInvestorMarketPlace()
+                .validateBrokerFindServicesNavigation();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 22)
+    public void validateBrokerAdvertiseServices() {
+
+        reporter.createTest("Broker Portal Find Services Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalInvestorsMarketPlaceServices);
+
+        loginBroker();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withInvestorMarketPlace()
+                .validateBrokerAdvertiseServicesNavigation();
         portal().logout();
 
         softly.assertAll();

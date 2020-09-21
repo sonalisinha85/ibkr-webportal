@@ -202,7 +202,7 @@ public class PreTradeCompliance extends Portal {
     private void navigateToPreTradeCompliance(String description) {
 
         menu("Pre-Trade Compliance").click();
-        sleep(2000);
+        sleep(4000);
 
         switchToDefaultContext();
         switchTab();

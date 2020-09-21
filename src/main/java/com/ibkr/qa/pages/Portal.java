@@ -26,12 +26,20 @@ public class Portal extends WebOperation {
     public Portal withPortalName(PortalName portalName) {
         this.portalName = portalName.toString().replaceAll("_", " ");
 
-        if(this.portalName.contains("Broker")){
-
-            buttonNewAm().click();
-            switchToDefaultContext();
-        }
+//        if (this.portalName.contains("Broker")) {
+//
+//            buttonNewAm().click();
+//            switchToDefaultContext();
+//        }
         validateLogin();
+        return this;
+    }
+
+    public Portal navigateWithAmButton() {
+
+        buttonNewAm().click();
+        switchToDefaultContext();
+
         return this;
     }
 
@@ -131,6 +139,13 @@ public class Portal extends WebOperation {
                 .withReporter(reporter);
     }
 
+    public InvestorMarketPlace withInvestorMarketPlace() {
+
+        return new InvestorMarketPlace()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
     //    Method used to set instance of Reporter
     public Portal withReporter(TestReporter reporter) {
         super.reporter = reporter;
@@ -143,7 +158,7 @@ public class Portal extends WebOperation {
         return elementVisible(By.xpath("//h3[contains(text(),'" + portalName + "')]"));
     }
 
-    protected WebElement buttonNewAm() {
+    private WebElement buttonNewAm() {
 
         switchFrame("footer");
         return elementVisible(By.xpath("//li[a[text()='New AM']]"));
@@ -174,9 +189,18 @@ public class Portal extends WebOperation {
                 + menu + "']"));
     }
 
+    protected WebElement menuContains(String menu) {
+        return elementVisible(By.xpath("//i[contains(@data-original-title,'" + menu + "')]"));
+    }
+
     protected WebElement subMenu(SubMenu subMenu) {
         return elementVisible(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
                 "/a[contains(text(),'" + subMenu.toString().replaceAll("_", " ").replaceAll("And", "&") + "')]"));
+    }
+
+    protected WebElement subMenu(String subMenu) {
+        return elementVisible(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
+                "/a[contains(text(),'" + subMenu + "')]"));
     }
 
     public Portal validateLogin() {

@@ -1,6 +1,5 @@
 package com.ibkr.qa.pages.client;
 
-import com.ibkr.qa.pages.Portal;
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BillPay extends ClientPortal{
+public class BillPay extends ClientPortal {
 
     private List<String> tabs = new ArrayList(
             Arrays.asList(
@@ -57,7 +56,7 @@ public class BillPay extends ClientPortal{
         return elementVisible(By.xpath("//h3[contains(.,'Bill Pay')]"));
     }
 
-    public BillPay validateBillPay(){
+    public BillPay validateBillPay() {
 
         buttonMenu().click();
         sleep(500);
@@ -74,11 +73,11 @@ public class BillPay extends ClientPortal{
                                 .isTrue(),
                         "Bill Pay label is displayed");
 
-        tabs().forEach(tab->{
+        tabs().forEach(tab -> {
 
             reporter.assertChild(softly.assertThat(tab.getText())
-                                    .as(tab.getText() + " tab is displayed")
-                                    .isIn(tabs),
+                            .as(tab.getText() + " tab is displayed")
+                            .isIn(tabs),
                     tab.getText() + " tab is displayed");
 
             tab.click();

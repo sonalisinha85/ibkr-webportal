@@ -30,9 +30,10 @@ public class AddExternalAccountModal extends ExternalAccount {
 
     public ExternalAccount navigate() {
 
-        buttonContinue().click();
-        sleep(1000);
+
         buttonOfflineAccount().click();
+        sleep(1000);
+        buttonContinue().click();
         sleep(1000);
         buttonContinue().click();
         sleep(1000);

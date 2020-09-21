@@ -665,4 +665,62 @@ public class AdvisorPortalTest extends PortalTestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 39)
+    public void validateFindServices() {
+
+        reporter.createTest("Advisor Portal Find Services Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalInvestorsMarketPlaceServices);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withInvestorMarketPlace()
+                .validateAdvisorFindServicesNavigation();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 40)
+    public void validateAdvertiseServices() {
+
+        reporter.createTest("Advisor Portal Advertise Services Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalInvestorsMarketPlaceServices);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withInvestorMarketPlace()
+                .validateAdvisorAdvertiseServicesNavigation();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 41)
+    public void validateActivityFlexQuery() {
+
+        reporter.createTest("Advisor Portal Activity Flex Query Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withReports()
+                .navigateToReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .createActivityFlexQuery()
+                .editActivityFlexQuery()
+                .runActivityFlexQuery()
+                .deleteActivityFlexQuery();
+
+        portal().logout();
+
+        softly.assertAll();
+    }
 }

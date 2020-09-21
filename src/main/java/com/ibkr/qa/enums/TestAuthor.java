@@ -5,6 +5,7 @@ public enum TestAuthor {
     BrokerPortalCalendar,
     BrokerPortalTools,
     BrokerPortalReports,
+    BrokerPortalInvestorsMarketPlaceServices,
     AdvisorPortalDashboard,
     AdvisorPortalContacts,
     AdvisorPortalGroup,
@@ -14,12 +15,15 @@ public enum TestAuthor {
     AdvisorPortalTransferAndPay,
     AdvisorPortalReports,
     AdvisorPortalTools,
+    AdvisorPortalInvestorsMarketPlaceServices,
     CompliancePortalEmployees,
     CompliancePortalTools,
     CompliancePortalPreTradeCompliance,
     CompliancePortalReports,
-    ClientPortalFindServices,
+    ClientPortalInvestorsMarketPlaceServices,
     ClientPortalPortfolioAnalyst,
     ClientPortalReports,
-    ChineseNativeAccountApplication
+    ChineseNativeAccountApplication,
+    PortfolioAnalystApplicationLogin,
+    EmployeeTrackApplicationLogin
 }

@@ -11,7 +11,7 @@ public class ChineseNativeAccountApplicationTest extends PortalTestBase {
     public void validateNewAccountApplication() {
 
         reporter.createTest("Chinese Native Account Application Test")
-                .withCategory(TestCategory.ChineseNativeAccountApplication)
+                .withCategory(TestCategory.AccountApplication)
                 .withAuthor(TestAuthor.ChineseNativeAccountApplication);
 
         accountApplication()

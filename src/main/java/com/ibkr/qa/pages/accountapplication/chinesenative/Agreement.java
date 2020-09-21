@@ -1,4 +1,4 @@
-package com.ibkr.qa.pages.accountapplication;
+package com.ibkr.qa.pages.accountapplication.chinesenative;
 
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.By;
@@ -23,6 +23,10 @@ public class Agreement extends AccountApplication {
         return elementPresent(By.xpath("//div[input[@id='usTreatyQualifyT']]"));
     }
 
+    private WebElement checkBoxConsent() {
+        return elementPresent(By.xpath("//div[input[@type='checkbox']]"));
+    }
+
     private WebElement dropDownCountry() {
         return elementPresent(By.id("part_2_9a_country_chosen"));
     }
@@ -32,7 +36,7 @@ public class Agreement extends AccountApplication {
     }
 
     private WebElement inputSignature() {
-        return elementPresent(By.id("signatures0"));
+        return elementPresent(By.id("signatureKey"));
     }
 
     private WebElement labelAccountTitle() {
@@ -40,7 +44,7 @@ public class Agreement extends AccountApplication {
     }
 
     private WebElement labelSignature() {
-        return elementPresent(By.xpath("//label[@for='signatures0']"));
+        return elementPresent(By.xpath("//label[@for='signatureKey']"));
     }
 
     public AccountApplication fillForm() {
@@ -51,6 +55,7 @@ public class Agreement extends AccountApplication {
         inputCountry().sendKeys("China" + Keys.ENTER);
 
         inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
+        checkBoxConsent().click();
         buttonContinue().click();
         sleep(5000);
 
