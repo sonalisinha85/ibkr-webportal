@@ -130,6 +130,15 @@ public class PortalTestBase {
                 .login();
     }
 
+    protected void loginHedgeFundAdvisor() {
+
+        login()
+                .withUserName(credentials.get("HEDGE_FUND_USER"))
+                .withPassword(credentials.get("HEDGE_FUND_PASSWORD"))
+                .login();
+        portal().navigateWithAmButton();
+    }
+
     protected Login login() {
 
         return new Login()

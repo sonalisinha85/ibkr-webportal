@@ -17,7 +17,7 @@ public class Statements extends Reports {
         return this;
     }
 
-    public Reports runCustomStatements() {
+    public Statements runCustomStatements() {
 
         reporter.createChild("Validate Run Custom Statements");
 
@@ -34,7 +34,7 @@ public class Statements extends Reports {
         return this;
     }
 
-    public Reports deleteCustomStatements() {
+    public Statements deleteCustomStatements() {
 
         reporter.createChild("Validate Delete Custom Statements");
 
@@ -54,17 +54,18 @@ public class Statements extends Reports {
                 "Custom Report Deleted");
 
         buttonActionRightpanel(Action.Close).click();
-        sleep(2000);
+        sleep(3000);
 
-        reporter.assertChild(softly.assertThat(reportList("Custom Statements").size())
-                        .as("Custom report is deleted [Old Custom Reports count vs New Custom Reports count validated]")
-                        .isEqualTo(count - 1),
-                "Custom report is deleted [Old Custom Reports count vs New Custom Reports count validated]");
+        if (count < 10)
+            reporter.assertChild(softly.assertThat(reportList("Custom Statements").size())
+                            .as("Custom report is deleted [Old Custom Reports count vs New Custom Reports count validated]")
+                            .isEqualTo(count - 1),
+                    "Custom report is deleted [Old Custom Reports count vs New Custom Reports count validated]");
 
         return this;
     }
 
-    public Reports editCustomStatements() {
+    public Statements editCustomStatements() {
 
         reporter.createChild("Validate Edit Custom Statements");
 
@@ -93,7 +94,7 @@ public class Statements extends Reports {
         return this;
     }
 
-    public Reports createCustomStatements() {
+    public Statements createCustomStatements() {
 
         reporter.createChild("Validate Create Custom Statements");
 

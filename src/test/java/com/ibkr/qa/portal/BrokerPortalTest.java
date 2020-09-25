@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 public class BrokerPortalTest extends PortalTestBase {
 
     @Test(priority = 1)
-    public void validateAddWorkflow() {
+    public void validateWorkflowNavigation() {
 
-        reporter.createTest("Broker Portal Add Workflow Test")
+        reporter.createTest("Broker Portal Workflow Navigation Test")
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalDashboard);
 
@@ -20,71 +20,20 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withPortalName(PortalName.Broker_Portal)
                 .withDashboard()
                 .withWorkflowModal()
-                .addWorkflow();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 2)
-    public void validateEditWorkflow() {
-
-        reporter.createTest("Broker Portal Edit Workflow Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withWorkflowModal()
-                .editWorkflow();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 3)
-    public void validateViewWorkflow() {
-
-        reporter.createTest("Broker Portal View Workflow Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withWorkflowModal()
+                .addWorkflow()
+                .editWorkflow()
                 .viewWorkflow()
+                .deleteWorkflow()
                 .viewMoreWorkflows();
         portal().logout();
 
         softly.assertAll();
     }
 
-    @Test(priority = 4)
-    public void validateDeleteWorkflow() {
+    @Test(priority = 2)
+    public void validateNotesNavigation() {
 
-        reporter.createTest("Broker Portal Delete Workflow Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withWorkflowModal()
-                .deleteWorkflow();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 5)
-    public void validateAddNotes() {
-
-        reporter.createTest("Broker Portal Add Notes Test")
+        reporter.createTest("Broker Portal Notes Navigation Test")
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalDashboard);
 
@@ -93,71 +42,20 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withPortalName(PortalName.Broker_Portal)
                 .withDashboard()
                 .withNotesModal()
-                .addNotes();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 6)
-    public void validateEditNotes() {
-
-        reporter.createTest("Broker Portal Edit Notes Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withNotesModal()
-                .editNotes();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 7)
-    public void validateViewNotes() {
-
-        reporter.createTest("Broker Portal View Notes Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withNotesModal()
+                .addNotes()
+                .editNotes()
                 .viewNotes()
+                .deleteNotes()
                 .viewMoreNotes();
         portal().logout();
 
         softly.assertAll();
     }
 
-    @Test(priority = 8)
-    public void validateDeleteNotes() {
+    @Test(priority = 3)
+    public void validateEventNavigation() {
 
-        reporter.createTest("Broker Portal Delete Notes Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalDashboard);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withNotesModal()
-                .deleteNotes();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 9)
-    public void validateAddEvent() {
-
-        reporter.createTest("Broker Portal Add Event Test")
+        reporter.createTest("Broker Portal Event Navigation Test")
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalCalendar);
 
@@ -166,31 +64,14 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withPortalName(PortalName.Broker_Portal)
                 .withDashboard()
                 .withEventModal()
-                .addEvent();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 10)
-    public void validateEditEvent() {
-
-        reporter.createTest("Broker Portal Edit Event Test")
-                .withCategory(TestCategory.BrokerPortal)
-                .withAuthor(TestAuthor.BrokerPortalCalendar);
-
-        loginBroker();
-        portal()
-                .withPortalName(PortalName.Broker_Portal)
-                .withDashboard()
-                .withEventModal()
+                .addEvent()
                 .editEvent();
         portal().logout();
 
         softly.assertAll();
     }
 
-    @Test(priority = 11)
+    @Test(priority = 4)
     public void validateViewFullCalendar() {
 
         reporter.createTest("Broker Portal View Full Calendar Test")
@@ -207,7 +88,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 12)
+    @Test(priority = 5)
     public void validatePerformanceReport() {
 
         reporter.createTest("Broker Portal Performance Report Test")
@@ -224,7 +105,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 13)
+    @Test(priority = 6)
     public void validateSymbolReport() {
 
         reporter.createTest("Broker Portal Symbol Report Test")
@@ -241,7 +122,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 14)
+    @Test(priority = 7)
     public void validateTransactionCountReport() {
 
         reporter.createTest("Broker Portal Transaction Count Report Test")
@@ -258,7 +139,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 15)
+    @Test(priority = 8)
     public void validateRiskMarginReport() {
 
         reporter.createTest("Broker Portal Risk Margin Report Test")
@@ -276,7 +157,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 16)
+    @Test(priority = 9)
     public void validateStressTestReport() {
 
         reporter.createTest("Broker Portal Stress Test Report Test")
@@ -294,7 +175,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 17)
+    @Test(priority = 10)
     public void validateValueAtRiskReport() {
 
         reporter.createTest("Broker Portal Value At Risk Report Test")
@@ -312,7 +193,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 18)
+    @Test(priority = 11)
     public void validateTransactionCostAnalysisReport() {
 
         reporter.createTest("Broker Portal Transaction Cost Analysis Report Test")
@@ -330,7 +211,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 19)
+    @Test(priority = 12)
     public void validateTaxLotHoldingPeriodChangeReport() {
 
         reporter.createTest("Broker Portal Tax Lot Holding Period Change Test")
@@ -348,7 +229,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 20)
+    @Test(priority = 13)
     public void validateAccountConfirmationLetterReport() {
 
         reporter.createTest("Broker Portal Account Confirmation Letter Test")
@@ -366,7 +247,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 21)
+    @Test(priority = 14)
     public void validateBrokerFindServices() {
 
         reporter.createTest("Broker Portal Find Services Test")
@@ -383,7 +264,7 @@ public class BrokerPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 22)
+    @Test(priority = 15)
     public void validateBrokerAdvertiseServices() {
 
         reporter.createTest("Broker Portal Find Services Test")
@@ -395,6 +276,120 @@ public class BrokerPortalTest extends PortalTestBase {
                 .withPortalName(PortalName.Broker_Portal)
                 .withInvestorMarketPlace()
                 .validateBrokerAdvertiseServicesNavigation();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 16)
+    public void validateActivityFlexQueryNavigation() {
+
+        reporter.createTest("Broker Portal Activity Flex Query Navigation Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .createActivityFlexQuery()
+                .editActivityFlexQuery()
+                .runActivityFlexQuery()
+                .deleteActivityFlexQuery();
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 17)
+    public void validateTradeConfirmationFlexQueryNavigation() {
+
+        reporter.createTest("Broker Portal Trade Confirmation Flex Query Navigation Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .createTradeConfirmationFlexQuery()
+                .editTradeConfirmationFlexQuery()
+                .runTradeConfirmationFlexQuery()
+                .deleteTradeConfirmationFlexQuery();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 18)
+    public void validateActivityFlexQueryDelivery() {
+
+        reporter.createTest("Broker Portal Activity Flex Query Delivery Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .withFlexQueryDelivery()
+                .flexQueryDeliveryConfiguration("Activity Flex Queries Delivery");
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 19)
+    public void validateTradeConfirmationFlexQueryDelivery() {
+
+        reporter.createTest("Broker Portal Trade Confirmation Flex Query Delivery Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withFlexQueries()
+                .navigateToFlexQueries()
+                .withFlexQueryDelivery()
+                .flexQueryDeliveryConfiguration("Trade Confirmation Flex Queries Delivery");
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 20)
+    public void validateCustomStatementsNavigation() {
+
+        reporter.createTest("Broker Portal Custom Statements Navigation Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .createCustomStatements()
+                .editCustomStatements()
+                .deleteCustomStatements()
+                .runCustomStatements();
         portal().logout();
 
         softly.assertAll();

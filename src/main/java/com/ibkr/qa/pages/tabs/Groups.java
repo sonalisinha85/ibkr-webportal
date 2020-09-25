@@ -94,7 +94,7 @@ public class Groups extends Portal {
         return elementNoLog(By.xpath("//h3/strong"));
     }
 
-    public Groups validateAddGroup() {
+    public Groups addGroup() {
 
         tabs(Tabs.Groups).click();
         sleep(1000);
@@ -130,7 +130,7 @@ public class Groups extends Portal {
         return this;
     }
 
-    public Groups validateDeleteGroup() {
+    public Groups deleteGroup() {
 
         tabs(Tabs.Groups).click();
         sleep(1000);
@@ -160,7 +160,7 @@ public class Groups extends Portal {
         return this;
     }
 
-    public Groups validateEditGroup() {
+    public Groups editGroup() {
 
         tabs(Tabs.Groups).click();
         sleep(1000);
@@ -196,7 +196,7 @@ public class Groups extends Portal {
         return this;
     }
 
-    public Groups validateViewGroup() {
+    public Groups viewGroup() {
 
         tabs(Tabs.Groups).click();
         sleep(1000);

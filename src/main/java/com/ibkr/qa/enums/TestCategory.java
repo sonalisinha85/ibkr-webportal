@@ -5,5 +5,6 @@ public enum TestCategory {
     BrokerPortal,
     ClientPortal,
     CompliancePortal,
-    AccountApplication
+    AccountApplication,
+    HedgeFundAdvisorPortal
 }

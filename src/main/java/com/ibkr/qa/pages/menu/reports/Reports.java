@@ -134,7 +134,8 @@ public class Reports extends Portal {
     }
 
     protected List<WebElement> reportList(String section) {
-        return elementsVisible(By.xpath("//span[text()='" + section + "']/ancestor::section[@class='panel']//div[@ng-repeat]"));
+        return elementsVisible(By.xpath("//span[text()='" + section + "']" +
+                "/ancestor::section[@class='panel']//div[@ng-repeat and @class='row']"));
     }
 
     protected WebElement labelReport(String section, String name) {

@@ -113,16 +113,21 @@ public class WorkflowModal extends Dashboard {
 
     public WorkflowModal viewMoreWorkflows() {
 
-        sleep(500);
-        int size = listWorkflow().size();
-        buttonViewMoreWorkflows().click();
-        sleep(1000);
+        if (!isNotDisplayed(buttonViewMoreWorkflowsNoLog())) {
 
-        reporter.createChild("View More Workflows")
-                .assertChild(softly.assertThat(listWorkflow().size())
-                                .as("More Workflows are displayed")
-                                .isGreaterThanOrEqualTo(size),
-                        "More Workflows are displayed");
+            sleep(500);
+            int size = listWorkflow().size();
+
+            buttonViewMoreWorkflows().click();
+            sleep(1000);
+
+            reporter.createChild("View More Workflows")
+                    .assertChild(softly.assertThat(listWorkflow().size())
+                                    .as("More Workflows are displayed")
+                                    .isGreaterThanOrEqualTo(size),
+                            "More Workflows are displayed");
+        }
+
         return this;
     }
 

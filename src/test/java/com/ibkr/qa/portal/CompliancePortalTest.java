@@ -77,9 +77,9 @@ public class CompliancePortalTest extends PortalTestBase {
     }
 
     @Test(priority = 5)
-    public void validateNewRestriction() {
+    public void validateRestrictionNavigation() {
 
-        reporter.createTest("Compliance Portal New Restriction Test")
+        reporter.createTest("Compliance Portal Restriction Navigation Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
 
@@ -87,67 +87,19 @@ public class CompliancePortalTest extends PortalTestBase {
         portal()
                 .withPortalName(PortalName.Compliance_Portal)
                 .withPreTradeCompliance()
-                .validateNewRestriction();
+                .newRestriction()
+                .viewRestriction()
+                .copyRestriction()
+                .deleteRestriction();
         portal().logout();
 
         softly.assertAll();
     }
 
     @Test(priority = 6)
-    public void validateCopyRestriction() {
+    public void validateCustomStatementsNavigation() {
 
-        reporter.createTest("Compliance Portal Copy Restriction Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withPreTradeCompliance()
-                .validateCopyRestriction();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 7)
-    public void validateDeleteRestriction() {
-
-        reporter.createTest("Compliance Portal Delete Restriction Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withPreTradeCompliance()
-                .validateDeleteRestriction();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 8)
-    public void validateViewRestriction() {
-
-        reporter.createTest("Compliance Portal View Restriction Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalPreTradeCompliance);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withPreTradeCompliance()
-                .validateViewRestriction();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 9)
-    public void validateCreateCustomStatements() {
-
-        reporter.createTest("Compliance Portal Create Custom Statements Test")
+        reporter.createTest("Compliance Portal Custom Statements Navigation Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalReports);
 
@@ -158,76 +110,19 @@ public class CompliancePortalTest extends PortalTestBase {
                 .withStatements()
                 .navigateToReport()
                 .validateStatementTab()
-                .createCustomStatements();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 10)
-    public void validateEditCustomStatements() {
-
-        reporter.createTest("Compliance Portal Edit Custom Statements Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalReports);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withReports()
-                .withStatements()
-                .navigateToReport()
-                .validateStatementTab()
-                .editCustomStatements();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 11)
-    public void validateRunCustomStatements() {
-
-        reporter.createTest("Compliance Portal Run Custom Statements Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalReports);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withReports()
-                .withStatements()
-                .navigateToReport()
-                .validateStatementTab()
-                .runCustomStatements();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 12)
-    public void validateDeleteCustomStatements() {
-
-        reporter.createTest("Compliance Portal Delete Custom Statements Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalReports);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withReports()
-                .withStatements()
-                .navigateToReport()
-                .validateStatementTab()
+                .createCustomStatements()
+                .editCustomStatements()
+                .runCustomStatements()
                 .deleteCustomStatements();
         portal().logout();
 
         softly.assertAll();
     }
 
-    @Test(priority = 13)
-    public void validateCreateActivityFlexQuery() {
+    @Test(priority = 7)
+    public void validateActivityFlexQueryNavigation() {
 
-        reporter.createTest("Compliance Portal Create Activity Flex Query Test")
+        reporter.createTest("Compliance Portal Activity Flex Query Navigation Test")
                 .withCategory(TestCategory.CompliancePortal)
                 .withAuthor(TestAuthor.CompliancePortalReports);
 
@@ -238,66 +133,9 @@ public class CompliancePortalTest extends PortalTestBase {
                 .withFlexQueries()
                 .navigateToReport()
                 .navigateToFlexQueries()
-                .createActivityFlexQuery();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 14)
-    public void validateEditActivityFlexQuery() {
-
-        reporter.createTest("Compliance Portal Edit Activity Flex Query Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalReports);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withReports()
-                .withFlexQueries()
-                .navigateToReport()
-                .navigateToFlexQueries()
-                .editActivityFlexQuery();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 15)
-    public void validateRunActivityFlexQuery() {
-
-        reporter.createTest("Compliance Portal Run Activity Flex Query Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalReports);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withReports()
-                .withFlexQueries()
-                .navigateToReport()
-                .navigateToFlexQueries()
-                .runActivityFlexQuery();
-        portal().logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 16)
-    public void validateDeleteActivityFlexQuery() {
-
-        reporter.createTest("Compliance Portal Delete Activity Flex Query Test")
-                .withCategory(TestCategory.CompliancePortal)
-                .withAuthor(TestAuthor.CompliancePortalReports);
-
-        loginCompliance();
-        portal()
-                .withPortalName(PortalName.Compliance_Portal)
-                .withReports()
-                .withFlexQueries()
-                .navigateToReport()
-                .navigateToFlexQueries()
+                .createActivityFlexQuery()
+                .editActivityFlexQuery()
+                .runActivityFlexQuery()
                 .deleteActivityFlexQuery();
         portal().logout();
 

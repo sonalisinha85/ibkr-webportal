@@ -2,7 +2,9 @@ package com.ibkr.qa.pages.menu.reports;
 
 import com.ibkr.qa.reporter.TestReporter;
 import com.ibkr.qa.utils.FileUtil;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class FlexQueries extends Reports {
 
@@ -16,6 +18,17 @@ public class FlexQueries extends Reports {
         super.reporter = reporter;
         super.softly = reporter.softly();
         return this;
+    }
+
+    public FlexQueryDelivery withFlexQueryDelivery() {
+
+        return new FlexQueryDelivery()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
+    protected WebElement buttonFlexQueryDeliveryConfigure() {
+        return elementVisible(By.xpath("//i [@class='fa fa-gear' and @data-original-title='Configure']"));
     }
 
     public FlexQueries createActivityFlexQuery() {

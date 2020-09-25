@@ -25,5 +25,6 @@ public enum TestAuthor {
     ClientPortalReports,
     ChineseNativeAccountApplication,
     PortfolioAnalystApplicationLogin,
-    EmployeeTrackApplicationLogin
+    EmployeeTrackApplicationLogin,
+    HedgeFundAdvisorPortalInvestorsMarketPlaceServices,
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 import static com.ibkr.qa.staticdata.AdvisorInvestorMarketPlaceServices.*;
 import static com.ibkr.qa.staticdata.BrokerInvestorMarketPlaceServices.*;
+import static com.ibkr.qa.staticdata.HedgeFundAdvisorInvestorMarketPlaceServices.*;
 
 public class InvestorMarketPlace extends Portal {
 
@@ -120,6 +121,13 @@ public class InvestorMarketPlace extends Portal {
         return elementVisible(By.xpath("//h3[contains(.,'Application for the Financing Firms Marketplace')]"));
     }
 
+    private WebElement buttonAdvertisingFirms() {
+        return elementVisible(By.xpath("//a[contains(.,'Advertising Firms')]"));
+    }
+
+    private WebElement labelAdvertisingFirms() {
+        return elementVisible(By.xpath("//h3[contains(.,'Application for the Advertising Firms Marketplace')]"));
+    }
 
     public InvestorMarketPlace validateAdvisorFindServicesNavigation() {
 
@@ -392,4 +400,140 @@ public class InvestorMarketPlace extends Portal {
         buttonAccountSelector("Continue").click();
         sleep(3000);
     }
+
+    public InvestorMarketPlace validateHedgeFundFindServicesNavigation() {
+
+        menuContains("Marketplace").click();
+        sleep(1000);
+        subMenu("Find Services").click();
+        sleep(1000);
+
+        reporter.createChild("Hedge Fund Advisor Find Service Validation");
+
+        labelServices().forEach(label -> reporter.assertChild(softly.assertThat(label.getText())
+                        .as(label.getText() + " service label is displayed")
+                        .isIn(hedgeFundAdvisorFindServices),
+                label.getText() + " service label is displayed"));
+
+        hedgeFundAdvisorResearchFindServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Research", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+        hedgeFundAdvisorTechnologyFindServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Technology", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+
+        hedgeFundAdvisorBusinessDevelopmentFindServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Business Development", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+
+        hedgeFundAdvisorAdministrationFindServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Administration", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+
+        hedgeFundAdvisorInvestingFindServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Investing", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+        buttonAdvisors().click();
+        sleep(2000);
+
+        random(cardsProviders(), 5).forEach(card ->
+                reporter.assertChild(softly.assertThat(card.isDisplayed())
+                                .as("Advisor card is displayed")
+                                .isEqualTo(true),
+                        "Advisor card is displayed"));
+
+        return this;
+    }
+
+    public InvestorMarketPlace validateHedgeFundAdvisorAdvertiseServicesNavigation() {
+
+        menuContains("Marketplace").click();
+        sleep(1000);
+        subMenu("Advertise Services").click();
+        sleep(1000);
+
+        reporter.createChild("Hedge Fund Advisor Advertise Service Validation");
+
+        labelServices().forEach(label -> reporter.assertChild(softly.assertThat(label.getText())
+                        .as(label.getText() + " service label is displayed")
+                        .isIn(hedgeFundAdvisorFindServices),
+                label.getText() + " service label is displayed"));
+
+        hedgeFundAdvisorResearchAdvertiseServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Research", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+        hedgeFundAdvisorTechnologyAdvertiseServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Technology", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+
+        hedgeFundAdvisorBusinessDevelopmentAdvertiseServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Business Development", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+
+        hedgeFundAdvisorInvestingAdvertiseServices.forEach(subService ->
+                reporter.assertChild(softly.assertThat(labelSubService("Investing", subService).isDisplayed())
+                                .as(subService + " label is displayed")
+                                .isTrue(),
+                        subService + " label is displayed"));
+
+        buttonAdvertisingFirms().click();
+        sleep(1000);
+
+        fillHedgeFundAdvisorApplicantInformation();
+
+        return this;
+    }
+
+    private void fillHedgeFundAdvisorApplicantInformation() {
+
+        reporter.assertChild(softly.assertThat(labelAdvertisingFirms().isDisplayed())
+                        .as("Application for the Programming Consultants Marketplace Label is displayed")
+                        .isEqualTo(true),
+                "Application for the Programming Consultants Marketplace Label is displayed");
+
+        inputContactName().sendKeys("Test");
+        inputEmailAddress().sendKeys("Test123@gmail.com");
+        changeDropdown(dropDownCountry(), "United States");
+        inputCity().sendKeys("Jersey City");
+        changeDropdown(dropDownPhoneCountry(), "United States");
+        inputPhoneNumber().sendKeys("2016869911");
+        inputServicesRequired().sendKeys("Test");
+        buttonContinue().click();
+        sleep(500);
+        inputSignature().sendKeys("Test");
+        buttonSubmitApplication().click();
+        sleep(500);
+
+        reporter.assertChild(softly.assertThat(labelApplicationSubmitted().isDisplayed())
+                        .as("Your application has been submitted Label is displayed")
+                        .isEqualTo(true),
+                "Your application has been submitted Label is displayed");
+
+        buttonOk().click();
+    }
+
 }

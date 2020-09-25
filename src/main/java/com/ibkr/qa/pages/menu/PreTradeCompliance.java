@@ -103,7 +103,7 @@ public class PreTradeCompliance extends Portal {
         return elementVisible(By.xpath("//form"));
     }
 
-    public PreTradeCompliance validateNewRestriction() {
+    public PreTradeCompliance newRestriction() {
 
         navigateToPreTradeCompliance("Validate New Restriction");
 
@@ -135,14 +135,14 @@ public class PreTradeCompliance extends Portal {
         return this;
     }
 
-    public PreTradeCompliance validateCopyRestriction() {
+    public PreTradeCompliance copyRestriction() {
 
         navigateToPreTradeCompliance("Validate Copy Restriction");
 
         int count = linksRestrictionName().size();
 
         random(buttonsCopy(), 1).get(0).click();
-        sleep(1000);
+        sleep(2000);
 
         reporter.assertChild(softly.assertThat(linksRestrictionName().size())
                         .as("Restriction is copied [Old Restrictions count vs New Restrictions count validated]")
@@ -155,7 +155,7 @@ public class PreTradeCompliance extends Portal {
         return this;
     }
 
-    public PreTradeCompliance validateDeleteRestriction() {
+    public PreTradeCompliance deleteRestriction() {
 
         navigateToPreTradeCompliance("Validate Delete Restriction");
 
@@ -164,7 +164,7 @@ public class PreTradeCompliance extends Portal {
         random(buttonsRemove(), 1).get(0).click();
         sleep(1000);
         buttonDelete().click();
-        sleep(2000);
+        sleep(3000);
 
         reporter.assertChild(softly.assertThat(linksRestrictionName().size())
                         .as("Restriction is deleted [Old Restrictions count vs New Restrictions count validated]")
@@ -177,7 +177,7 @@ public class PreTradeCompliance extends Portal {
         return this;
     }
 
-    public PreTradeCompliance validateViewRestriction() {
+    public PreTradeCompliance viewRestriction() {
 
         navigateToPreTradeCompliance("Validate View Restriction");
 

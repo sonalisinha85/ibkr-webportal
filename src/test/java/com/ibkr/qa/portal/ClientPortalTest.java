@@ -197,9 +197,9 @@ public class ClientPortalTest extends PortalTestBase {
     }
 
     @Test(priority = 11)
-    public void validateCreateCustomStatements() {
+    public void validateCustomStatementsNavigation() {
 
-        reporter.createTest("Client Portal Create Custom Statements Test")
+        reporter.createTest("Client Portal Custom Statements Navigation Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalReports);
 
@@ -212,54 +212,9 @@ public class ClientPortalTest extends PortalTestBase {
                 .withReports()
                 .withStatements()
                 .validateStatementTab()
-                .createCustomStatements();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 12)
-    public void validateEditCustomStatements() {
-
-        reporter.createTest("Client Portal Edit Custom Statements Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withStatements()
-                .validateStatementTab()
-                .editCustomStatements();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 13)
-    public void validateRunCustomStatements() {
-
-        reporter.createTest("Client Portal Run Custom Statements Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withStatements()
-                .validateStatementTab()
+                .createCustomStatements()
+                .editCustomStatements()
+                .deleteCustomStatements()
                 .runCustomStatements();
 
         clientPortal()
@@ -268,34 +223,10 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 14)
-    public void validateDeleteCustomStatements() {
+    @Test(priority = 12)
+    public void validateActivityFlexQueryNavigation() {
 
-        reporter.createTest("Client Portal Delete Custom Statements Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withStatements()
-                .validateStatementTab()
-                .deleteCustomStatements();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 15)
-    public void validateCreateActivityFlexQuery() {
-
-        reporter.createTest("Client Portal Create Activity Flex Query Test")
+        reporter.createTest("Client Portal Activity Flex Query Navigation Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalReports);
 
@@ -308,78 +239,9 @@ public class ClientPortalTest extends PortalTestBase {
                 .withReports()
                 .withFlexQueries()
                 .navigateToFlexQueries()
-                .createActivityFlexQuery();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 16)
-    public void validateEditActivityFlexQuery() {
-
-        reporter.createTest("Client Portal Edit Activity Flex Query Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withFlexQueries()
-                .navigateToFlexQueries()
-                .editActivityFlexQuery();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 17)
-    public void validateRunActivityFlexQuery() {
-
-        reporter.createTest("Client Portal Run Activity Flex Query Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withFlexQueries()
-                .navigateToFlexQueries()
-                .runActivityFlexQuery();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 18)
-    public void validateDeleteActivityFlexQuery() {
-
-        reporter.createTest("Client Portal Delete Activity Flex Query Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withFlexQueries()
-                .navigateToFlexQueries()
+                .createActivityFlexQuery()
+                .editActivityFlexQuery()
+                .runActivityFlexQuery()
                 .deleteActivityFlexQuery();
 
         clientPortal()
@@ -388,10 +250,10 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 19)
-    public void validateCreateCustomBenchMarks() {
+    @Test(priority = 13)
+    public void validateCustomBenchMarksNavigation() {
 
-        reporter.createTest("Client Portal Create Custom Benchmarks Test")
+        reporter.createTest("Client Portal Custom Benchmarks Navigation Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalReports);
 
@@ -400,46 +262,8 @@ public class ClientPortalTest extends PortalTestBase {
                 .validateLogin()
                 .withPortfolioAnalyst()
                 .withReports()
-                .createCustomBenchmarks();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 20)
-    public void validateEditCustomBenchMarks() {
-
-        reporter.createTest("Client Portal Edit Custom Benchmarks Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withPortfolioAnalyst()
-                .withReports()
-                .editCustomBenchmarks();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 21)
-    public void validateDeleteCustomBenchMarks() {
-
-        reporter.createTest("Client Portal Delete Custom Benchmarks Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withPortfolioAnalyst()
-                .withReports()
+                .createCustomBenchmarks()
+                .editCustomBenchmarks()
                 .deleteCustomBenchmarks();
 
         clientPortal()
@@ -448,10 +272,10 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 22)
-    public void validateCreateCustomReport() {
+    @Test(priority = 14)
+    public void validateCustomReportNavigation() {
 
-        reporter.createTest("Client Portal Create Custom Report Test")
+        reporter.createTest("Client Portal Custom Report Navigation Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalReports);
 
@@ -460,46 +284,9 @@ public class ClientPortalTest extends PortalTestBase {
                 .validateLogin()
                 .withPortfolioAnalyst()
                 .withReports()
-                .createCustomReports();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 23)
-    public void validateEditCustomReport() {
-
-        reporter.createTest("Client Portal Edit Custom Report Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withPortfolioAnalyst()
-                .withReports()
-                .editCustomReport();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 24)
-    public void validateDeleteCustomReport() {
-
-        reporter.createTest("Client Portal Delete Custom Report Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withPortfolioAnalyst()
-                .withReports()
+                .createCustomReports()
+                .editCustomReport()
+                .runCustomReport()
                 .deleteCustomReport();
 
         clientPortal()
@@ -508,27 +295,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 25)
-    public void validateRunCustomReport() {
-
-        reporter.createTest("Client Portal Run Custom Report Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withPortfolioAnalyst()
-                .withReports()
-                .runCustomReport();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 26)
+    @Test(priority = 15)
     public void validateViewDefaultReport() {
 
         reporter.createTest("Client Portal View Default Report Test")
@@ -548,7 +315,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 27)
+    @Test(priority = 16)
     public void validateSnapshotDefaultReport() {
 
         reporter.createTest("Client Portal Snapshot Default Report Test")
@@ -568,7 +335,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 28)
+    @Test(priority = 17)
     public void validateDetailPDFDefaultReport() {
 
         reporter.createTest("Client Portal Detail PDF Default Report Test")
@@ -588,7 +355,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 29)
+    @Test(priority = 18)
     public void validateDetailCSVDefaultReport() {
 
         reporter.createTest("Client Portal Detail CSV Default Report Test")
@@ -608,7 +375,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 30)
+    @Test(priority = 19)
     public void validateViewTaxForms() {
 
         reporter.createTest("Client Portal Tax Form Test")
@@ -632,10 +399,10 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 31)
-    public void validateCreateTradeConfirmationFlexQuery() {
+    @Test(priority = 20)
+    public void validateTradeConfirmationFlexQueryNavigation() {
 
-        reporter.createTest("Client Portal Create Trade Confirmation Flex Query Test")
+        reporter.createTest("Client Portal Trade Confirmation Flex Query Navigation Test")
                 .withCategory(TestCategory.ClientPortal)
                 .withAuthor(TestAuthor.ClientPortalReports);
 
@@ -648,78 +415,9 @@ public class ClientPortalTest extends PortalTestBase {
                 .withReports()
                 .withFlexQueries()
                 .navigateToFlexQueries()
-                .createTradeConfirmationFlexQuery();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 32)
-    public void validateEditTradeConfirmationFlexQuery() {
-
-        reporter.createTest("Client Portal Edit Trade Confirmation Flex Query Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withFlexQueries()
-                .navigateToFlexQueries()
-                .editTradeConfirmationFlexQuery();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 33)
-    public void validateRunTradeConfirmationFlexQuery() {
-
-        reporter.createTest("Client Portal Run Trade Confirmation Flex Query Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withFlexQueries()
-                .navigateToFlexQueries()
-                .runTradeConfirmationFlexQuery();
-
-        clientPortal()
-                .logout();
-
-        softly.assertAll();
-    }
-
-    @Test(priority = 34)
-    public void validateDeleteTradeConfirmationFlexQuery() {
-
-        reporter.createTest("Client Portal Delete Trade Confirmation Flex Query Test")
-                .withCategory(TestCategory.ClientPortal)
-                .withAuthor(TestAuthor.ClientPortalReports);
-
-        loginClient();
-        clientPortal()
-                .validateLogin()
-                .withClientPortalReports()
-                .navigateToReports();
-        portal()
-                .withReports()
-                .withFlexQueries()
-                .navigateToFlexQueries()
+                .createTradeConfirmationFlexQuery()
+                .editTradeConfirmationFlexQuery()
+                .runTradeConfirmationFlexQuery()
                 .deleteTradeConfirmationFlexQuery();
 
         clientPortal()
@@ -728,7 +426,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 35)
+    @Test(priority = 21)
     public void validateEducationCenter() {
 
         reporter.createTest("Client Portal Education Center Test")
@@ -748,7 +446,7 @@ public class ClientPortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 36)
+    @Test(priority = 22)
     public void validateAdvertiseServices() {
 
         reporter.createTest("Client Portal Advertise Services Test")

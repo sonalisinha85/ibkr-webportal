@@ -85,8 +85,16 @@ public class Dashboard extends Portal {
         return elementVisible(By.xpath("//p/a[text()='View More Workflows']"));
     }
 
+    protected WebElement buttonViewMoreWorkflowsNoLog() {
+        return elementNoLog(By.xpath("//p/a[text()='View More Workflows']"));
+    }
+
     protected WebElement buttonViewMoreNotes() {
         return elementVisible(By.xpath("//p/a[text()='View More Notes']"));
+    }
+
+    protected WebElement buttonViewMoreNotesNoLog() {
+        return elementNoLog(By.xpath("//p/a[text()='View More Notes']"));
     }
 
     protected List<WebElement> listWorkflow() {

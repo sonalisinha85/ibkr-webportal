@@ -135,16 +135,20 @@ public class NotesModal extends Dashboard {
 
     public NotesModal viewMoreNotes() {
 
-        int size = listNotes().size();
+        if (!isNotDisplayed(buttonViewMoreNotesNoLog())) {
 
-        buttonViewMoreNotes().click();
-        sleep(1000);
+            int size = listNotes().size();
 
-        reporter.createChild("View More Notes")
-                .assertChild(softly.assertThat(listNotes().size())
-                                .as("More Notes are displayed")
-                                .isGreaterThanOrEqualTo(size),
-                        "More Notes are displayed");
+            buttonViewMoreNotes().click();
+            sleep(1000);
+
+            reporter.createChild("View More Notes")
+                    .assertChild(softly.assertThat(listNotes().size())
+                                    .as("More Notes are displayed")
+                                    .isGreaterThanOrEqualTo(size),
+                            "More Notes are displayed");
+        }
+
         return this;
     }
 
