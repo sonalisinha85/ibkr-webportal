@@ -6,6 +6,7 @@ public enum TestAuthor {
     BrokerPortalTools,
     BrokerPortalReports,
     BrokerPortalInvestorsMarketPlaceServices,
+    BrokerPortalContacts,
     AdvisorPortalDashboard,
     AdvisorPortalContacts,
     AdvisorPortalGroup,

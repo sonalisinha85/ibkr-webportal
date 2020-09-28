@@ -153,4 +153,10 @@ public class WebOperation {
         SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
         return sdf.format(new Date());
     }
+
+    protected String getDateTime() {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyMMddhhmmss");
+        return sdf.format(new Date());
+    }
 }

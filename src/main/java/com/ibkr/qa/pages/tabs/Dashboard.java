@@ -53,6 +53,13 @@ public class Dashboard extends Portal {
                 .withReporter(reporter);
     }
 
+    public Dashboard navigateToDashboard() {
+
+        tabs(Tabs.Dashboard).click();
+        sleep(500);
+        return this;
+    }
+
     protected List<WebElement> buttonsViewWorkflow() {
         return elementsVisible(By.xpath("//section[@class='panel crm-workflows']//i[contains(@class,'fa-info-circle')]"));
     }

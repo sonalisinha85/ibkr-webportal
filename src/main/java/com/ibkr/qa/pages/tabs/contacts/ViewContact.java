@@ -25,7 +25,8 @@ public class ViewContact extends Contacts {
                     "Profile Information",
                     "Financial Information",
                     "Trading Experience & Permissions",
-                    "Configuration"));
+                    "Configuration",
+                    "Assigned Users"));
 
     private List<String> headingsAgendaTab = new ArrayList(
             Arrays.asList("Agenda",

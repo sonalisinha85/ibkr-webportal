@@ -74,6 +74,34 @@ public class EventModal extends Dashboard {
         return this;
     }
 
+    public EventModal addEvent(String contact) {
+
+        buttonAddEvent().click();
+        sleep(1000);
+
+        reporter.createChild("Add Event Validation")
+                .assertChild(softly.assertThat(labelEvent("Add Event").isDisplayed())
+                                .as("Add Event Label is displayed")
+                                .isEqualTo(true),
+                        "Add Event Label is displayed");
+
+        String name = "Regression Test " + getCurrentTime();
+        inputName().clear();
+        inputName().sendKeys(name);
+        inputContact().sendKeys(contact);
+        sleep(500);
+        random(radioButtonsContact(), 1).get(0).click();
+        buttonAction(Action.Create).click();
+        sleep(1000);
+
+        reporter.assertChild(softly.assertThat(labelEventName(name).isDisplayed())
+                        .as(name + " Event is added in Calendar")
+                        .isEqualTo(true),
+                name + " Event is added in Calendar");
+
+        return this;
+    }
+
     public EventModal editEvent() {
 
         random(buttonEditEvent(), 1).get(0).click();

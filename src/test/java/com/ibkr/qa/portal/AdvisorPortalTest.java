@@ -4,6 +4,8 @@ import com.ibkr.qa.base.PortalTestBase;
 import com.ibkr.qa.enums.PortalName;
 import com.ibkr.qa.enums.TestAuthor;
 import com.ibkr.qa.enums.TestCategory;
+import com.ibkr.qa.pages.Portal;
+import com.ibkr.qa.pages.tabs.contacts.Contacts;
 import org.testng.annotations.Test;
 
 public class AdvisorPortalTest extends PortalTestBase {
@@ -540,6 +542,152 @@ public class AdvisorPortalTest extends PortalTestBase {
                 .editCustomStatements()
                 .deleteCustomStatements()
                 .runCustomStatements();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 29)
+    public void validateDefaultStatementsNavigation() {
+
+        reporter.createTest("Advisor Portal Default Statements Navigation Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .viewDefaultStatements()
+                .runDefaultStatements();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 30)
+    public void validateDailyCustomStatementsDelivery() {
+
+        reporter.createTest("Advisor Daily Custom Statements Delivery Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .withStatementDelivery()
+                .statementDeliveryConfiguration("Daily Custom Statements Delivery");
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 31)
+    public void validateMonthlyCustomStatementsDelivery() {
+
+        reporter.createTest("Advisor Monthly Custom Statements Delivery Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .withStatementDelivery()
+                .statementDeliveryConfiguration("Monthly Custom Statements Delivery");
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 32)
+    public void validateWorkflowInAgendaTab() {
+
+        reporter.createTest("Advisor Portal Check Workflow in Agenda Tab Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
+
+        loginAdvisor();
+        Portal portal = portal()
+                .withPortalName(PortalName.Advisor_Portal);
+        Contacts contacts = portal
+                .withContacts()
+                .navigateToContacts()
+                .addContact();
+        portal.withDashboard()
+                .navigateToDashboard()
+                .withWorkflowModal()
+                .addWorkflow(contacts.getFirstName());
+        contacts.searchAndViewContactsByAssociatedName()
+                .withContactInformation()
+                .validateWorkflow(contacts.getFirstName());
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 33)
+    public void validateNoteInAgendaTab() {
+
+        reporter.createTest("Advisor Portal Check Note in Agenda Tab Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
+
+        loginAdvisor();
+        Portal portal = portal()
+                .withPortalName(PortalName.Advisor_Portal);
+        Contacts contacts = portal
+                .withContacts()
+                .navigateToContacts()
+                .addContact();
+        portal.withDashboard()
+                .navigateToDashboard()
+                .withNotesModal()
+                .addNotes(contacts.getFirstName());
+        contacts.searchAndViewContactsByAssociatedName()
+                .withContactInformation()
+                .validateNote(contacts.getFirstName());
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 34)
+    public void validateEventInAgendaTab() {
+
+        reporter.createTest("Advisor Portal Check Event in Agenda Tab Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalContacts);
+
+        loginAdvisor();
+        Portal portal = portal()
+                .withPortalName(PortalName.Advisor_Portal);
+        Contacts contacts = portal
+                .withContacts()
+                .navigateToContacts()
+                .addContact();
+        portal.withDashboard()
+                .navigateToDashboard()
+                .withEventModal()
+                .addEvent(contacts.getFirstName());
+        contacts.searchAndViewContactsByAssociatedName()
+                .withContactInformation()
+                .validateEvent(contacts.getFirstName());
+
         portal().logout();
 
         softly.assertAll();

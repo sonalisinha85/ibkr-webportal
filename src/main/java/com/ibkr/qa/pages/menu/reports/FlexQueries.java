@@ -28,7 +28,7 @@ public class FlexQueries extends Reports {
     }
 
     protected WebElement buttonFlexQueryDeliveryConfigure() {
-        return elementVisible(By.xpath("//i [@class='fa fa-gear' and @data-original-title='Configure']"));
+        return elementVisible(By.xpath("//i[@class='fa fa-gear' and @data-original-title='Configure']"));
     }
 
     public FlexQueries createActivityFlexQuery() {

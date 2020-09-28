@@ -143,6 +143,7 @@ public class Reports extends Portal {
                 "/ancestor::section[@class='panel']//p/strong[text()='" + name + "']"));
     }
 
+
     protected WebElement inputReportName() {
         return elementVisible(By.xpath("//input[@name='reportName']"));
     }
@@ -220,5 +221,5 @@ public class Reports extends Portal {
 
     protected enum ReportsTab {Statements, Flex_Queries, Other_Reports, Tax}
 
-    protected enum Action {Run_Report, Reset, Continue, Delete, Edit, Run, Create, Save_Changes, No, Yes, Close, Save}
+    protected enum Action {Run_Report, Reset, Continue, Delete, Edit, Run, Create, Save_Changes, No, Yes, Close, Save, Info}
 }

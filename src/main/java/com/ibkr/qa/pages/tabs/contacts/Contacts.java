@@ -22,6 +22,13 @@ public class Contacts extends Portal {
         return this;
     }
 
+    public ContactInformation withContactInformation() {
+
+        return new ContactInformation()
+                .withDriver(driver)
+                .withReporter(reporter);
+    }
+
     private List<WebElement> buttonsViewContact() {
         return elementsVisible(By.xpath("//section[@class='panel']//i[contains(@class,'fa-info-circle')]"));
     }
@@ -70,8 +77,15 @@ public class Contacts extends Portal {
         return elementPresent(By.xpath("//th[@ng-show and contains(@class,'ng-hide') and contains(text(),'" + columnName + "')]"));
     }
 
+    private String firstName;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
     public Contacts addContact() {
 
+        firstName = getDateTime();
         tabs(Tabs.Contacts).click();
         sleep(500);
         buttonAddContact().click();
@@ -81,7 +95,7 @@ public class Contacts extends Portal {
         new AddContact()
                 .withDriver(driver)
                 .withReporter(reporter)
-                .addAndReviwContactForm();
+                .addAndReviwContactForm(firstName);
 
         return this;
     }
@@ -135,6 +149,22 @@ public class Contacts extends Portal {
         return this;
     }
 
+    public Contacts searchAndViewContactsByAssociatedName() {
+
+        menu(Menu.Home).click();
+        sleep(1000);
+        tabs(Tabs.Contacts).click();
+        sleep(500);
+
+        inputSearchContact().sendKeys(getFirstName());
+        inputSearchContact().sendKeys(Keys.ENTER);
+        sleep(500);
+        buttonsViewContact().get(0).click();
+        sleep(1000);
+
+        return this;
+    }
+
     public Contacts viewContact() {
 
         tabs(Tabs.Contacts).click();
@@ -162,6 +192,13 @@ public class Contacts extends Portal {
                 .withReporter(reporter)
                 .validateSettingsMenu();
 
+        return this;
+    }
+
+    public Contacts navigateToContacts() {
+
+        tabs(Tabs.Contacts).click();
+        sleep(500);
         return this;
     }
 

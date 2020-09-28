@@ -32,6 +32,11 @@ public class WorkflowModal extends Dashboard {
         return elementVisible(By.xpath("//input[@name='addedContactName']"));
     }
 
+    private WebElement labelAssociatedContact() {
+
+        return elementVisible(By.xpath("//div[contains(@ng-if,'contactsAreSelected')]/p"));
+    }
+
     private WebElement inputDetails() {
 
         return elementVisible(By.xpath("//input[@name='taskDescription']"));
@@ -76,6 +81,27 @@ public class WorkflowModal extends Dashboard {
 
         inputAssociatedContact().sendKeys("test");
         radioButtonsContact().get(0).click();
+        sleep(500);
+        inputDetails().sendKeys("Regression Test");
+        buttonAction(Action.Create).click();
+        sleep(1000);
+
+        return this;
+    }
+
+    public WorkflowModal addWorkflow(String contact) {
+
+        buttonAddWorkflow().click();
+        sleep(1000);
+        reporter.createChild("Add Workflow")
+                .assertChild(softly.assertThat(labelWorkflow("Add Workflow").isDisplayed())
+                                .as("Add Workflow Label is displayed")
+                                .isEqualTo(true),
+                        "Add Workflow Label is displayed");
+
+        inputAssociatedContact().sendKeys(contact);
+        radioButtonsContact().get(0).click();
+        sleep(500);
         inputDetails().sendKeys("Regression Test");
         buttonAction(Action.Create).click();
         sleep(1000);

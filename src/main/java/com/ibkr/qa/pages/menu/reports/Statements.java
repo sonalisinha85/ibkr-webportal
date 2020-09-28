@@ -1,7 +1,9 @@
 package com.ibkr.qa.pages.menu.reports;
 
 import com.ibkr.qa.reporter.TestReporter;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Statements extends Reports {
 
@@ -15,6 +17,36 @@ public class Statements extends Reports {
         super.reporter = reporter;
         super.softly = reporter.softly();
         return this;
+    }
+
+    protected WebElement statementModal() {
+
+        return elementVisible(By.xpath("//am-modal/div"));
+    }
+
+    protected WebElement buttonClose() {
+
+        return elementVisible(By.xpath("//am-button[@btn-text='Close']"));
+    }
+
+    protected WebElement buttonStatementDeliveryConfigure() {
+        return elementVisible(By.xpath("//i[@class='fa fa-gear tooltips' and @data-original-title='Configure']"));
+    }
+
+    protected WebElement labelStatementDelivery() {
+        return elementVisible(By.xpath("//span[text()='Statements Delivery']"));
+    }
+
+    protected WebElement labelStatement(String statementName) {
+        //Statement Name - "Daily Activity Statement" "Monthly Activity Statement"
+        return elementVisible(By.xpath("//span[contains(.,'" + statementName + "')]"));
+    }
+
+    public StatementDelivery withStatementDelivery() {
+
+        return new StatementDelivery()
+                .withDriver(driver)
+                .withReporter(reporter);
     }
 
     public Statements runCustomStatements() {
@@ -127,6 +159,40 @@ public class Statements extends Reports {
                         .as(name + " Custom Report is created")
                         .isEqualTo(true),
                 name + " Custom Report is created");
+
+        return this;
+    }
+
+    public Statements runDefaultStatements() {
+
+        reporter.createChild("Validate Run Default Statements");
+
+        random(buttonReportAction("Default Statements", Action.Run), 1).get(0).click();
+        sleep(1000);
+        buttonActionRightpanel(Action.Run).click();
+        sleep(3000);
+
+        reporter.assertChild(softly.assertThat(panelSection().isDisplayed())
+                        .as("Custom Report is displayed")
+                        .isEqualTo(true),
+                "Custom Report is displayed");
+
+        return this;
+    }
+
+    public Statements viewDefaultStatements() {
+
+        reporter.createChild("Validate View Default Statements");
+
+        random(buttonReportAction("Default Statements", Action.Info), 1).get(0).click();
+        sleep(1000);
+
+        reporter.assertChild(softly.assertThat(statementModal().isDisplayed())
+                        .as("Default Statement modal is displayed")
+                        .isEqualTo(true),
+                "Default Statement modal is displayed");
+
+        buttonClose().click();
 
         return this;
     }

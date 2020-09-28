@@ -58,7 +58,7 @@ public class AddContact extends Contacts {
         return elementVisible(By.xpath("//h3[contains(text(),'" + label + "')]"));
     }
 
-    public AddContact addAndReviwContactForm() {
+    public AddContact addAndReviwContactForm(String firstName) {
 
         reporter.createChild("Add Contacts")
                 .assertChild(softly.assertThat(labelAddContacts().isDisplayed())
@@ -66,7 +66,6 @@ public class AddContact extends Contacts {
                                 .isEqualTo(true),
                         "Configure Contact Profile for Primary Account Holder label is displayed");
 
-        String firstName = "Regression";
         String lastName = "Test";
 
         changeDropdown(dropDownSalutation(), "Mr.");

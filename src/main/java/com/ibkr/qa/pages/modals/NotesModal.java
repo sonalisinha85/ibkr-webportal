@@ -91,6 +91,25 @@ public class NotesModal extends Dashboard {
         return this;
     }
 
+    public NotesModal addNotes(String contact) {
+
+        buttonAddNotes().click();
+        sleep(1000);
+        reporter.createChild("Add Notes")
+                .assertChild(softly.assertThat(labelNotes("Add Note").isDisplayed())
+                                .as("Add Note Label is displayed")
+                                .isEqualTo(true),
+                        "Add Note Label is displayed");
+
+        inputContact().sendKeys(contact);
+        radioButtonsContact().get(0).click();
+        inputDescription().sendKeys("Regression Test");
+        buttonAction(Action.Create).click();
+        sleep(1000);
+
+        return this;
+    }
+
     public NotesModal editNotes() {
 
         random(buttonsEditNotes(), 1).get(0).click();

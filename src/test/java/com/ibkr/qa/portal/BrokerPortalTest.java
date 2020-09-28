@@ -4,6 +4,8 @@ import com.ibkr.qa.base.PortalTestBase;
 import com.ibkr.qa.enums.PortalName;
 import com.ibkr.qa.enums.TestAuthor;
 import com.ibkr.qa.enums.TestCategory;
+import com.ibkr.qa.pages.Portal;
+import com.ibkr.qa.pages.tabs.contacts.Contacts;
 import org.testng.annotations.Test;
 
 public class BrokerPortalTest extends PortalTestBase {
@@ -390,6 +392,152 @@ public class BrokerPortalTest extends PortalTestBase {
                 .editCustomStatements()
                 .deleteCustomStatements()
                 .runCustomStatements();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 21)
+    public void validateDefaultStatementsNavigation() {
+
+        reporter.createTest("Broker Portal Default Statements Navigation Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .viewDefaultStatements()
+                .runDefaultStatements();
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 22)
+    public void validateDailyCustomStatementsDelivery() {
+
+        reporter.createTest("Broker Daily Custom Statements Delivery Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .withStatementDelivery()
+                .statementDeliveryConfiguration("Daily Custom Statements Delivery");
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 23)
+    public void validateMonthlyCustomStatementsDelivery() {
+
+        reporter.createTest("Broker Monthly Custom Statements Delivery Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReports()
+                .withStatements()
+                .validateStatementTab()
+                .withStatementDelivery()
+                .statementDeliveryConfiguration("Monthly Custom Statements Delivery");
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 24)
+    public void validateWorkflowInAgendaTab() {
+
+        reporter.createTest("Broker Portal Check Workflow in Agenda Tab Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalContacts);
+
+        loginBroker();
+        Portal portal = portal()
+                .withPortalName(PortalName.Broker_Portal);
+        Contacts contacts = portal
+                .withContacts()
+                .navigateToContacts()
+                .addContact();
+        portal.withDashboard()
+                .navigateToDashboard()
+                .withWorkflowModal()
+                .addWorkflow(contacts.getFirstName());
+        contacts.searchAndViewContactsByAssociatedName()
+                .withContactInformation()
+                .validateWorkflow(contacts.getFirstName());
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 25)
+    public void validateNoteInAgendaTab() {
+
+        reporter.createTest("Broker Portal Check Note in Agenda Tab Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalContacts);
+
+        loginBroker();
+        Portal portal = portal()
+                .withPortalName(PortalName.Broker_Portal);
+        Contacts contacts = portal
+                .withContacts()
+                .navigateToContacts()
+                .addContact();
+        portal.withDashboard()
+                .navigateToDashboard()
+                .withNotesModal()
+                .addNotes(contacts.getFirstName());
+        contacts.searchAndViewContactsByAssociatedName()
+                .withContactInformation()
+                .validateNote(contacts.getFirstName());
+
+        portal().logout();
+
+        softly.assertAll();
+    }
+
+    @Test(priority = 26)
+    public void validateEventInAgendaTab() {
+
+        reporter.createTest("Broker Portal Check Event in Agenda Tab Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalContacts);
+
+        loginBroker();
+        Portal portal = portal()
+                .withPortalName(PortalName.Broker_Portal);
+        Contacts contacts = portal
+                .withContacts()
+                .navigateToContacts()
+                .addContact();
+        portal.withDashboard()
+                .navigateToDashboard()
+                .withEventModal()
+                .addEvent(contacts.getFirstName());
+        contacts.searchAndViewContactsByAssociatedName()
+                .withContactInformation()
+                .validateEvent(contacts.getFirstName());
+
         portal().logout();
 
         softly.assertAll();
