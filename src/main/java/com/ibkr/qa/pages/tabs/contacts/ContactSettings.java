@@ -35,7 +35,7 @@ public class ContactSettings extends Contacts {
     }
 
     private List<WebElement> buttonsColumns() {
-        return elementsVisible(By.xpath("//p[contains(@ng-repeat,'columnName')]/a"));
+        return elementsVisible(By.xpath("//li[contains(@ng-repeat,'columnName')]/a"));
     }
 
     private WebElement buttonReset() {

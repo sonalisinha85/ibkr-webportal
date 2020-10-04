@@ -1,6 +1,7 @@
 package com.ibkr.qa.pages.menu.reports;
 
 import com.ibkr.qa.reporter.TestReporter;
+import com.ibkr.qa.utils.FileUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,6 +41,10 @@ public class Statements extends Reports {
     protected WebElement labelStatement(String statementName) {
         //Statement Name - "Daily Activity Statement" "Monthly Activity Statement"
         return elementVisible(By.xpath("//span[contains(.,'" + statementName + "')]"));
+    }
+
+    protected WebElement labelAccount() {
+        return elementVisible(By.xpath("//span[@class='account-numbers']/a"));
     }
 
     public StatementDelivery withStatementDelivery() {
@@ -134,6 +139,7 @@ public class Statements extends Reports {
         buttonCreate("Custom Statements").click();
         sleep(2000);
         inputReportName().sendKeys(name);
+        sleep(1000);
         random(buttonSections(), 1).get(0).click();
         changeDropdown(dropDownActivityPeriod(), "Monthly");
         buttonActionRightpanel(Action.Continue).click();
@@ -155,10 +161,10 @@ public class Statements extends Reports {
         buttonOk().click();
         sleep(1000);
 
-        reporter.assertChild(softly.assertThat(labelReport("Custom Statements", name).isDisplayed())
-                        .as(name + " Custom Report is created")
-                        .isEqualTo(true),
-                name + " Custom Report is created");
+//        reporter.assertChild(softly.assertThat(labelReport("Custom Statements", name).isDisplayed())
+//                        .as(name + " Custom Report is created")
+//                        .isEqualTo(true),
+//                name + " Custom Report is created");
 
         return this;
     }
@@ -213,6 +219,34 @@ public class Statements extends Reports {
                                 .as("Custom Statement Section is displayed")
                                 .isEqualTo(true),
                         "Custom Statement Section is displayed");
+
+        return this;
+    }
+
+    public Statements validateThirdPartyDownloads() {
+
+        reporter.createChild("Validate Third Party Downloads")
+                .assertChild(softly.assertThat(sectionReport("Third-Party Downloads").isDisplayed())
+                                .as("Third-Party Downloads Section is displayed")
+                                .isEqualTo(true),
+                        "Third-Party Downloads Section is displayed");
+
+        return this;
+    }
+
+    public Statements runThirdPartyDownloads() {
+
+        String account = labelAccount().getText().trim();
+
+        random(buttonReportAction("Third-Party Downloads", Action.Run), 1).get(0).click();
+        sleep(1000);
+        buttonActionRightpanel(Action.Run).click();
+        sleep(3000);
+
+        reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
+                        .as("Third-Party Report is Downloaded")
+                        .contains(account),
+                "Third-Party Report is Downloaded");
 
         return this;
     }

@@ -22,29 +22,29 @@ public class WebOperation {
     protected TestReporter reporter;
     List<String> tabs;
 
-    //    Returns Web element once its present, with a timeout of 25 seconds
+    //    Returns Web element once its present, with a timeout of 15 seconds
     protected WebElement elementPresent(By by) {
-        return new WebDriverWait(driver, 25).until(ExpectedConditions.presenceOfElementLocated(by));
+        return new WebDriverWait(driver, 15).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    //    Returns Web elements once its present, with a timeout of 25 seconds
+    //    Returns Web elements once its present, with a timeout of 15 seconds
     protected List<WebElement> elementsPresent(By by) {
-        return new WebDriverWait(driver, 25).until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+        return new WebDriverWait(driver, 15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
     }
 
-    //    Returns Web element once its visible, with a timeout of 25 seconds
+    //    Returns Web element once its visible, with a timeout of 15 seconds
     protected WebElement elementVisible(By by) {
-        return new WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfElementLocated(by));
+        return new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    //    Returns Web elements once its visible, with a timeout of 25 seconds
+    //    Returns Web elements once its visible, with a timeout of 15 seconds
     protected List<WebElement> elementsVisible(By by) {
-        return new WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+        return new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
-    //    Returns Web element once its clickable, with a timeout of 25 seconds
+    //    Returns Web element once its clickable, with a timeout of 15 seconds
     protected WebElement elementClickable(By by) {
-        return new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(by));
+        return new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(by));
     }
 
     // Returns WebElement, can be used if we need to check if Web Element is not displayed
@@ -79,7 +79,7 @@ public class WebOperation {
     }
 
     protected void switchFrame(String frameName) {
-        new WebDriverWait(driver, 25).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameName));
+        new WebDriverWait(driver, 15).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameName));
     }
 
     protected void switchToDefaultContext() {

@@ -542,4 +542,24 @@ public class BrokerPortalTest extends PortalTestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 27)
+    public void validateThirdPartyDownloads() {
+
+        reporter.createTest("Broker Portal Third Party Downloads Test")
+                .withCategory(TestCategory.BrokerPortal)
+                .withAuthor(TestAuthor.BrokerPortalReports);
+
+        loginBrokerNonDisclosed();
+        portal()
+                .withPortalName(PortalName.Broker_Portal)
+                .withReports()
+                .navigateToReportsWithSingleAccount()
+                .withStatements()
+                .validateThirdPartyDownloads()
+                .runThirdPartyDownloads();
+        portal().logout();
+
+        softly.assertAll();
+    }
 }

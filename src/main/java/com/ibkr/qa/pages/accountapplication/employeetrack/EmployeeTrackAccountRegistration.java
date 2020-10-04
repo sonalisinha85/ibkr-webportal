@@ -95,6 +95,7 @@ public class EmployeeTrackAccountRegistration extends WebOperation {
         buttonComplianceOfficer().click();
         sleep(2000);
         inputUserName().sendKeys("ibk" + getDate());
+        sleep(1000);
         inputPassword().sendKeys("tester12");
         inputPassword2().sendKeys("tester12");
         inputEmail().sendKeys("ssinha@interactivebrokers.com");

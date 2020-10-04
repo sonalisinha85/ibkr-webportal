@@ -92,9 +92,9 @@ public class EducationCenter extends PortfolioAnalyst {
         switchTab();
 
         reporter.assertChild(softly.assertThat(driver.getTitle())
-                        .as("Documentation | Interactive Brokers LLC page is displayed")
-                        .isEqualTo("Documentation | Interactive Brokers LLC"),
-                "Documentation | Interactive Brokers LLC page is displayed");
+                        .as("PortfolioAnalyst User Guide page is displayed")
+                        .isEqualTo("PortfolioAnalyst User Guide"),
+                "PortfolioAnalyst User Guide page is displayed");
 
         switchToMainTab();
 
@@ -109,9 +109,9 @@ public class EducationCenter extends PortfolioAnalyst {
         switchTab();
 
         reporter.assertChild(softly.assertThat(driver.getTitle())
-                        .as("Traders Academy Free Online Courses page is displayed")
-                        .isEqualTo("Traders Academy Free Online Courses | Interactive Brokers LLC"),
-                "Traders Academy Free Online Courses page is displayed");
+                        .as("IBKR Traders' Academy - Free Online Trading Courses page is displayed")
+                        .isEqualTo("IBKR Traders' Academy - Free Online Trading Courses"),
+                "IBKR Traders' Academy - Free Online Trading Courses page is displayed");
 
         switchToMainTab();
 

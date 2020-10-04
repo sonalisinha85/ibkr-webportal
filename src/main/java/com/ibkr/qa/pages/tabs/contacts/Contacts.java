@@ -50,19 +50,19 @@ public class Contacts extends Portal {
     }
 
     protected List<WebElement> listColumnType() {
-        return elementsVisible(By.xpath("//td[contains(@ng-show,'type')]"));
+        return elementsVisible(By.xpath("//td[@ng-show]/div[contains(@ng-if,'type')]"));
     }
 
     protected List<WebElement> listColumnAccountType() {
-        return elementsVisible(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[1]"));
+        return elementsVisible(By.xpath("//table[contains(@ng-if,'account')]//tr[@ng-repeat='account in item.accounts']/td[1]"));
     }
 
     private List<WebElement> listColumnAccountNumber() {
-        return elementsVisible(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[2]"));
+        return elementsVisible(By.xpath("//tr[@ng-repeat='account in item.accounts']/td[2]"));
     }
 
     protected List<WebElement> listColumnStatus() {
-        return elementsVisible(By.xpath("//td[contains(@ng-show,'accounts')]//tr[@ng-repeat='account in item.accounts']/td[3]"));
+        return elementsVisible(By.xpath("//tr[@ng-repeat='account in item.accounts']/td[3]"));
     }
 
     private WebElement inputSearchContact() {
@@ -74,7 +74,7 @@ public class Contacts extends Portal {
     }
 
     protected WebElement headerColumn(String columnName) {
-        return elementPresent(By.xpath("//th[@ng-show and contains(@class,'ng-hide') and contains(text(),'" + columnName + "')]"));
+        return elementPresent(By.xpath("//th[@ng-show and contains(@class,'ng-hide')]/div[contains(text(),'" + columnName + "')]"));
     }
 
     private String firstName;

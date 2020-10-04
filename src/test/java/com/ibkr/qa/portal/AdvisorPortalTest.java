@@ -692,4 +692,24 @@ public class AdvisorPortalTest extends PortalTestBase {
 
         softly.assertAll();
     }
+
+    @Test(priority = 35)
+    public void validateThirdPartyDownloads() {
+
+        reporter.createTest("Advisor Portal Third Party Downloads Test")
+                .withCategory(TestCategory.AdvisorPortal)
+                .withAuthor(TestAuthor.AdvisorPortalReports);
+
+        loginAdvisor();
+        portal()
+                .withPortalName(PortalName.Advisor_Portal)
+                .withReports()
+                .navigateToReportsWithSingleAccount()
+                .withStatements()
+                .validateThirdPartyDownloads()
+                .runThirdPartyDownloads();
+        portal().logout();
+
+        softly.assertAll();
+    }
 }

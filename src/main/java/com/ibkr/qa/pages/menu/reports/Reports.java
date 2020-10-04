@@ -143,7 +143,6 @@ public class Reports extends Portal {
                 "/ancestor::section[@class='panel']//p/strong[text()='" + name + "']"));
     }
 
-
     protected WebElement inputReportName() {
         return elementVisible(By.xpath("//input[@name='reportName']"));
     }
@@ -188,6 +187,11 @@ public class Reports extends Portal {
         return elementVisible(By.xpath("//a[contains(@ng-if,'selectAll')]/i"));
     }
 
+    private WebElement checkboxAccountPicker() {
+        return elementVisible(By.xpath("//span[@ng-switch-when='customerType' and text()='Individual']" +
+                "/ancestor::tbody//picker-entry-icon"));
+    }
+
     private WebElement buttonAccountPickerContinue() {
         return elementVisible(By.xpath("//div[@id='amPicker']//am-button[@btn-text='Continue']"));
     }
@@ -197,6 +201,23 @@ public class Reports extends Portal {
         menu("Reports / Tax Docs").click();
         sleep(2000);
         checkboxSelectAllAccount().click();
+        buttonAccountPickerContinue().click();
+        sleep(2000);
+
+        reporter.createChild("Validate Reports Navigation")
+                .assertChild(softly.assertThat(labelReports().isDisplayed())
+                                .as("Reports Label is displayed")
+                                .isEqualTo(true),
+                        "Reports Label is displayed");
+
+        return this;
+    }
+
+    public Reports navigateToReportsWithSingleAccount() {
+
+        menu("Reports / Tax Docs").click();
+        sleep(2000);
+        checkboxAccountPicker().click();
         buttonAccountPickerContinue().click();
         sleep(2000);
 
