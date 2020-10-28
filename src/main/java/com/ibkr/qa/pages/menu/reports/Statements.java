@@ -31,7 +31,8 @@ public class Statements extends Reports {
     }
 
     protected WebElement buttonStatementDeliveryConfigure() {
-        return elementVisible(By.xpath("//i[@class='fa fa-gear tooltips' and @data-original-title='Configure']"));
+        return elementVisible(By.xpath("//span[text()='Statements Delivery']" +
+                "/ancestor::section//i[@data-original-title='Configure']"));
     }
 
     protected WebElement labelStatementDelivery() {

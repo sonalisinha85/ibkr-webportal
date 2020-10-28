@@ -104,7 +104,7 @@ public class Reports extends Portal {
     }
 
     private List<WebElement> radioButtonsAccountPicker() {
-        return elementsVisible(By.xpath("//span[@ng-switch-when='status' and text()!='Unknown']/ancestor::tbody//i[@class='fa fa-lg fa-circle-thin']"));
+        return elementsVisible(By.xpath("//picker-entry-icon/i"));
     }
 
     protected WebElement buttonAccountSelector(Action action) {

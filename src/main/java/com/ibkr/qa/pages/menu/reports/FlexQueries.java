@@ -28,7 +28,8 @@ public class FlexQueries extends Reports {
     }
 
     protected WebElement buttonFlexQueryDeliveryConfigure() {
-        return elementVisible(By.xpath("//i[@class='fa fa-gear' and @data-original-title='Configure']"));
+        return elementVisible(By.xpath("//span[text()='Flex Queries Delivery']" +
+                "/ancestor::section//i[@data-original-title='Configure']"));
     }
 
     public FlexQueries createActivityFlexQuery() {
@@ -146,9 +147,11 @@ public class FlexQueries extends Reports {
         sleep(2000);
 
         reporter.assertChild(softly.assertThat(reportList("Activity Flex Query").size())
-                        .as("Activity Flex Query is deleted [Old Activity Flex Query count vs New Activity Flex Query count validated]")
+                        .as("Activity Flex Query is deleted " +
+                                "[Old Activity Flex Query count vs New Activity Flex Query count validated]")
                         .isEqualTo(count - 1),
-                "Activity Flex Query is deleted [Old Activity Flex Query count vs New Activity Flex Query count validated]");
+                "Activity Flex Query is deleted " +
+                        "[Old Activity Flex Query count vs New Activity Flex Query count validated]");
 
         return this;
     }
@@ -270,9 +273,11 @@ public class FlexQueries extends Reports {
         sleep(2000);
 
         reporter.assertChild(softly.assertThat(reportList("Trade Confirmation Flex Query").size())
-                        .as("Trade Confirmation Flex Query is deleted [Old Trade Confirmation Flex Query count vs New Trade Confirmation Flex Query count validated]")
+                        .as("Trade Confirmation Flex Query is deleted " +
+                                "[Old Trade Confirmation Flex Query count vs New Trade Confirmation Flex Query count validated]")
                         .isEqualTo(count - 1),
-                "Trade Confirmation Flex Query is deleted [Old Trade Confirmation Flex Query count vs New Trade Confirmation Flex Query count validated]");
+                "Trade Confirmation Flex Query is deleted " +
+                        "[Old Trade Confirmation Flex Query count vs New Trade Confirmation Flex Query count validated]");
 
         return this;
     }

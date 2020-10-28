@@ -6,7 +6,7 @@ import com.ibkr.qa.enums.TestAuthor;
 import com.ibkr.qa.enums.TestCategory;
 import org.testng.annotations.Test;
 
-public class HedgeFundAdvisorPortal extends PortalTestBase {
+public class HedgeFundAdvisorPortalTest extends PortalTestBase {
 
     @Test(priority = 1)
     public void validateFindServices() {

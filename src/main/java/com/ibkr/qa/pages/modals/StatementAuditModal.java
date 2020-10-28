@@ -129,7 +129,7 @@ public class StatementAuditModal extends Employee {
 
     public StatementAuditModal review() {
 
-        menu(Menu.Home).click();
+        menu("Home").click();
         sleep(500);
         buttonsStatementAudit().click();
         sleep(500);

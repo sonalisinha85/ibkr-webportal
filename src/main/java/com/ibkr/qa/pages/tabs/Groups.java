@@ -24,7 +24,7 @@ public class Groups extends Portal {
     }
 
     private WebElement labelGroups() {
-        return elementVisible(By.xpath("//div[@class='crm-page-title']/h4"));
+        return elementVisible(By.xpath("//div[@class='panel-heading']/span[text()='Groups']"));
     }
 
     private WebElement buttonAdd() {
@@ -112,9 +112,11 @@ public class Groups extends Portal {
         inputGroupName().sendKeys(groupName);
         buttonAddEditGroupMembers().click();
 
-        random(checkBoxAccountPicker(), 2).forEach(element -> element.click());
+        random(checkBoxAccountPicker(), 1).forEach(element -> element.click());
 
         buttonPickerContinue().click();
+        sleep(500);
+        buttonContinue().click();
         sleep(500);
         buttonContinue().click();
         sleep(500);

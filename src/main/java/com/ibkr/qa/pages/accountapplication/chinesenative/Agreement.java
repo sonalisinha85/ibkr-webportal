@@ -31,12 +31,44 @@ public class Agreement extends AccountApplication {
         return elementPresent(By.id("part_2_9a_country_chosen"));
     }
 
+    private WebElement checkBoxAustraliaTaxTrue() {
+        return elementPresent(By.id("AusQualifyT"));
+    }
+
+    private WebElement dropDownAustraliaTreaty() {
+        return elementPresent(By.id("AusTreatyCountry_chosen"));
+    }
+
+    private WebElement inputAustraliaOption() {
+        return elementPresent(By.xpath("//div[@id='AusTreatyCountry_chosen']//div[@class='chosen-search']/input"));
+    }
+
+    private WebElement checkBoxAustraliaTaxFalse() {
+        return elementPresent(By.id("AusQualifyF"));
+    }
+
+    private WebElement checkBoxCanadaTaxTrue() {
+        return elementPresent(By.id("CanQualifyT"));
+    }
+
+    private WebElement dropDownCanadaTreaty() {
+        return elementPresent(By.id("CanTreatyCountry_chosen"));
+    }
+
+    private WebElement inputCanadaOption() {
+        return elementPresent(By.xpath("//div[@id='CanTreatyCountry_chosen']//div[@class='chosen-search']/input"));
+    }
+
+    private WebElement checkBoxCanadaTaxFalse() {
+        return elementPresent(By.id("CanQualifyF"));
+    }
+
     private WebElement inputCountry() {
         return elementPresent(By.xpath("//div[@id='part_2_9a_country_chosen']//div[@class='chosen-search']/input"));
     }
 
     private WebElement inputSignature() {
-        return elementPresent(By.id("signatureKey"));
+        return elementPresent(By.id("signatures0"));
     }
 
     private WebElement labelAccountTitle() {
@@ -44,7 +76,7 @@ public class Agreement extends AccountApplication {
     }
 
     private WebElement labelSignature() {
-        return elementPresent(By.xpath("//label[@for='signatureKey']"));
+        return elementPresent(By.xpath("//label[@for='signatures0']"));
     }
 
     public AccountApplication fillForm() {
@@ -53,6 +85,9 @@ public class Agreement extends AccountApplication {
         sleep(500);
         dropDownCountry().click();
         inputCountry().sendKeys("China" + Keys.ENTER);
+
+//        dropDownAustraliaTreaty().click();
+//        inputAustraliaOption().sendKeys("China" + Keys.ENTER);
 
         inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
         checkBoxConsent().click();

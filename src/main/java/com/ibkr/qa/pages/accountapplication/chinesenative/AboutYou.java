@@ -151,6 +151,7 @@ public class AboutYou extends AccountApplication {
         inputAnswerTwo().sendKeys("test1234");
         changeDropdown(dropDownSecurityQuestionThree(), "In what city were you married?");
         inputAnswerThree().sendKeys("test12345");
+        sleep(1000);
         buttonContinue().click();
         sleep(8000);
 

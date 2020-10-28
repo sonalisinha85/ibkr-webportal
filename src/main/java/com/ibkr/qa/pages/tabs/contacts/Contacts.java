@@ -151,14 +151,14 @@ public class Contacts extends Portal {
 
     public Contacts searchAndViewContactsByAssociatedName() {
 
-        menu(Menu.Home).click();
+        menu("Home").click();
         sleep(1000);
         tabs(Tabs.Contacts).click();
         sleep(500);
 
         inputSearchContact().sendKeys(getFirstName());
         inputSearchContact().sendKeys(Keys.ENTER);
-        sleep(500);
+        sleep(1000);
         buttonsViewContact().get(0).click();
         sleep(1000);
 

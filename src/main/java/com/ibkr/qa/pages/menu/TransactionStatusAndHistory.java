@@ -50,9 +50,9 @@ public class TransactionStatusAndHistory extends Portal {
 
     public TransactionStatusAndHistory validateTransactionHistory() {
 
-        menu(Menu.Transfer_And_Pay).click();
+        menu("Transfer & Pay").click();
         sleep(500);
-        subMenu(SubMenu.Transaction_Status_And_History).click();
+        subMenu("Transaction Status & History").click();
         sleep(2000);
 
         reporter.createChild("Transaction Status And History Validation")

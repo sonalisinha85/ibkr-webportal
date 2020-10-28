@@ -22,8 +22,8 @@ public class FlexQueryDelivery extends FlexQueries {
     }
 
     private WebElement buttonConfigure(String flexQueryType) {
-        return elementVisible(By.xpath("//div[@class='panel-heading' " +
-                "and contains(text(),'" + flexQueryType + "')]//i[@data-original-title='Configure']"));
+        return elementVisible(By.xpath("//span[text()='" + flexQueryType + "']" +
+                "/ancestor::section//i[@data-original-title='Configure']"));
     }
 
     private List<WebElement> checkBoxesUnchecked() {
@@ -39,7 +39,8 @@ public class FlexQueryDelivery extends FlexQueries {
     }
 
     private WebElement buttonContinue() {
-        return elementVisible(By.xpath("//div[@class='panel-btn-right']//a[@class='btn btn-primary' and contains(text(),'Continue')]"));
+        return elementVisible(By.xpath("//div[@class='panel-btn-right']" +
+                "//a[@class='btn btn-primary' and contains(text(),'Continue')]"));
     }
 
     private WebElement labelComplete() {
@@ -47,8 +48,8 @@ public class FlexQueryDelivery extends FlexQueries {
     }
 
     private List<WebElement> listRows(String flexQueryType) {
-        return elementsVisible(By.xpath("//section[div[@class='panel-heading' " +
-                "and contains(text(),'" + flexQueryType + "')]]//div[@class='row' and @ng-repeat]"));
+        return elementsVisible(By.xpath("//span[text()='" + flexQueryType + "']" +
+                "/ancestor::section//div[@class='row' and @ng-repeat]"));
     }
 
     public FlexQueryDelivery flexQueryDeliveryConfiguration(String flexQueryType) {

@@ -57,7 +57,7 @@ public class Home extends PortfolioAnalyst {
     }
 
     private WebElement buttonBrokerage() {
-        return elementVisible(By.xpath("//p[contains(.,'Brokerage')]/i[@class='fa fa-bar-chart text-dark-red']"));
+        return elementVisible(By.xpath("//p[contains(.,'Brokerage')]/i"));
     }
 
     public Home validateSearch() {

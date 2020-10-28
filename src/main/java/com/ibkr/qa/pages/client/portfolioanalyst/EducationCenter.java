@@ -140,7 +140,8 @@ public class EducationCenter extends PortfolioAnalyst {
 
         reporter.assertChild(softly.assertThat(driver.getTitle())
                         .as("PortfolioAnalyst - Release Notes page is displayed")
-                        .isEqualTo("PortfolioAnalyst - Release Notes " + Calendar.getInstance().get(Calendar.YEAR) + " | Interactive Brokers LLC"),
+                        .isEqualTo("PortfolioAnalyst - Release Notes "
+                                + Calendar.getInstance().get(Calendar.YEAR) + " | Interactive Brokers LLC"),
                 "PortfolioAnalyst - Release Notes page is displayed");
 
         switchToMainTab();

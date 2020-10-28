@@ -22,8 +22,8 @@ public class StatementDelivery extends Statements {
     }
 
     private WebElement buttonConfigure(String statementType) {
-        return elementVisible(By.xpath("//div[@class='panel-heading' " +
-                "and contains(text(),'" + statementType + "')]//i[@data-original-title='Configure']"));
+        return elementVisible(By.xpath("//span[text()='" + statementType + "']" +
+                "/ancestor::section//i[@data-original-title='Configure']"));
     }
 
     private List<WebElement> checkBoxesUnchecked() {
@@ -46,9 +46,9 @@ public class StatementDelivery extends Statements {
         return elementVisible(By.xpath("//h1[contains(text(),'Complete')]"));
     }
 
-    private List<WebElement> listRows(String flexQueryType) {
-        return elementsVisible(By.xpath("//section[div[@class='panel-heading' " +
-                "and contains(text(),'" + flexQueryType + "')]]//div[@class='row' and @ng-repeat]"));
+    private List<WebElement> listRows(String statementType) {
+        return elementsVisible(By.xpath("//span[text()='" + statementType + "']" +
+                "/ancestor::section//div[@class='row' and @ng-repeat]"));
     }
 
     public StatementDelivery statementDeliveryConfiguration(String statementType) {

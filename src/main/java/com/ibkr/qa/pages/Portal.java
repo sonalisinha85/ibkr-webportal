@@ -158,6 +158,11 @@ public class Portal extends WebOperation {
         return elementVisible(By.xpath("//h3[contains(text(),'" + portalName + "')]"));
     }
 
+    private WebElement labelGreeting() {
+
+        return elementVisible(By.xpath("//li[@translate='user.greeting']"));
+    }
+
     private WebElement buttonNewAm() {
 
         switchFrame("footer");
@@ -166,12 +171,12 @@ public class Portal extends WebOperation {
 
     private WebElement buttonUserOption() {
 
-        return elementVisible(By.xpath("//user-options//span[@class='fa fa-angle-down']"));
+        return elementVisible(By.xpath("//i[@class='fa fa-user']"));
     }
 
     private WebElement buttonLogout() {
 
-        return elementVisible(By.xpath("//i[contains(@class,'fa-sign-out')]"));
+        return elementVisible(By.xpath("//div/am-button[@btn-text='Log Out']"));
     }
 
     protected WebElement tabs(Tabs tabs) {
@@ -179,33 +184,17 @@ public class Portal extends WebOperation {
                 + tabs.toString().replaceAll("_", " ") + "')]"));
     }
 
-    protected WebElement menu(Menu menu) {
-        return elementVisible(By.xpath("//i[@data-original-title='"
-                + menu.toString().replaceAll("_", " ").replaceAll("And", "&") + "']"));
-    }
-
     protected WebElement menu(String menu) {
-        return elementVisible(By.xpath("//i[@data-original-title='"
-                + menu + "']"));
-    }
-
-    protected WebElement menuContains(String menu) {
-        return elementVisible(By.xpath("//i[contains(@data-original-title,'" + menu + "')]"));
-    }
-
-    protected WebElement subMenu(SubMenu subMenu) {
-        return elementVisible(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
-                "/a[contains(text(),'" + subMenu.toString().replaceAll("_", " ").replaceAll("And", "&") + "')]"));
+        return elementVisible(By.xpath("//li[contains(@id,'menu')]/a[contains(text(),'" + menu + "')]"));
     }
 
     protected WebElement subMenu(String subMenu) {
-        return elementVisible(By.xpath("//li[contains(@ng-repeat,'subMenu')]" +
-                "/a[contains(text(),'" + subMenu + "')]"));
+        return elementVisible(By.xpath("//a[text()='" + subMenu + "']"));
     }
 
     public Portal validateLogin() {
 
-        reporter.assertChild(softly.assertThat(labelPortal().isDisplayed())
+        reporter.assertChild(softly.assertThat(labelGreeting().isDisplayed())
                         .as("Successfully Logged Into " + portalName)
                         .isEqualTo(true),
                 "Successfully Logged Into " + portalName);
@@ -223,8 +212,4 @@ public class Portal extends WebOperation {
     }
 
     protected enum Tabs {Dashboard, Contacts, Fee_Administration, Tools, Groups, Transaction_History, Calendar, Email}
-
-    protected enum Menu {Home, Trading, PortfolioAnalyst, Settings, Transfer_And_Pay}
-
-    protected enum SubMenu {Account_Settings, Transaction_Status_And_History}
 }

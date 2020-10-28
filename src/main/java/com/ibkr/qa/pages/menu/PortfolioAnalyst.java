@@ -43,7 +43,8 @@ public class PortfolioAnalyst extends Portal {
     }
 
     private WebElement sectionNav() {
-        return elementVisible(By.xpath("//span[@class='heading' and contains(text(),'NAV')]/ancestor::section[@class='panel']"));
+        return elementVisible(By.xpath("//span[@class='heading' and contains(text(),'NAV')]" +
+                "/ancestor::section[@class='panel']"));
     }
 
     private WebElement tabsPortfolioAnalyst(Tabs tabs) {
@@ -52,20 +53,23 @@ public class PortfolioAnalyst extends Portal {
     }
 
     protected WebElement buttonCreateSynopses() {
-        return elementVisible(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='Create']"));
+        return elementVisible(By.xpath("//span[text()='Synopses']" +
+                "/ancestor::section[@class='panel']//i[@data-original-title='Create']"));
     }
 
     protected List<WebElement> buttonsViewSynopses() {
-        return elementsVisible(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='View']"));
+        return elementsVisible(By.xpath("//span[text()='Synopses']" +
+                "/ancestor::section[@class='panel']//i[@data-original-title='View']"));
     }
 
     protected List<WebElement> buttonsDeleteSynopses() {
-        return elementsVisible(By.xpath("//span[text()='Synopses']/ancestor::section[@class='panel']//i[@data-original-title='Delete']"));
+        return elementsVisible(By.xpath("//span[text()='Synopses']" +
+                "/ancestor::section[@class='panel']//i[@data-original-title='Delete']"));
     }
 
     public PortfolioAnalyst validatePortfolioAnalystAccountSelector() {
 
-        menu(Menu.PortfolioAnalyst).click();
+        menu("PortfolioAnalyst").click();
         sleep(1000);
         checkboxAllAccount().click();
         sleep(1000);
@@ -83,7 +87,7 @@ public class PortfolioAnalyst extends Portal {
 
     public PortfolioAnalyst navigateToReports() {
 
-        menu(Menu.PortfolioAnalyst).click();
+        menu("PortfolioAnalyst").click();
         sleep(1000);
         random(checkboxesAccountPicker(), 1).get(0).click();
         sleep(1000);

@@ -30,7 +30,8 @@ public class Reports extends PortfolioAnalyst {
     }
 
     private WebElement buttonConfigureIcon() {
-        return elementVisible(By.xpath("//i[@class='fa fa-gear tooltips']"));
+        return elementVisible(By.xpath("//span[text()='Reports Delivery']/ancestor::section" +
+                "//i[@data-original-title='Configure']"));
     }
 
     private WebElement buttonAddEditAccount() {

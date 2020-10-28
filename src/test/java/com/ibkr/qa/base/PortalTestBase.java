@@ -136,7 +136,7 @@ public class PortalTestBase {
                 .withUserName(credentials.get("HEDGE_FUND_USER"))
                 .withPassword(credentials.get("HEDGE_FUND_PASSWORD"))
                 .login();
-        portal().navigateWithAmButton();
+//        portal().navigateWithAmButton();
     }
 
     protected Login login() {

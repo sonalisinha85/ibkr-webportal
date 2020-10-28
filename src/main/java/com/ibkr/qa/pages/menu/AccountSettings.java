@@ -25,13 +25,15 @@ public class AccountSettings extends Portal {
     }
 
     private WebElement buttonConfigure(Configuration configuration) {
-        return elementVisible(By.xpath("//strong[contains(text(),'" + configuration.toString().replaceAll("_", " ") + "')]/ancestor::p//i[@data-original-title='Configure']"));
+        return elementVisible(By.xpath("//strong[contains(text(),'"
+                + configuration.toString().replaceAll("_", " ")
+                + "')]/ancestor::p//i[@data-original-title='Configure']"));
     }
 
     public AccountSettings configureWhiteBranding() {
 
-        menu(Menu.Settings).click();
-        subMenu(SubMenu.Account_Settings).click();
+        menu("Settings").click();
+        subMenu("Account Settings").click();
         sleep(1000);
 
         reporter.createChild("Account Settings Validation")

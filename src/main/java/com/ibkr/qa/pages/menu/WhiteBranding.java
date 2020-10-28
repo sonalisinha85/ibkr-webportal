@@ -36,7 +36,9 @@ public class WhiteBranding extends AccountSettings {
     }
 
     private WebElement buttonConfigure(Heading heading) {
-        return elementVisible(By.xpath("//section[div[span[text()='" + heading.toString().replaceAll("_", " ") + "']]]//i[@data-original-title='Configure']"));
+        return elementVisible(By.xpath("//section[div[span[text()='"
+                + heading.toString().replaceAll("_", " ")
+                + "']]]//i[@data-original-title='Configure']"));
     }
 
     public WhiteBranding validateWhiteBranding() {

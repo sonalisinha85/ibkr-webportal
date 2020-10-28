@@ -106,7 +106,8 @@ public class InvestorMarketPlace extends Portal {
     }
 
     private List<WebElement> radioButtonsAccountPicker() {
-        return elementsVisible(By.xpath("//span[@ng-switch-when='status' and text()!='Unknown']/ancestor::tbody//i[@class='fa fa-lg fa-circle-thin']"));
+        return elementsVisible(By.xpath("//span[@ng-switch-when='status' and text()!='Unknown']" +
+                "/ancestor::tbody//i[contains(@class,'fa-circle')]"));
     }
 
     protected WebElement buttonAccountSelector(String action) {
@@ -131,7 +132,7 @@ public class InvestorMarketPlace extends Portal {
 
     public InvestorMarketPlace validateAdvisorFindServicesNavigation() {
 
-        menuContains("Marketplace").click();
+        menu("Marketplace").click();
         sleep(1000);
         subMenu("Find Services").click();
         sleep(1000);
@@ -190,7 +191,7 @@ public class InvestorMarketPlace extends Portal {
 
     public InvestorMarketPlace validateAdvisorAdvertiseServicesNavigation() {
 
-        menuContains("Marketplace").click();
+        menu("Marketplace").click();
         sleep(1000);
         subMenu("Advertise Services").click();
         sleep(1000);
@@ -267,7 +268,7 @@ public class InvestorMarketPlace extends Portal {
 
     public InvestorMarketPlace validateBrokerFindServicesNavigation() {
 
-        menuContains("Marketplace").click();
+        menu("Marketplace").click();
         sleep(1000);
         subMenu("Find Services").click();
         sleep(1000);
@@ -318,7 +319,7 @@ public class InvestorMarketPlace extends Portal {
 
     public InvestorMarketPlace validateBrokerAdvertiseServicesNavigation() {
 
-        menuContains("Marketplace").click();
+        menu("Marketplace").click();
         sleep(1000);
         subMenu("Advertise Services").click();
         sleep(1000);
@@ -403,7 +404,7 @@ public class InvestorMarketPlace extends Portal {
 
     public InvestorMarketPlace validateHedgeFundFindServicesNavigation() {
 
-        menuContains("Marketplace").click();
+        menu("Marketplace").click();
         sleep(1000);
         subMenu("Find Services").click();
         sleep(1000);
@@ -462,7 +463,7 @@ public class InvestorMarketPlace extends Portal {
 
     public InvestorMarketPlace validateHedgeFundAdvisorAdvertiseServicesNavigation() {
 
-        menuContains("Marketplace").click();
+        menu("Marketplace").click();
         sleep(1000);
         subMenu("Advertise Services").click();
         sleep(1000);

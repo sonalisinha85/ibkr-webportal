@@ -163,7 +163,7 @@ public class Dashboard extends Portal {
     }
 
     protected List<WebElement> buttonEditEvent() {
-        return elementsVisible(By.xpath("//section[@class='panel crm-calendar']//a[@class='editEvent fa fa-pencil']"));
+        return elementsVisible(By.xpath("//section[@class='panel crm-calendar']//a[contains(@class,'editEvent')]"));
     }
 
     protected WebElement labelEventName(String name) {
