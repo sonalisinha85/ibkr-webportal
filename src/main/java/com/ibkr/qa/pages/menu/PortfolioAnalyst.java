@@ -48,7 +48,7 @@ public class PortfolioAnalyst extends Portal {
     }
 
     private WebElement tabsPortfolioAnalyst(Tabs tabs) {
-        return elementVisible(By.xpath("//a[@data-toggle='tab' and contains(text(),'"
+        return elementVisible(By.xpath("//a[@data-toggle and contains(text(),'"
                 + tabs.toString().replaceAll("_", " ") + "')]"));
     }
 

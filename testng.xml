@@ -11,16 +11,16 @@
             <class name="com.ibkr.qa.portal.ClientPortalTest"/>
         </classes>
     </test>
-    <!--    <test name="IBKR_Web_Portal_Upload_Test">-->
-    <!--        <classes>-->
-    <!--            <class name="com.ibkr.qa.portal.PortalDocumentUploadTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
-    <!--    <test name="IBKR_Chinese_Native_Application_Test">-->
-    <!--        <classes>-->
-    <!--            <class name="com.ibkr.qa.accountapplication.ChineseNativeAccountApplicationTest"/>-->
-    <!--            <class name="com.ibkr.qa.accountapplication.PortfolioAnalystApplicationTest"/>-->
-    <!--            <class name="com.ibkr.qa.accountapplication.EmployeeTrackApplicationTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
+        <test name="IBKR_Web_Portal_Upload_Test">
+            <classes>
+                <class name="com.ibkr.qa.portal.PortalDocumentUploadTest"/>
+            </classes>
+        </test>
+        <test name="IBKR_Chinese_Native_Application_Test">
+            <classes>
+                <class name="com.ibkr.qa.accountapplication.ChineseNativeAccountApplicationTest"/>
+                <class name="com.ibkr.qa.accountapplication.PortfolioAnalystApplicationTest"/>
+                <class name="com.ibkr.qa.accountapplication.EmployeeTrackApplicationTest"/>
+            </classes>
+        </test>
 </suite>

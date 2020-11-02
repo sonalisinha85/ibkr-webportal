@@ -386,7 +386,7 @@ public class AdvisorPortalTest extends PortalTestBase {
     @Test(priority = 21)
     public void validateRiskScoresReport() {
 
-        reporter.createTest("Advisor Portal Account Confirmation Letter Test")
+        reporter.createTest("Advisor Portal Risk Scores Report Test")
                 .withCategory(TestCategory.AdvisorPortal)
                 .withAuthor(TestAuthor.AdvisorPortalTools);
 

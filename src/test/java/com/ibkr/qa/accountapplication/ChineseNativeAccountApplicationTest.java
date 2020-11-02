@@ -17,7 +17,7 @@ public class ChineseNativeAccountApplicationTest extends PortalTestBase {
         accountApplication()
                 .loginChineseNative()
                 .fillAboutYou()
-                .fillRegulatory()
+//                .fillRegulatory()
                 .fillAgreement()
                 .fillAccountSetup();
 

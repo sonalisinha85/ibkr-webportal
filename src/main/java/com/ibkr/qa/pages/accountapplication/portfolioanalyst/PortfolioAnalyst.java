@@ -48,7 +48,8 @@ public class PortfolioAnalyst extends WebOperation {
         new Login()
                 .withDriver(driver)
                 .withReporter(reporter)
-                .withUserName("ibk" + getDate())
+//                .withUserName("ibk" + getDate())
+                .withUserName("ibk200001")
                 .withPassword("tester12")
                 .login();
 

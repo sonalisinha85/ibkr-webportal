@@ -86,8 +86,8 @@ public class Agreement extends AccountApplication {
         dropDownCountry().click();
         inputCountry().sendKeys("China" + Keys.ENTER);
 
-//        dropDownAustraliaTreaty().click();
-//        inputAustraliaOption().sendKeys("China" + Keys.ENTER);
+        dropDownAustraliaTreaty().click();
+        inputAustraliaOption().sendKeys("China" + Keys.ENTER);
 
         inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
         checkBoxConsent().click();

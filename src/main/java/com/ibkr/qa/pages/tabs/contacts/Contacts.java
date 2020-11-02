@@ -183,9 +183,9 @@ public class Contacts extends Portal {
     public Contacts contactSettings() {
 
         tabs(Tabs.Contacts).click();
-        sleep(500);
+        sleep(1000);
         buttonSettingsContact().click();
-        sleep(500);
+        sleep(1000);
 
         new ContactSettings()
                 .withDriver(driver)

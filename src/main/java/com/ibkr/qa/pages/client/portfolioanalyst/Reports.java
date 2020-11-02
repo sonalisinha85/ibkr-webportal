@@ -26,7 +26,7 @@ public class Reports extends PortfolioAnalyst {
     }
 
     private WebElement buttonReportsTab() {
-        return elementVisible(By.xpath("//a[contains(.,'Reports') and @data-toggle='tab']"));
+        return elementVisible(By.xpath("//a[contains(.,'Reports') and @data-toggle]"));
     }
 
     private WebElement buttonConfigureIcon() {
@@ -308,7 +308,7 @@ public class Reports extends PortfolioAnalyst {
         random(buttonEditCR(), 1).get(0).click();
         sleep(1000);
 
-        buttonFeesSummary().click();
+//        buttonFeesSummary().click();
         buttonContinue3().click();
         buttonSaveChangesCR().click();
 

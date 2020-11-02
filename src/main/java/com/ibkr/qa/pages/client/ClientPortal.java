@@ -40,7 +40,7 @@ public class ClientPortal extends WebOperation {
 
     private WebElement buttonLogout() {
 
-        return elementVisible(By.xpath("//div[contains(@class,'bottom')]//button[contains(text(),'Log out')]"));
+        return elementVisible(By.xpath("//div[contains(@class,'bottom')]//button[contains(text(),'Log Out')]"));
     }
 
     private WebElement labelAccountTitle() {

@@ -35,7 +35,7 @@ public class ContactSettings extends Contacts {
     }
 
     private List<WebElement> buttonsColumns() {
-        return elementsVisible(By.xpath("//li[contains(@ng-repeat,'columnName')]/a"));
+        return elementsVisible(By.xpath("//li[contains(@ng-repeat,'columnName')]//a"));
     }
 
     private WebElement buttonReset() {
@@ -46,7 +46,7 @@ public class ContactSettings extends Contacts {
 
         buttonReset().click();
         buttonSettingsContact().click();
-        sleep(500);
+        sleep(1000);
 
         reporter.createChild("Settings Menu validation");
 
@@ -61,7 +61,7 @@ public class ContactSettings extends Contacts {
             if (!colName.equals("Accounts")) {
 
                 column.click();
-                sleep(500);
+                sleep(1000);
                 reporter.assertChild(softly.assertThat(headerColumn(colName).isDisplayed())
                         .as(colName + " is removed from header")
                         .isEqualTo(false), colName + " is removed from header");
