@@ -26,7 +26,7 @@ public class BrokerInvestorMarketPlaceServices {
     public static List<String> brokerTechnologyFindServices = new ArrayList(
             Arrays.asList(
                     "Programming Consultants",
-                    "Software Vendors"
+                        "   "
             ));
 
     public static List<String> brokerBusinessDevelopmentFindServices = new ArrayList(

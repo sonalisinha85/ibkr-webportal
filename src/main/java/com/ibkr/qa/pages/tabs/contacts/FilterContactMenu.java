@@ -31,6 +31,7 @@ public class FilterContactMenu extends Contacts {
                     "UGMA/UTMA"));
     private List<String> filterAccountStatus = new ArrayList(
             Arrays.asList("Application - In Progress",
+                    "Application - Pending Consent",
                     "Application - Pending Approval",
                     "Application - Abandoned",
                     "Application - Rejected",

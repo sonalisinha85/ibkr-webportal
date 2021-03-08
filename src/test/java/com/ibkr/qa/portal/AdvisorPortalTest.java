@@ -67,8 +67,8 @@ public class AdvisorPortalTest extends PortalTestBase {
                 .withContacts()
                 .contactSettings()
                 .addContact()
-                .searchContacts()
-                .filterContacts()
+//                .searchContacts()
+//                .filterContacts()
                 .viewContact();
         portal().logout();
 
@@ -630,7 +630,7 @@ public class AdvisorPortalTest extends PortalTestBase {
                 .navigateToDashboard()
                 .withWorkflowModal()
                 .addWorkflow(contacts.getFirstName());
-        contacts.searchAndViewContactsByAssociatedName()
+        contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
                 .validateWorkflow(contacts.getFirstName());
 
@@ -657,7 +657,7 @@ public class AdvisorPortalTest extends PortalTestBase {
                 .navigateToDashboard()
                 .withNotesModal()
                 .addNotes(contacts.getFirstName());
-        contacts.searchAndViewContactsByAssociatedName()
+        contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
                 .validateNote(contacts.getFirstName());
 
@@ -684,7 +684,7 @@ public class AdvisorPortalTest extends PortalTestBase {
                 .navigateToDashboard()
                 .withEventModal()
                 .addEvent(contacts.getFirstName());
-        contacts.searchAndViewContactsByAssociatedName()
+        contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
                 .validateEvent(contacts.getFirstName());
 

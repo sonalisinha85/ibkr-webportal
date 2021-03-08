@@ -138,7 +138,7 @@ public class AboutYou extends AccountApplication {
         changeDropdown(dropDownMaritalStatus(), "Single");
         changeDropdown(dropDownDependents(), "0");
         inputResidencyNumber().sendKeys("450329198904304321");
-        changeDropdown(dropDownDocumentType(), "Resident Identity Card Identification Number (RIC)");
+//        changeDropdown(dropDownDocumentType(), "Resident Identity Card Identification Number (RIC)");
         sleep(500);
         inputIdentificationNumber().sendKeys("450329198904304321");
         changeDropdown(dropDownEmploymentType(), "Homemaker");

@@ -25,7 +25,7 @@ public class CompliancePortalTest extends PortalTestBase {
         softly.assertAll();
     }
 
-    @Test(priority = 2)
+//    @Test(priority = 2)
     public void validateStatementAuditViewLog() {
 
         reporter.createTest("Compliance Portal Statement Audit View Log Test")

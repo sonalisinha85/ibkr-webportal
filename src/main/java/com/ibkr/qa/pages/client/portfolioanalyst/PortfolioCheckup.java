@@ -17,8 +17,8 @@ public class PortfolioCheckup extends PortfolioAnalyst {
                     "Risk",
                     "Asset Class Allocation",
                     "Sector Allocation",
-                    "Geographic Allocation",
-                    "ESG Ratings"
+                    "Geographic Allocation"
+//                    "ESG Ratings"
             ));
 
     public PortfolioCheckup withDriver(WebDriver driver) {

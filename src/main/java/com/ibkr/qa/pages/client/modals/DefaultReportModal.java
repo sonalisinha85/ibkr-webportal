@@ -73,8 +73,7 @@ public class DefaultReportModal extends Reports {
     public DefaultReportModal runDetailPdfReport() {
 
         buttonConsolidateReport().click();
-        sleep(2000);
-
+        sleep(5000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("Detail PDF Default Report is Download")
@@ -90,8 +89,7 @@ public class DefaultReportModal extends Reports {
     public DefaultReportModal runDetailCsvReport() {
 
         buttonConsolidateReport().click();
-        sleep(2000);
-
+        sleep(3000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("Detail CSV Default Report is Download")

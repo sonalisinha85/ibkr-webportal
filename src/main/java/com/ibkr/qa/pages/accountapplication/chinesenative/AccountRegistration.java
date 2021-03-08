@@ -52,7 +52,8 @@ public class AccountRegistration extends AccountApplication {
         sleep(3000);
 
         inputEmail().sendKeys("ssinha@interactivebrokers.com");
-        inputUserName().sendKeys("ibk" + getDate());
+//        inputUserName().sendKeys("ibk" + getDate());
+        inputUserName().sendKeys("ibk210226");
         inputPassword().sendKeys("tester12");
         sleep(1000);
         inputConfirmPassword().sendKeys("tester12");

@@ -13,7 +13,7 @@ public class EmployeeTrackAccountRegistration extends WebOperation {
     }
 
     private WebElement buttonOpenAccount() {
-        return elementPresent(By.xpath("//li[@class='nav-item d-none d-lg-block']/a[text()='Open Account']"));
+        return elementPresent(By.xpath("//li[@class='nav-item dropdown d-none d-lg-block']/a[text()='Open Account']"));
     }
 
     private WebElement buttonComplianceOfficer() {
@@ -94,8 +94,9 @@ public class EmployeeTrackAccountRegistration extends WebOperation {
         sleep(1000);
         buttonComplianceOfficer().click();
         sleep(2000);
-        inputUserName().sendKeys("ibk" + getDate());
-        sleep(1000);
+//        inputUserName().sendKeys("ibk" + getDate());
+        inputUserName().sendKeys("ibk210225");
+        sleep(2000);
         inputPassword().sendKeys("tester12");
         inputPassword2().sendKeys("tester12");
         inputEmail().sendKeys("ssinha@interactivebrokers.com");

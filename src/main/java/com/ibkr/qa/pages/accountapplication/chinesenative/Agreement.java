@@ -81,25 +81,25 @@ public class Agreement extends AccountApplication {
 
     public AccountApplication fillForm() {
 
-        checkBoxTaxTreaty().click();
-        sleep(500);
-        dropDownCountry().click();
-        inputCountry().sendKeys("China" + Keys.ENTER);
+//        checkBoxTaxTreaty().click();
+//        sleep(500);
+//        dropDownCountry().click();
+//        inputCountry().sendKeys("China" + Keys.ENTER);
+//
+//        dropDownAustraliaTreaty().click();
+//        inputAustraliaOption().sendKeys("China" + Keys.ENTER);
+//
+//        inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
+//        checkBoxConsent().click();
+//        buttonContinue().click();
+//        sleep(5000);
 
-        dropDownAustraliaTreaty().click();
-        inputAustraliaOption().sendKeys("China" + Keys.ENTER);
-
-        inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
-        checkBoxConsent().click();
-        buttonContinue().click();
-        sleep(5000);
-
-        inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
-        buttonContinue().click();
-        sleep(5000);
-
-        buttonContinue().click();
-        sleep(5000);
+//        inputSignature().sendKeys(labelSignature().getText().replace("Signature - ", ""));
+//        buttonContinue().click();
+//        sleep(5000);
+//
+//        buttonContinue().click();
+//        sleep(5000);
 
         reporter.createChild("Agreement Page Validation")
                 .childInfo("Agreement Page Filled");

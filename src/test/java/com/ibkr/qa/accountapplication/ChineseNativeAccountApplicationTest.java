@@ -15,11 +15,11 @@ public class ChineseNativeAccountApplicationTest extends PortalTestBase {
                 .withAuthor(TestAuthor.ChineseNativeAccountApplication);
 
         accountApplication()
-                .loginChineseNative()
-                .fillAboutYou()
+                .loginChineseNative();
+//                .fillAboutYou()
 //                .fillRegulatory()
-                .fillAgreement()
-                .fillAccountSetup();
+//                .fillAgreement()
+//                .fillAccountSetup();
 
         softly.assertAll();
     }

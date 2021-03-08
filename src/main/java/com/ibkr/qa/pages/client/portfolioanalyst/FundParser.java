@@ -101,11 +101,11 @@ public class FundParser extends PortfolioAnalyst {
 
         navigateToFundParser("ETF Search Validation");
 
-        String symbol = "SPY";
+        String symbol = "TQQQ";
         textBoxFundSearch().sendKeys(symbol);
         sleep(1000);
         random(labelsFund(), 1).get(0).click();
-        sleep(500);
+        sleep(1000);
         buttonSearch().click();
         sleep(1000);
 

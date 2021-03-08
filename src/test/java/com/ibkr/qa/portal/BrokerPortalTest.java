@@ -269,7 +269,7 @@ public class BrokerPortalTest extends PortalTestBase {
     @Test(priority = 15)
     public void validateBrokerAdvertiseServices() {
 
-        reporter.createTest("Broker Portal Find Services Test")
+        reporter.createTest("Broker Portal Advertise Services Test")
                 .withCategory(TestCategory.BrokerPortal)
                 .withAuthor(TestAuthor.BrokerPortalInvestorsMarketPlaceServices);
 
@@ -480,7 +480,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .navigateToDashboard()
                 .withWorkflowModal()
                 .addWorkflow(contacts.getFirstName());
-        contacts.searchAndViewContactsByAssociatedName()
+        contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
                 .validateWorkflow(contacts.getFirstName());
 
@@ -507,7 +507,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .navigateToDashboard()
                 .withNotesModal()
                 .addNotes(contacts.getFirstName());
-        contacts.searchAndViewContactsByAssociatedName()
+        contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
                 .validateNote(contacts.getFirstName());
 
@@ -534,7 +534,7 @@ public class BrokerPortalTest extends PortalTestBase {
                 .navigateToDashboard()
                 .withEventModal()
                 .addEvent(contacts.getFirstName());
-        contacts.searchAndViewContactsByAssociatedName()
+        contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
                 .validateEvent(contacts.getFirstName());
 

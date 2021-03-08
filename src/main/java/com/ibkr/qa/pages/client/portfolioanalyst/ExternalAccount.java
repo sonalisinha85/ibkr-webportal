@@ -92,6 +92,7 @@ public class ExternalAccount extends PortfolioAnalyst {
         dropDownDate().click();
         datePicker().get(datePicker().size() - 1).click();
         inputValue().sendKeys("900");
+
         buttonContinue().click();
         sleep(1000);
         buttonContinue().click();

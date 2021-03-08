@@ -93,8 +93,7 @@ public class EducationCenter extends PortfolioAnalyst {
 
         reporter.assertChild(softly.assertThat(driver.getTitle())
                         .as("PortfolioAnalyst User Guide page is displayed")
-                        .isEqualTo(""),
-//                        .isEqualTo("PortfolioAnalyst User Guide"),
+                        .isEqualTo("PortfolioAnalyst User Guide"),
                 "PortfolioAnalyst User Guide page is displayed");
 
         switchToMainTab();

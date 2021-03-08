@@ -16,24 +16,27 @@ public class RiskScores extends Portal {
             Arrays.asList(
                     "Score Calculation",
                     "View Scores",
-                    "Questions",
-                    "Need",
-                    "Tolerance",
-                    "Capacity"
+                    "Questions"
+                   // "Need",
+                   // "Tolerance",
+                    //"Capacity"
             ));
     private List<String> questionKeys = new ArrayList(
             Arrays.asList(
+                    "age",
                     "estimated annual income",
-                    "highest earning years",
-                    "total investments",
-                    "convert to cash",
-                    "plan on using this investment",
-                    "significant value drop",
-                    "investment risk",
-                    "tolerance to risk",
-                    "outcome of the investment decisions",
-                    "financial goal",
-                    "special future and non-recurring expenses"
+                    "expect your annual income",
+                    "tolerance to risk of investment loss",
+                    "current employment status",
+                    "holdings outside this account",
+                    "financial goal for this account",
+                    "other investments do you have outside this account",
+                    "best describes your household",
+                    "forced to convert to cash",
+                    "fund luxury purchases",
+                    "windfall gain",
+                    "funds you plan to invest in this account",
+                    "describes your investment experience"
             ));
 
     public RiskScores withDriver(WebDriver driver) {
@@ -77,7 +80,7 @@ public class RiskScores extends Portal {
     }
 
     private WebElement tabQuestionnaire(String name) {
-        return elementVisible(By.xpath("//div[@role='tablist']/a[@title='" + name + "']"));
+        return elementVisible(By.xpath("//div[@role='tablist']/a[@aria-label='" + name + "']"));
     }
 
     private WebElement buttonAction(Action action) {

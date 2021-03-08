@@ -50,6 +50,8 @@ public class TestListener extends PortalTestBase implements ITestListener {
         //ExtentReports log and screenshot operations for failed tests.
         TestReporter.getTest().log(Status.FAIL, result.getThrowable())
                 .addScreenCaptureFromBase64String(base64Screenshot);
+
+        TestReporter.getTest().log(Status.FAIL, result.getThrowable());
     }
 
     @Override

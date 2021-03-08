@@ -17,12 +17,15 @@
 >
 >>Design
 >>com.ibkr.qa.navigation
->>>1. WebOperation class - used to defined different Web Elements and methods to capture them
+>>>1. WebOperation class - is base class for all pages classes 
+>>>   and is used to defined different Web Elements and methods to capture them
+>>>2. Each page classes should extend WebOperations directly or indirectly 
+>>>
 >
 >>com.ibkr.qa.pages
 >>> 1. Page classes are created for each Page. e.g. LoginPage - Used to Login to the portal
 >>> 2. All locators available on the page are defined under respective class 
->>> 3. All com.ibkr.qa.pages object classes extends WebOperation class
+>>> 3. All pages object classes extends WebOperation class
 >>modals
 >>> 1. Modal classes are created for each modal that appears on the UI e.g. Workflow modal  
 >

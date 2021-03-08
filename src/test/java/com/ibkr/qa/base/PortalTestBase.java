@@ -11,6 +11,7 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -81,7 +82,14 @@ public class PortalTestBase {
 
     private void firefox() {
         System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-        driver = new FirefoxDriver();
+
+        FirefoxOptions options = new FirefoxOptions();
+        options.addPreference("browser.download.folderList", 2);
+        options.addPreference( "browser.download.manager.showWhenStarting", false );
+        options.addPreference("browser.download.dir", "C:\\Users\\ssinha\\Downloads");
+        options.addPreference("browser.helperApps.neverAsk.saveToDisk", "image/png");
+
+        driver = new FirefoxDriver(options);
     }
 
     private void ie() {

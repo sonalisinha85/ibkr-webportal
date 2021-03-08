@@ -5,6 +5,7 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,30 +22,107 @@ public class WebOperation {
     protected SoftAssertions softly;
     protected TestReporter reporter;
     List<String> tabs;
+    private int counter = 10;
+    private int timeout = 2;
 
     //    Returns Web element once its present, with a timeout of 15 seconds
     protected WebElement elementPresent(By by) {
-        return new WebDriverWait(driver, 15).until(ExpectedConditions.presenceOfElementLocated(by));
+
+        WebElement element = null;
+
+        while(counter!=0){
+            try {
+                element = new WebDriverWait(driver, timeout).until(ExpectedConditions.presenceOfElementLocated(by));
+                if (element!=null)
+                    break;
+                counter--;
+            } catch (Exception e){
+                if(--counter==0)
+                    e.printStackTrace();
+            }
+        }
+
+        return element;
     }
 
     //    Returns Web elements once its present, with a timeout of 15 seconds
     protected List<WebElement> elementsPresent(By by) {
-        return new WebDriverWait(driver, 15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+
+        List<WebElement> elements = null;
+
+        while(counter!=0){
+            try {
+                elements = new WebDriverWait(driver, timeout).until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+                if (elements!=null)
+                    break;
+                counter--;
+            } catch (Exception e){
+                if(--counter==0)
+                    e.printStackTrace();
+            }
+        }
+
+        return elements;
     }
 
     //    Returns Web element once its visible, with a timeout of 15 seconds
     protected WebElement elementVisible(By by) {
-        return new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfElementLocated(by));
+
+        WebElement element = null;
+
+        while(counter!=0){
+            try {
+                element = new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(by));
+                if (element!=null)
+                    break;
+                counter--;
+            } catch (Exception e){
+                if(--counter==0)
+                    e.printStackTrace();
+            }
+        }
+
+        return element;
     }
 
     //    Returns Web elements once its visible, with a timeout of 15 seconds
     protected List<WebElement> elementsVisible(By by) {
-        return new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+
+        List<WebElement> elements = null;
+
+        while(counter!=0){
+            try {
+                elements = new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+                if (elements!=null)
+                    break;
+                counter--;
+            } catch (Exception e){
+                if(--counter==0)
+                    e.printStackTrace();
+            }
+        }
+
+        return elements;
     }
 
     //    Returns Web element once its clickable, with a timeout of 15 seconds
     protected WebElement elementClickable(By by) {
-        return new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(by));
+
+        WebElement element = null;
+
+        while(counter!=0){
+            try {
+                element = new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeClickable(by));
+                if (element!=null)
+                    break;
+                counter--;
+            } catch (Exception e){
+                if(--counter==0)
+                    e.printStackTrace();
+            }
+        }
+
+        return element;
     }
 
     // Returns WebElement, can be used if we need to check if Web Element is not displayed
@@ -61,6 +139,13 @@ public class WebOperation {
         } catch (Exception e) {
 
         }
+        return element;
+    }
+
+    protected WebElement click(WebElement element) {
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
         return element;
     }
 

@@ -77,6 +77,30 @@ public class Contacts extends Portal {
         return elementPresent(By.xpath("//th[@ng-show and contains(@class,'ng-hide')]/div[contains(text(),'" + columnName + "')]"));
     }
 
+    private WebElement dropDownPageSize() {
+        return elementPresent(By.xpath("//select[@name='pageSize']"));
+    }
+
+    private WebElement labelLastPage() {
+        return elementPresent(By.xpath("//p[contains(@ng-if,'totalPages')]/span[3]"));
+    }
+
+    private WebElement inputPageNumber() {
+        return elementPresent(By.xpath("//p[contains(@ng-if,'totalPages')]/input"));
+    }
+
+    private WebElement buttonPageLeft() {
+        return elementPresent(By.xpath("//am-button[@btn-icon='fa-chevron-left']"));
+    }
+
+    private WebElement buttonPageRight() {
+        return elementPresent(By.xpath("//am-button[@btn-icon='fa-chevron-right']"));
+    }
+
+    private WebElement buttonViewContact(String contact) {
+        return elementPresent(By.xpath("//div[contains(text(),'" + contact + "')]/ancestor::tr//td/a"));
+    }
+
     private String firstName;
 
     public String getFirstName() {
@@ -87,7 +111,7 @@ public class Contacts extends Portal {
 
         firstName = getDateTime();
         tabs(Tabs.Contacts).click();
-        sleep(500);
+        sleep(4000);
         buttonAddContact().click();
         buttonAddContactByManualInput().click();
         sleep(1000);
@@ -103,7 +127,7 @@ public class Contacts extends Portal {
     public Contacts filterContacts() {
 
         tabs(Tabs.Contacts).click();
-        sleep(500);
+        sleep(2000);
         buttonFilterContact().click();
         sleep(500);
 
@@ -124,7 +148,7 @@ public class Contacts extends Portal {
     public Contacts searchContacts() {
 
         tabs(Tabs.Contacts).click();
-        sleep(500);
+        sleep(2000);
 
         String accountNumber = listColumnAccountNumber().get(0).getText();
         int recordCount = listColumnAccountNumber().size();
@@ -149,18 +173,28 @@ public class Contacts extends Portal {
         return this;
     }
 
-    public Contacts searchAndViewContactsByAssociatedName() {
+    public Contacts searchAndViewContactsByAssociatedName(String contact) {
 
         menu("Home").click();
         sleep(1000);
         tabs(Tabs.Contacts).click();
         sleep(500);
 
-        inputSearchContact().sendKeys(getFirstName());
-        inputSearchContact().sendKeys(Keys.ENTER);
+        changeDropdown(dropDownPageSize(),"100 Results");
+        sleep(3000);
+        inputPageNumber().clear();
+        inputPageNumber().sendKeys(labelLastPage().getText());
+        inputPageNumber().sendKeys(Keys.ENTER);
+        sleep(4000);
+
+        buttonViewContact(contact).click();
         sleep(1000);
-        buttonsViewContact().get(0).click();
-        sleep(1000);
+
+//        inputSearchContact().sendKeys(getFirstName());
+//        inputSearchContact().sendKeys(Keys.ENTER);
+//        sleep(1000);
+//        buttonsViewContact().get(0).click();
+//        sleep(1000);
 
         return this;
     }
@@ -168,7 +202,7 @@ public class Contacts extends Portal {
     public Contacts viewContact() {
 
         tabs(Tabs.Contacts).click();
-        sleep(500);
+        sleep(2000);
         buttonsViewContact().get(0).click();
         sleep(500);
 
@@ -183,7 +217,7 @@ public class Contacts extends Portal {
     public Contacts contactSettings() {
 
         tabs(Tabs.Contacts).click();
-        sleep(1000);
+        sleep(4000);
         buttonSettingsContact().click();
         sleep(1000);
 

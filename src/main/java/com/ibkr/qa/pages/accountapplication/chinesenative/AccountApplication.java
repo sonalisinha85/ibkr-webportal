@@ -57,7 +57,8 @@ public class AccountApplication extends WebOperation {
         new Login()
                 .withDriver(driver)
                 .withReporter(reporter)
-                .withUserName("ibk" + getDate())
+//                .withUserName("ibk" + getDate())
+                .withUserName("ibk210226")
                 .withPassword("tester12")
                 .login();
 
@@ -71,7 +72,7 @@ public class AccountApplication extends WebOperation {
     }
 
     protected WebElement buttonOpenAccount() {
-        return elementPresent(By.xpath("//li[@class='nav-item d-none d-lg-block']/a[text()='Open Account']"));
+        return elementPresent(By.xpath("//li[@class='nav-item dropdown d-none d-lg-block']/a[text()='Open Account']"));
     }
 
     protected WebElement buttonStartApplication() {

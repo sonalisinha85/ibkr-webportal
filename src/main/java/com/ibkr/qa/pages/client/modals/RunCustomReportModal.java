@@ -33,11 +33,11 @@ public class RunCustomReportModal extends Reports {
 
         changeDropdown(dropDownConsolidate(), "Consolidate Selected Accounts into Single Report");
         buttonRunCR().click();
-        sleep(2000);
+        sleep(4000);
 
         reporter.assertChild(softly.assertThat(new FileUtil().getLatestFilefromDir().getName())
                         .as("Custom Report is Download")
-                        .contains("IBLLC_Steve_Sanders_TEST_ACCOUNT"),
+                        .contains("Steve_Sanders_TEST_ACCOUNT"),
                 "Custom Report is Download");
 
         return this;
