@@ -482,7 +482,8 @@ public class BrokerPortalTest extends PortalTestBase {
                 .addWorkflow(contacts.getFirstName());
         contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
-                .validateWorkflow(contacts.getFirstName());
+                .validateWorkflow(contacts.getFirstName())
+                .deleteContact();
 
         portal().logout();
 
@@ -509,7 +510,8 @@ public class BrokerPortalTest extends PortalTestBase {
                 .addNotes(contacts.getFirstName());
         contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
-                .validateNote(contacts.getFirstName());
+                .validateNote(contacts.getFirstName())
+                .deleteContact();
 
         portal().logout();
 
@@ -536,7 +538,8 @@ public class BrokerPortalTest extends PortalTestBase {
                 .addEvent(contacts.getFirstName());
         contacts.searchAndViewContactsByAssociatedName(contacts.getFirstName())
                 .withContactInformation()
-                .validateEvent(contacts.getFirstName());
+                .validateEvent(contacts.getFirstName())
+                .deleteContact();
 
         portal().logout();
 

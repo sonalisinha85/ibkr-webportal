@@ -89,6 +89,10 @@ public class Contacts extends Portal {
         return elementPresent(By.xpath("//p[contains(@ng-if,'totalPages')]/input"));
     }
 
+    private WebElement inputPageNumberNoLog() {
+        return elementNoLog(By.xpath("//p[contains(@ng-if,'totalPages')]/input"));
+    }
+
     private WebElement buttonPageLeft() {
         return elementPresent(By.xpath("//am-button[@btn-icon='fa-chevron-left']"));
     }
@@ -98,7 +102,7 @@ public class Contacts extends Portal {
     }
 
     private WebElement buttonViewContact(String contact) {
-        return elementPresent(By.xpath("//div[contains(text(),'" + contact + "')]/ancestor::tr//td/a"));
+        return elementClickable(By.xpath("//div[contains(text(),'" + contact + "')]/ancestor::tr//td/a"));
     }
 
     private String firstName;
@@ -182,12 +186,15 @@ public class Contacts extends Portal {
 
         changeDropdown(dropDownPageSize(),"100 Results");
         sleep(3000);
-        inputPageNumber().clear();
-        inputPageNumber().sendKeys(labelLastPage().getText());
-        inputPageNumber().sendKeys(Keys.ENTER);
-        sleep(4000);
 
-        buttonViewContact(contact).click();
+        if(!isNotDisplayed(inputPageNumberNoLog())){
+            inputPageNumber().clear();
+            inputPageNumber().sendKeys(labelLastPage().getText());
+            inputPageNumber().sendKeys(Keys.ENTER);
+            sleep(3000);
+        }
+
+        click(buttonViewContact(contact));
         sleep(1000);
 
 //        inputSearchContact().sendKeys(getFirstName());

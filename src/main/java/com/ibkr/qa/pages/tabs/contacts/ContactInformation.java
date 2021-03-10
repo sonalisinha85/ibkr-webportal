@@ -2,6 +2,7 @@ package com.ibkr.qa.pages.tabs.contacts;
 
 import com.ibkr.qa.reporter.TestReporter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -34,6 +35,19 @@ public class ContactInformation extends Contacts {
 
     private List<WebElement> labelEvents(String firstName) {
         return elementsVisible(By.xpath("//ul[@class='event-list-item']//strong[contains(.,'" + firstName + "')]"));
+    }
+
+    private WebElement buttonDeleteContact() {
+        return elementPresent(By.xpath("//p/a[contains(text(),'Delete Contact')]"));
+    }
+
+    private WebElement buttonAction(String action) {
+//        action - Yes, Close
+        return elementPresent(By.xpath("//am-button[@btn-text='" + action + "']"));
+    }
+
+    private WebElement buttonYes() {
+        return elementPresent(By.xpath("//am-button[@btn-text='Yes']"));
     }
 
     public ContactInformation validateWorkflow(String firstName) {
@@ -74,6 +88,21 @@ public class ContactInformation extends Contacts {
                                 .as("Events are displayed")
                                 .isGreaterThan(0),
                         "Events are displayed");
+
+        return this;
+    }
+
+    public ContactInformation deleteContact() {
+
+        tab("Information").click();
+        sleep(1000);
+
+        buttonDeleteContact().click();
+        sleep(1000);
+        buttonAction("Yes").click();
+        sleep(1000);
+        buttonAction("Close").click();
+        sleep(2000);
 
         return this;
     }
